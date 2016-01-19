@@ -25,8 +25,7 @@
 
 	<div class="regBox">
 		<div class="login_cont">
-			<form method="post" enctype="multipart/form-data"
-				action="doAction.php?act=reg">
+			<form method="post" enctype="multipart/form-data" action="doAction.php?act=reg">
 				<ul class="login">
 					<li><span class="reg_item"><i>*</i>用户名：</span>
 					<div class="input_item">

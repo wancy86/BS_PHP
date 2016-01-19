@@ -8,6 +8,13 @@ if($act==="reg"){
 }elseif($act==="userOut"){
 	userOut();
 }
+switch ($act)
+{
+    case "reg":
+        
+        break;
+    
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
