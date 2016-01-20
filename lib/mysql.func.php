@@ -1,10 +1,15 @@
 <?php 
+require_once "configs/configs.php";
+// connect();
+// echo "hello";
+
 /**
  * 连接数据库
  * @return resource
  */
 function connect(){
-	$link=mysqli_connect(DB_HOST,DB_USER,DB_PWD) or die("数据库连接失败Error:".mysql_errno().":".mysql_error());
+	$link=mysqli_connect(DB_HOST,DB_USER,DB_PWD,DB_DBNAME) or die("数据库连接失败Error:".mysql_errno().":".mysql_error());
+	//$link=mysqli_connect("127.0.0.1","root","111222","BoyStyle",'3306') or die("数据库连接失败Error:".mysql_errno().":".mysql_error());
 	mysqli_set_charset($link,DB_CHARSET);
 	mysqli_select_db($link,DB_DBNAME) or die("指定数据库打开失败");
 	return $link;
@@ -85,9 +90,15 @@ function fetchOne($sql,$result_type=MYSQL_ASSOC){
  */
 function fetchAll($sql,$result_type=MYSQL_ASSOC){
 	$result=mysqli_query(connect(),$sql);
+    $rows=[];
 	while(@$row=mysqli_fetch_array($result,$result_type)){
 		$rows[]=$row;
 	}
+	
+	foreach ($rows as $row){
+	    echo $row["id"] . $row["cName"];
+	}
+	
 	return $rows;
 }
 
