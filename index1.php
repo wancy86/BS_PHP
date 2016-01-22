@@ -1,7 +1,10 @@
 <?php 
 require_once 'include.php';
-$cates=getAllCate();
-print_r($cates);
+$cates=getAllcate();
+if(!($cates && is_array($cates))){
+	alertMes("不好意思，网站维护中!!!", "boystyle.cn:8888/index.html");
+}
+
 ?>
 <!doctype html>
 <html>
@@ -15,7 +18,6 @@ print_r($cates);
 <script type="text/javascript" src="js/ie6Fixpng.js"></script>
 <![endif]-->
 </head>
-
 <body>
 <div class="headerBar">
 	<div class="topBar">
@@ -24,7 +26,13 @@ print_r($cates);
 				<a href="#" class="collection">收藏慕课</a>
 			</div>
 			<div class="rightArea">
-				欢迎来到慕课网！<a href="#">[登录]</a><a href="#">[免费注册]</a>
+				欢迎来到慕课网！
+				<?php if(@$_SESSION['loginFlag']):?>
+				<span>欢迎您</span><?php echo $_SESSION['username'];?>
+				<a href="doAction.php?act=userOut">[退出]</a>
+				<?php else:?>
+				<a href="login.php">[登录]</a><a href="reg.php">[免费注册]</a>
+				<?php endif;?>
 			</div>
 		</div>
 	</div>
@@ -134,9 +142,6 @@ print_r($cates);
 	<span class="icon"></span><h3><?php echo $cate['cName'];?></h3>
 	<a href="#" class="more">更多&gt;&gt;</a>
 </div>
-<?php 
-$pros=getProsByCid($cate['id']);
-?>
 <div class="shopList comWidth clearfix">
 	<div class="leftArea">
 		<div class="banner_bar banner_sm">
@@ -150,45 +155,46 @@ $pros=getProsByCid($cate['id']);
 		</div>
 	</div>
 	<div class="rightArea">
-		
 		<div class="shopList_top clearfix">
-		
 		<?php 
-		if($pros&&is_array($pros)):
-		foreach($pros as $pro):
-		$proImg=getProImgById($pro['id']);
+			$pros=getProsByCid($cate['id']);
+			if($pros &&is_array($pros)):
+			foreach($pros as $pro):
+			$proImg=getProImgById($pro['id']);
 		?>
 			<div class="shop_item">
 				<div class="shop_img">
-					<a href="proDetail.php?id=<?php echo $pro['id'];?>"><img width="187" height="200" src="image_220/<?php echo $proImg['albumPath'];?>" alt=""></a>
+					<a href="proDetails.php?id=<?php echo $pro['id'];?>" target="_blank"><img height="200" width="187" src="image_220/<?php echo $proImg['albumPath'];?>" alt=""></a>
 				</div>
 				<h6><?php echo $pro['pName'];?></h6>
-				<p style="font-size:10px"><?php echo $pro['iPrice'];?>元</p>
+				<p><?php echo $pro['iPrice'];?>元</p>
 			</div>
-			<?php
+			<?php 
+			endforeach;
+			endif;
+			?>
 			
-			 endforeach;
-			 endif;
-			 ?>
 		</div>
-		
 		<div class="shopList_sm clearfix">
 		<?php 
-		$pros_small=getSmallProsByCid($cate['id']);
-		if($pros_small&&is_array($pros_small)):
-		foreach($pros_small as $pros_small):
-		$proImg=getProImgById($pros_small['id']);
+			$prosSmall=getSmallProsByCid($cate['id']);
+			if($prosSmall &&is_array($prosSmall)):
+			foreach($prosSmall as $proSmall):
+			$proSmallImg=getProImgById($proSmall['id']);
 		?>
 			<div class="shopItem_sm">
 				<div class="shopItem_smImg">
-					<a href="#"><img  src="image_220/<?php echo $proImg['albumPath'];?>" alt=""></a>
+					<a href="proDetails.php?id=<?php echo $proSmall['id'];?>" target="_blank"><img width="95" height="95" src="image_220/<?php echo $proSmallImg['albumPath'];?>" alt=""></a>
 				</div>
 				<div class="shopItem_text">
-					<p><?php echo mb_substr($pros_small['pName'],0,10,"utf-8")."...";?></p>
-					<h3>￥<?php echo $pros_small['iPrice'];?></h3>
+					<p><?php echo $proSmall['pName'];?></p>
+					<h3>￥<?php echo $proSmall['iPrice'];?>	</h3>
 				</div>
 			</div>
-		<?php endforeach;endif;?>
+			<?php 
+			endforeach;
+			endif;
+			?>
 		</div>
 	</div>
 </div>

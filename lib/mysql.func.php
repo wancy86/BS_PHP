@@ -8,11 +8,11 @@ require_once "configs/configs.php";
  * @return resource
  */
 function connect(){
-	$link=mysqli_connect(DB_HOST,DB_USER,DB_PWD,DB_DBNAME) or die("数据库连接失败Error:".mysql_errno().":".mysql_error());
+	$conn=mysqli_connect(DB_HOST,DB_USER,DB_PWD,DB_DBNAME) or die("数据库连接失败Error:".mysql_errno().":".mysql_error());
 	//$link=mysqli_connect("127.0.0.1","root","111222","BoyStyle",'3306') or die("数据库连接失败Error:".mysql_errno().":".mysql_error());
-	mysqli_set_charset($link,DB_CHARSET);
-	mysqli_select_db($link,DB_DBNAME) or die("指定数据库打开失败");
-	return $link;
+	mysqli_set_charset($conn,DB_CHARSET);
+	mysqli_select_db($conn,DB_DBNAME) or die("指定数据库打开失败");
+	return $conn;
 }
 
 /**
@@ -25,8 +25,9 @@ function insert($table,$array){
 	$keys=join(",",array_keys($array));
 	$vals="'".join("','",array_values($array))."'";
 	$sql="insert {$table}($keys) values({$vals})";
-	mysqli_query(connect(),$sql);
-	return mysqli_insert_id(connect());
+	$link=connect();
+	mysqli_query($link,$sql);
+	return mysqli_insert_id($link);
 }
 //update imooc_admin set username='king' where id=1
 /**
@@ -46,6 +47,7 @@ function update($table,$array,$where=null){
 		$str.=$sep.$key."='".$val."'";
 	}
 		$sql="update {$table} set {$str} ".($where==null?null:" where ".$where);
+		$link=connect();
 		$result=mysqli_query(connect(),$sql);
 		//var_dump($result);
 		//var_dump(mysql_affected_rows());exit;
@@ -65,8 +67,9 @@ function update($table,$array,$where=null){
 function delete($table,$where=null){
 	$where=$where==null?null:" where ".$where;
 	$sql="delete from {$table} {$where}";
-	mysqli_query(connect(),$sql);
-	return mysqli_affected_rows(connect());
+	$link=connect();
+	mysqli_query($link,$sql);
+	return mysqli_affected_rows($link);
 }
 
 /**
@@ -95,9 +98,11 @@ function fetchAll($sql,$result_type=MYSQL_ASSOC){
 		$rows[]=$row;
 	}
 	
-	foreach ($rows as $row){
-	    echo $row["id"] . $row["cName"];
-	}
+	//测试
+// 	foreach ($rows as $row){
+// 	    echo $row["id"] . $row["cName"];
+// 	    echo "编码";
+// 	}
 	
 	return $rows;
 }
