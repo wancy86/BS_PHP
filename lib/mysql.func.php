@@ -93,7 +93,7 @@ function fetchOne($sql,$result_type=MYSQL_ASSOC){
  */
 function fetchAll($sql,$result_type=MYSQL_ASSOC){
 	$result=mysqli_query(connect(),$sql);
-    $rows=[];
+    $rows=array();
 	while(@$row=mysqli_fetch_array($result,$result_type)){
 		$rows[]=$row;
 	}
