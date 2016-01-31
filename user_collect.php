@@ -36,7 +36,7 @@
 						<li>
 							<a href="clothes.html">潮装</a>
 						</li>
-						<li class="active">
+						<li>
 							<a href="shoes.html">鞋子</a>
 						</li>
 						<li>
@@ -86,10 +86,17 @@
 					</form>
 				</div>				
 			</nav>
-			<div class="row">				
+			<div class="row">
+				<div class="col-md-12">
+					<h3>
+						收藏列表
+					</h3>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/sports"> 
+						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 						<div class="caption">
 							<h3>
 								Thumbnail label
@@ -98,14 +105,14 @@
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 							<p>
-								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">取消收藏</a>
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/sports"> 
+						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 						<div class="caption">
 							<h3>
 								Thumbnail label
@@ -114,14 +121,14 @@
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 							<p>
-								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">取消收藏</a>
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/sports"> 
+						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 						<div class="caption">
 							<h3>
 								Thumbnail label
@@ -130,7 +137,7 @@
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 							<p>
-								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">取消收藏</a>
 							</p>
 						</div>
 					</div>
@@ -139,7 +146,7 @@
 			<div class="row">				
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/sports"> 
+						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 						<div class="caption">
 							<h3>
 								Thumbnail label
@@ -148,14 +155,14 @@
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 							<p>
-								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">取消收藏</a>
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/sports"> 
+						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 						<div class="caption">
 							<h3>
 								Thumbnail label
@@ -164,14 +171,14 @@
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 							<p>
-								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">取消收藏</a>
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/sports"> 
+						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 						<div class="caption">
 							<h3>
 								Thumbnail label
@@ -180,7 +187,7 @@
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 							<p>
-								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">取消收藏</a>
 							</p>
 						</div>
 					</div>
@@ -189,7 +196,7 @@
 			<div class="row">				
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/sports"> 
+						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 						<div class="caption">
 							<h3>
 								Thumbnail label
@@ -198,14 +205,14 @@
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 							<p>
-								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">取消收藏</a>
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/sports"> 
+						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 						<div class="caption">
 							<h3>
 								Thumbnail label
@@ -214,14 +221,14 @@
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 							<p>
-								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">取消收藏</a>
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/sports"> 
+						<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 						<div class="caption">
 							<h3>
 								Thumbnail label
@@ -230,36 +237,13 @@
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 							<p>
-								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">取消收藏</a>
 							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			
-			<ul class="pagination">
-				<li>
-					<a href="#">Prev</a>
-				</li>
-				<li>
-					<a href="#">1</a>
-				</li>
-				<li>
-					<a href="#">2</a>
-				</li>
-				<li>
-					<a href="#">3</a>
-				</li>
-				<li>
-					<a href="#">4</a>
-				</li>
-				<li>
-					<a href="#">5</a>
-				</li>
-				<li>
-					<a href="#">Next</a>
-				</li>
-			</ul>
+
 		</div>
 	</div>
 	<div class="row">
@@ -340,6 +324,6 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
