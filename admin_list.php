@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>BoyStyle</title>
+    <title>宝贝列表</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -21,157 +21,130 @@
 				<!--navbar-->
 				<?php require_once 'header.php';?>
 
-				<!--content-->
-				<div class="row">				
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
-							<div class="caption">
-								<h3>
-									Thumbnail label
-								</h3>
-								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-								</p>
-								<p>
-									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
-								</p>
-							</div>
+					<!-- title -->
+					<div class="row">
+						<div class="col-md-12">
+							<h3>
+								宝贝列表
+							</h3>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
-							<div class="caption">
-								<h3>
-									Thumbnail label
-								</h3>
-								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-								</p>
-								<p>
-									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
-								</p>
-							</div>
+
+					<!-- List -->
+					<div class="row">
+						<div class="col-md-12">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>
+											#
+										</th>
+										<th>
+											Product
+										</th>
+										<th>
+											Payment Taken
+										</th>
+										<th>
+											Status
+										</th>
+										<th>
+											操作
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											1
+										</td>
+										<td>
+											TB - Monthly
+										</td>
+										<td>
+											01/04/2012
+										</td>
+										<td>
+											Default
+										</td>
+										<td>
+											Default
+										</td>
+									</tr>
+									<tr class="active">
+										<td>
+											1
+										</td>
+										<td>
+											TB - Monthly
+										</td>
+										<td>
+											01/04/2012
+										</td>
+										<td>
+											Approved
+										</td>
+										<td>
+											Default
+										</td>
+									</tr>
+									<tr class="success">
+										<td>
+											2
+										</td>
+										<td>
+											TB - Monthly
+										</td>
+										<td>
+											02/04/2012
+										</td>
+										<td>
+											Declined
+										</td>
+										<td>
+											Default
+										</td>
+									</tr>
+									<tr class="warning">
+										<td>
+											3
+										</td>
+										<td>
+											TB - Monthly
+										</td>
+										<td>
+											03/04/2012
+										</td>
+										<td>
+											Pending
+										</td>
+										<td>
+											Default
+										</td>
+									</tr>
+									<tr class="danger">
+										<td>
+											4
+										</td>
+										<td>
+											TB - Monthly
+										</td>
+										<td>
+											04/04/2012
+										</td>
+										<td>
+											Call in to confirm
+										</td>
+										<td>
+											Default
+										</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
-							<div class="caption">
-								<h3>
-									Thumbnail label
-								</h3>
-								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-								</p>
-								<p>
-									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">				
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
-							<div class="caption">
-								<h3>
-									Thumbnail label
-								</h3>
-								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-								</p>
-								<p>
-									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
-							<div class="caption">
-								<h3>
-									Thumbnail label
-								</h3>
-								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-								</p>
-								<p>
-									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
-							<div class="caption">
-								<h3>
-									Thumbnail label
-								</h3>
-								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-								</p>
-								<p>
-									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">				
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
-							<div class="caption">
-								<h3>
-									Thumbnail label
-								</h3>
-								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-								</p>
-								<p>
-									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
-							<div class="caption">
-								<h3>
-									Thumbnail label
-								</h3>
-								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-								</p>
-								<p>
-									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
-							<div class="caption">
-								<h3>
-									Thumbnail label
-								</h3>
-								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-								</p>
-								<p>
-									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
+	
+				
 
 			</div>
 		</div>
