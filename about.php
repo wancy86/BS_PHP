@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>BoyStyle</title>
+    <title>About</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -40,8 +40,12 @@
 					  后期实现提现
 
 				<b>任务列表：</b>
-					1.添加登录注册按钮
-					2.后台数据管理优先完成，现生产后消费
+					登陆注册页面的添加
+					添加登录注册按钮
+					后台数据管理优先完成，现生产后消费
+					数据库设计
+					
+
 
 
 				</pre>
