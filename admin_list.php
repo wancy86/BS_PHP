@@ -21,130 +21,264 @@
 				<!--navbar-->
 				<?php require_once 'header.php';?>
 
-					<!-- title -->
-					<div class="row">
-						<div class="col-md-12">
-							<h3>
-								宝贝列表
-							</h3>
-						</div>
+				<!-- title -->
+				<div class="row">
+					<div class="col-md-12">
+						<h3>
+							宝贝列表
+						</h3>
 					</div>
+				</div>
 
-					<!-- List -->
-					<div class="row">
-						<div class="col-md-12">
-							<table class="table table-bordered">
-								<thead>
-									<tr>
-										<th>
-											#
-										</th>
-										<th>
-											Product
-										</th>
-										<th>
-											Payment Taken
-										</th>
-										<th>
-											Status
-										</th>
-										<th>
-											操作
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											1
-										</td>
-										<td>
-											TB - Monthly
-										</td>
-										<td>
-											01/04/2012
-										</td>
-										<td>
-											Default
-										</td>
-										<td>
-											Default
-										</td>
-									</tr>
-									<tr class="active">
-										<td>
-											1
-										</td>
-										<td>
-											TB - Monthly
-										</td>
-										<td>
-											01/04/2012
-										</td>
-										<td>
-											Approved
-										</td>
-										<td>
-											Default
-										</td>
-									</tr>
-									<tr class="success">
-										<td>
-											2
-										</td>
-										<td>
-											TB - Monthly
-										</td>
-										<td>
-											02/04/2012
-										</td>
-										<td>
-											Declined
-										</td>
-										<td>
-											Default
-										</td>
-									</tr>
-									<tr class="warning">
-										<td>
-											3
-										</td>
-										<td>
-											TB - Monthly
-										</td>
-										<td>
-											03/04/2012
-										</td>
-										<td>
-											Pending
-										</td>
-										<td>
-											Default
-										</td>
-									</tr>
-									<tr class="danger">
-										<td>
-											4
-										</td>
-										<td>
-											TB - Monthly
-										</td>
-										<td>
-											04/04/2012
-										</td>
-										<td>
-											Call in to confirm
-										</td>
-										<td>
-											Default
-										</td>
-									</tr>
-								</tbody>
-							</table>
+				<div class="tabbable" id="tabs-629384">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#panel-1" data-toggle="tab">分类一</a>
+						</li>
+						<li>
+							<a href="#panel-2" data-toggle="tab">分类二</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="panel-1">
+							<div class="row">
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="panel-2">
+							<div class="row">				
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="thumbnail">
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<div class="caption">
+											<p>
+												宝贝title
+											</p>
+											<p>
+												价格
+											</p>
+											<p>
+												佣金/收入
+											</p>
+											<p>
+												<a class="btn btn-sm btn-primary" href="#">删除</a> <a class="btn" href="#">隐藏</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-	
-				
+				</div>
+
 
 			</div>
 		</div>

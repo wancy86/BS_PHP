@@ -22,8 +22,8 @@
 				<?php require_once 'header.php';?>
 
 				<!--content-->
-				<div class="row">				
-					<div class="col-md-4">
+				<div class="row">	
+					<div class="col-md-3">
 						<div class="thumbnail">
 							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 							<div class="caption">
@@ -31,7 +31,7 @@
 									Thumbnail label
 								</h3>
 								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									Cras justo odio
 								</p>
 								<p>
 									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
@@ -39,7 +39,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="thumbnail">
 							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 							<div class="caption">
@@ -47,7 +47,7 @@
 									Thumbnail label
 								</h3>
 								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									Cras justo odio
 								</p>
 								<p>
 									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
@@ -55,7 +55,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="thumbnail">
 							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 							<div class="caption">
@@ -63,7 +63,7 @@
 									Thumbnail label
 								</h3>
 								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									Cras justo odio
 								</p>
 								<p>
 									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
@@ -71,9 +71,25 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-md-3">
+						<div class="thumbnail">
+							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
+							<div class="caption">
+								<h3>
+									Thumbnail label
+								</h3>
+								<p>
+									Cras justo odio
+								</p>
+								<p>
+									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								</p>
+							</div>
+						</div>
+					</div>					
 				</div>
-				<div class="row">				
-					<div class="col-md-4">
+								<div class="row">	
+					<div class="col-md-3">
 						<div class="thumbnail">
 							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 							<div class="caption">
@@ -81,7 +97,7 @@
 									Thumbnail label
 								</h3>
 								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									Cras justo odio
 								</p>
 								<p>
 									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
@@ -89,7 +105,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="thumbnail">
 							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 							<div class="caption">
@@ -97,7 +113,7 @@
 									Thumbnail label
 								</h3>
 								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									Cras justo odio
 								</p>
 								<p>
 									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
@@ -105,7 +121,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="thumbnail">
 							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 							<div class="caption">
@@ -113,7 +129,7 @@
 									Thumbnail label
 								</h3>
 								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									Cras justo odio
 								</p>
 								<p>
 									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
@@ -121,9 +137,25 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-md-3">
+						<div class="thumbnail">
+							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
+							<div class="caption">
+								<h3>
+									Thumbnail label
+								</h3>
+								<p>
+									Cras justo odio
+								</p>
+								<p>
+									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								</p>
+							</div>
+						</div>
+					</div>					
 				</div>
-				<div class="row">				
-					<div class="col-md-4">
+								<div class="row">	
+					<div class="col-md-3">
 						<div class="thumbnail">
 							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 							<div class="caption">
@@ -131,7 +163,7 @@
 									Thumbnail label
 								</h3>
 								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									Cras justo odio
 								</p>
 								<p>
 									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
@@ -139,7 +171,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="thumbnail">
 							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 							<div class="caption">
@@ -147,7 +179,7 @@
 									Thumbnail label
 								</h3>
 								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									Cras justo odio
 								</p>
 								<p>
 									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
@@ -155,7 +187,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="thumbnail">
 							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
 							<div class="caption">
@@ -163,7 +195,7 @@
 									Thumbnail label
 								</h3>
 								<p>
-									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									Cras justo odio
 								</p>
 								<p>
 									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
@@ -171,7 +203,24 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-md-3">
+						<div class="thumbnail">
+							<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/"> 
+							<div class="caption">
+								<h3>
+									Thumbnail label
+								</h3>
+								<p>
+									Cras justo odio
+								</p>
+								<p>
+									<a class="btn btn-danger" href="#">去看看</a> <a class="btn" href="#">收藏</a>
+								</p>
+							</div>
+						</div>
+					</div>					
 				</div>
+
 
 			</div>
 		</div>
