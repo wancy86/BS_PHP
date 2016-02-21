@@ -1,3 +1,5 @@
+
+CREATE DATABASE IF NOT EXISTS boystyle CHARACTER SET utf8;
 use boystyle;
 
 /*drop TABLE BS_ProURL;*/

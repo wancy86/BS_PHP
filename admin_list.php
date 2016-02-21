@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>宝贝列表</title>
+    <title>宝贝管理</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -31,16 +31,16 @@
 				</div>
 
 				<div class="tabbable" id="tabs-629384">
-					<ul class="nav nav-tabs">
-						<li class="active">
-							<a href="#panel-1" data-toggle="tab">分类一</a>
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#panel-1" aria-controls="panel-1" data-toggle="tab" role="tab">分类一</a>
 						</li>
-						<li>
-							<a href="#panel-2" data-toggle="tab">分类二</a>
+						<li role="presentation">
+							<a href="#panel-2" aria-controls="panel-2" data-toggle="tab" role="tab">分类二</a>
 						</li>
 					</ul>
 					<div class="tab-content">
-						<div class="tab-pane active" id="panel-1">
+						<div role="tabpanel" class="tab-pane active" id="panel-1">
 							<div class="row">
 								<div class="col-md-2">
 									<div class="thumbnail">
@@ -158,7 +158,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="tab-pane" id="panel-2">
+						<div role="tabpanel" class="tab-pane" id="panel-2">
 							<div class="row">				
 								<div class="col-md-2">
 									<div class="thumbnail">
@@ -284,12 +284,17 @@
 		</div>
 
 		<!--footer-->
-		<?php require_once 'footer.php';?>
+		<!-- <?php require_once 'footer.php';?> -->
 	</div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+    $(function (){    	
+    	$('a[href="#panel-1"]').tab('show');
+    });
+    </script>
 
   </body>
 </html>
