@@ -26,7 +26,7 @@
           <div class="col-md-12">
             <h2>导入数据</h2>
             <hr>
-            <form role="form" class="form-inline">
+            <form action="admin_import.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
               <div class="form-group">
                <label for="exampleInputEmail1">
                   类别

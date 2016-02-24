@@ -2,9 +2,9 @@
 CREATE DATABASE IF NOT EXISTS boystyle CHARACTER SET utf8;
 use boystyle;
 
-/*drop TABLE BS_ProURL;*/
+drop TABLE IF EXISTS BS_ProURL;
 
-create TABLE IF NOT EXISTS BS_ProURL(
+create TABLE IF NOT EXISTS BS_ProInfo(
 	id int AUTO_INCREMENT,
 	url varchar(500),
 	price float,
@@ -20,6 +20,6 @@ create TABLE IF NOT EXISTS BS_ProURL(
 	primary key(id)
 )default charset=utf8;
 
-select * from BS_ProURL;
+select * from BS_ProInfo;
 
 
