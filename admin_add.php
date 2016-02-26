@@ -1,3 +1,6 @@
+<?php
+header("Content-type: text/html; charset=utf-8");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,7 +46,7 @@
                 <label for="exampleInputFile">
                   导入文件
                 </label>
-                <input type="file" id="exampleInputFile" />
+                <input type="file" id="file" name="file"/>
                 <p class="help-block">
                   选择从淘宝客导出的Excel文件.
                 </p>
