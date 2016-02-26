@@ -1,5 +1,13 @@
 
-CREATE DATABASE IF NOT EXISTS boystyle CHARACTER SET utf8;
+CREATE DATABASE IF NOT EXISTS boystyle DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+SHOW VARIABLES LIKE 'character%';
+/* set character_set_client=utf8;
+set character_set_connection=utf8;
+set character_set_database=utf8;
+set character_set_results=utf8;
+set character_set_server=utf8;
+SHOW VARIABLES LIKE 'character%'; */
+
 use boystyle;
 /*
 drop TABLE IF EXISTS BS_ProURL;
@@ -7,7 +15,7 @@ drop TABLE IF EXISTS BS_ProInfo;
 */
 drop TABLE IF EXISTS BS_ProInfo;
 create TABLE IF NOT EXISTS BS_ProInfo(
-	pro_id DOUBLE,
+	pro_id bigint,
 	title varchar(1000),
 	img_url varchar(300),
 	detail_url varchar(500),
@@ -29,6 +37,7 @@ create TABLE IF NOT EXISTS BS_ProInfo(
 	primary key(pro_id)
 )default charset=utf8;
 
+use boystyle;
 select * from BS_ProInfo;
 
 /* DESC BS_ProInfo; */
