@@ -31,20 +31,27 @@ if ($_FILES["file"]["error"] > 0) {
 }
 
 // 2.读取临时目录的文件
-$objReader = PHPExcel_IOFactory::createReader('Excel5'); // use Excel5 for 2003 format
+// use Excel5 for 2003 format
+$objReader = PHPExcel_IOFactory::createReader('Excel5');
 $objPHPExcel = $objReader->load($excelpath);
 $sheet = $objPHPExcel->getSheet(0);
-$highestRow = $sheet->getHighestRow(); // 取得总行数
-$highestColumn = $sheet->getHighestColumn(); // 取得总列数
-                                             
+// 取得总行数
+$highestRow = $sheet->getHighestRow();
+// 取得总列数
+$highestColumn = $sheet->getHighestColumn();
+
 // 3.开始导入数据
-$link = mysqli_connect("127.0.0.1", "root", "111222", "BoyStyle", '3306') or die("unable to connect");
+// $link = mysqli_connect("127.0.0.1", "root", "111222", "BoyStyle", '3306') or die("unable to connect");
+$link = connect();
 mysqli_set_charset($link, "utf8");
 mysqli_query($link, "SET NAMES utf8");
 
-// 4.循环读取插入数据
-for ($j = 2; $j <= $highestRow; $j ++) // 从第二行开始读取数据
-{
+// 4.获取类别
+$category = $_POST["category"];
+
+// 5.循环读取插入数据
+// 从第二行开始读取数据
+for ($j = 2; $j <= $highestRow; $j ++) {
     $str = "";
     // 从A列读取数据
     for ($k = 'A'; $k <= $highestColumn; $k ++) {
@@ -57,13 +64,13 @@ for ($j = 2; $j <= $highestRow; $j ++) // 从第二行开始读取数据
     $str = mb_convert_encoding($str, 'utf-8', 'auto');
     $strs = explode("|*|", $str);
     if ($strs == '') {
-        echo "empty line...<br/>";
+        // echo "empty line...<br/>";
         continue;
     }
     
     // url, price, commission, earn, back_BB, title, img_url, img_list, show_order, category, entrydate
-    $sql = "REPLACE INTO BS_ProInfo (pro_id, title, img_url, detail_url, shop_name, price, month_sold, comm_percent, seller_ww, short_tbk_url, tbk_url)";
-    $sql .= " values ({$strs[0]},'{$strs[1]}','{$strs[2]}','{$strs[3]}','{$strs[4]}','{$strs[5]}','{$strs[6]}','{$strs[7]}','{$strs[8]}','{$strs[9]}','{$strs[10]}')";
+    $sql = "REPLACE INTO BS_ProInfo (pro_id, title, img_url, detail_url, shop_name, price, month_sold, comm_percent, seller_ww, short_tbk_url, tbk_url,category)";
+    $sql .= " values ({$strs[0]},'{$strs[1]}','{$strs[2]}','{$strs[3]}','{$strs[4]}','{$strs[5]}','{$strs[6]}','{$strs[7]}','{$strs[8]}','{$strs[9]}','{$strs[10]}',$category)";
     
     // echo $sql;
     // echo "<br/><br/>";
