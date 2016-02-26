@@ -12,14 +12,14 @@ $conn = null;
 
 function connect()
 {
-    if ($conn == null) {
-        $conn = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_DBNAME) or die("数据库连接失败Error:" . mysql_errno() . ":" . mysql_error());
+    if ($GLOBALS['conn'] == null) {
+        $GLOBALS['conn'] = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_DBNAME) or die("数据库连接失败Error:" . mysql_errno() . ":" . mysql_error());
         // $link=mysqli_connect("127.0.0.1","root","111222","BoyStyle",'3306') or die("数据库连接失败Error:".mysql_errno().":".mysql_error());
         // mysqli_set_charset($conn,DB_CHARSET);
-        mysqli_set_charset($conn, "utf8");
-        mysqli_select_db($conn, DB_DBNAME) or die("指定数据库打开失败");
+        mysqli_set_charset($GLOBALS['conn'], "utf8");
+        mysqli_select_db($GLOBALS['conn'], DB_DBNAME) or die("指定数据库打开失败");
     }
-    return $conn;
+    return $GLOBALS['conn'];
 }
 
 /**

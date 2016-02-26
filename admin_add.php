@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 require_once './lib/mysql.func.php';
-$query = "select cat_id,category from BS_Category";
+$query = "select cat_id,cat_desc from BS_Category";
 $result = mysqli_query(connect(), $query);
 $rows = array();
 while (@$row = mysqli_fetch_assoc($result)) {
@@ -47,7 +47,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
 								<select id="category" name="category" class="form-control" style="width: 200px;">
 									<?php
                                         foreach ($rows as $cat) {
-                                            echo "<option value='" . $cat["cat_id"] . "'>" . $cat["category"] . "</option>";
+                                            echo "<option value='" . $cat["cat_id"] . "'>" . $cat["cat_desc"] . "</option>";
                                         }
                                     ?>
 								</select>
