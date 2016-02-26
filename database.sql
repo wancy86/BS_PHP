@@ -32,7 +32,7 @@ create TABLE IF NOT EXISTS BS_ProInfo(
 	earn float,
 	img_list varchar(500),
 	show_order int default 0,
-	category varchar(100),
+	cat_id int,
 	entrydate timestamp  default CURRENT_TIMESTAMP,
 	disabled bit default 0,
 	primary key(pro_id)
@@ -82,10 +82,21 @@ replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(601,'美食','
 
 select * from BS_Category;
 
-
-
-
-
+select 
+pro_id, title, img_url, detail_url, shop_name, price, month_sold, comm_percent, seller_ww, short_tbk_url, tbk_url
+from BS_ProInfo as A
+join BS_Category as B on A.cat_id=B.cat_id
+where A.disabled=0
+and B.category='送女友' 
+order by A.pro_id
+limit 0,15
+/*
+$query  ="select pro_id, title, img_url, detail_url, shop_name, price, month_sold, comm_percent, seller_ww, short_tbk_url, tbk_url ";
+$query .="from BS_ProInfo as A ";
+$query .="join BS_Category as B on A.cat_id=B.cat_id ";
+$query .="where A.disabled=0 and B.category='送女友'";
+$query .="order by A.pro_id";
+*/
 
 
 

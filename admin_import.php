@@ -47,7 +47,7 @@ mysqli_set_charset($link, "utf8");
 mysqli_query($link, "SET NAMES utf8");
 
 // 4.获取类别
-$category = $_POST["category"];
+$cat_id = $_POST["cat_id"];
 
 // 5.循环读取插入数据
 // 从第二行开始读取数据
@@ -69,8 +69,8 @@ for ($j = 2; $j <= $highestRow; $j ++) {
     }
     
     // url, price, commission, earn, back_BB, title, img_url, img_list, show_order, category, entrydate
-    $sql = "REPLACE INTO BS_ProInfo (pro_id, title, img_url, detail_url, shop_name, price, month_sold, comm_percent, seller_ww, short_tbk_url, tbk_url,category)";
-    $sql .= " values ({$strs[0]},'{$strs[1]}','{$strs[2]}','{$strs[3]}','{$strs[4]}','{$strs[5]}','{$strs[6]}','{$strs[7]}','{$strs[8]}','{$strs[9]}','{$strs[10]}',$category)";
+    $sql = "REPLACE INTO BS_ProInfo (pro_id, title, img_url, detail_url, shop_name, price, month_sold, comm_percent, seller_ww, short_tbk_url, tbk_url,cat_id)";
+    $sql .= " values ({$strs[0]},'{$strs[1]}','{$strs[2]}','{$strs[3]}','{$strs[4]}','{$strs[5]}','{$strs[6]}','{$strs[7]}','{$strs[8]}','{$strs[9]}','{$strs[10]}',$cat_id)";
     
     // echo $sql;
     // echo "<br/><br/>";

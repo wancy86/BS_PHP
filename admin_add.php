@@ -7,9 +7,6 @@ $rows = array();
 while (@$row = mysqli_fetch_assoc($result)) {
     $rows[] = $row;
 }
-
-// var_dump($rows);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +41,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
 							class="form-inline" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="exampleInputEmail1"> 类别 </label> 
-								<select id="category" name="category" class="form-control" style="width: 200px;">
+								<select id="cat_id" name="cat_id" class="form-control" style="width: 200px;">
 									<?php
                                         foreach ($rows as $cat) {
                                             echo "<option value='" . $cat["cat_id"] . "'>" . $cat["cat_desc"] . "</option>";
