@@ -13,25 +13,25 @@
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			<li>
-				<a href="template.php">template</a>
+				<a href="index.php?cat_id=101,102,103">男神潮装</a>
 			</li>
 			<li>
-				<a href="clothes.php">潮装</a>
+				<a href="index.php?cat_id=104,105,106">鞋子</a>
 			</li>
 			<li>
-				<a href="shoes.php">鞋子</a>
+				<a href="index.php?cat_id=201,202">女神靓装</a>
 			</li>
 			<li>
-				<a href="live.php">品质生活</a>
+				<a href="index.php?cat_id=203,204,205,206,207,208,209,210,211,212">送女友</a>
 			</li>
 			<li>
-				<a href="fun.php">趣玩</a>
+				<a href="index.php?cat_id=601">美食</a>
 			</li>
 			<li>
-				<a href="food.php">美食</a>
+				<a href="index.php?cat_id=501">趣玩</a>
 			</li>
 			<li>
-				<a href="gift.php">送女友</a>
+				<a href="index.php?cat_id=401,402">品质生活</a>
 			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">

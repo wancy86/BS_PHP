@@ -40,11 +40,15 @@
 					  后期实现提现
 
 				<b>任务列表：</b>
-					数据导入功能完成,之后可以完成数据的显示 <a href="http://jingyan.baidu.com/article/cd4c2979138007756e6e60fd.html">Demo</a>
+					OK 数据导入功能完成,之后可以完成数据的显示 <a href="http://jingyan.baidu.com/article/cd4c2979138007756e6e60fd.html">Demo</a>
+					OK 后台数据管理优先完成，现生产后消费
+					数据库设计
 					登陆注册页面的添加
 					添加登录注册按钮
-					后台数据管理优先完成，现生产后消费
-					数据库设计
+
+					TODO 完成页面的整合，根据参数显示信息
+
+
 
 
 				</pre>
