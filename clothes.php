@@ -5,9 +5,9 @@ require_once './lib/mysql.func.php';
 $query  =" select pro_id, title, img_url, detail_url, shop_name, price, month_sold, comm_percent, seller_ww, short_tbk_url, tbk_url";
 $query .=" from BS_ProInfo as A ";
 $query .=" join BS_Category as B on A.cat_id=B.cat_id ";
-$query .=" where A.disabled=0 and B.category='送女友'";
+$query .=" where A.disabled=0 and B.category='潮装'";
 $query .=" order by A.pro_id";
-$query .=" limit 0, 9";
+$query .=" limit 0, 20";
 
 $result = mysqli_query(connect(), $query);
 $rows = array();
