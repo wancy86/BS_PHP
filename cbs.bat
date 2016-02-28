@@ -1,4 +1,5 @@
 @echo off
+git status
 git add .
 echo Please input comment:
 set /p input_source=
