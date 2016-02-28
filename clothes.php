@@ -14,6 +14,8 @@ $rows = array();
 while (@$row = mysqli_fetch_assoc($result)) {
     $rows[] = $row;
 }
+
+print_r($_SERVER);
 ?>
 <!DOCTYPE html>
 <html lang="en">
