@@ -34,8 +34,9 @@ $pro_name = str_replace('/', '', $webname[0]);
 // 请求URL必须是path_info的模式
 // echo $_SERVER["PATH_INFO"];
 $cat_id = '';
+$json_path='';
 if (isset($_SERVER["PATH_INFO"])) {
-    if (preg_match('/^(\/\d+)+.html/i', $_SERVER["PATH_INFO"], $arr)) {
+    if (preg_match('/^(\/\d{3})+.html/i', $_SERVER["PATH_INFO"], $arr)) {
         // print_r($arr[0]);
         $cat_id = $arr[0];
         $cat_id = str_replace('/', ',', $cat_id);
@@ -43,6 +44,10 @@ if (isset($_SERVER["PATH_INFO"])) {
         $cat_id = str_ireplace('.html', '', $cat_id);
         $cat_id = substr($cat_id, 1);
         // echo $cat_id;
+        
+        $json_path = str_replace(',', '_', $cat_id);
+        $json_path = $_SERVER['DOCUMENT_ROOT'] . "/$pro_name/data/" . $json_path . '.json';
+        echo $json_path;
     }
 }
 
@@ -61,6 +66,16 @@ $rows = array();
 while (@$row = mysqli_fetch_assoc($result)) {
     $rows[] = $row;
 }
+
+// 数据格式化为json
+$index_json = json_encode($rows);
+// echo json_encode($index_json);
+// 保存到文件
+if (! file_exists($json_path)) {
+    echo  dirname($json_path);
+    mkdir($json_path, 0777);
+}
+file_put_contents($json_path, $index_json);
 
 ?>
 <!DOCTYPE html>
