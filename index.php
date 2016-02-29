@@ -1,6 +1,8 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 require_once './lib/mysql.func.php';
+require_once './lib/FileUtil.php';
+
 // [PHP_SELF] => /boystyle/index.php
 preg_match('/^\/\w*\//', $_SERVER['PHP_SELF'], $webname);
 $pro_name = str_replace('/', '', $webname[0]);
@@ -34,7 +36,7 @@ $pro_name = str_replace('/', '', $webname[0]);
 // 请求URL必须是path_info的模式
 // echo $_SERVER["PATH_INFO"];
 $cat_id = '';
-$json_path='';
+$json_path = '';
 if (isset($_SERVER["PATH_INFO"])) {
     if (preg_match('/^(\/\d{3})+.html/i', $_SERVER["PATH_INFO"], $arr)) {
         // print_r($arr[0]);
@@ -47,7 +49,7 @@ if (isset($_SERVER["PATH_INFO"])) {
         
         $json_path = str_replace(',', '_', $cat_id);
         $json_path = $_SERVER['DOCUMENT_ROOT'] . "/$pro_name/data/" . $json_path . '.json';
-        echo $json_path;
+        // echo $json_path;
     }
 }
 
@@ -72,9 +74,16 @@ $index_json = json_encode($rows);
 // echo json_encode($index_json);
 // 保存到文件
 if (! file_exists($json_path)) {
-    echo  dirname($json_path);
-    mkdir($json_path, 0777);
+    // 文件所在目录
+    // echo dirname($json_path);
+    // mkdir($json_path, 0777);
+    FileUtil::createFile($json_path);
 }
+// 修改文件权限为读写可执行
+// Read 4 - 允许读文件
+// Write 2 - 允许写/修改文件
+// eXecute1 - 读/写/删除/修改/目录
+chmod($json_path, 0777);
 file_put_contents($json_path, $index_json);
 
 ?>
