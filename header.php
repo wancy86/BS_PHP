@@ -1,3 +1,6 @@
+<?php
+require_once './lib/image.func.php';
+?>
 <div class="page-header">
 	<h1>
 		BoyStyle! <small>-- 男人，爱生活，爱自己!</small>
@@ -38,7 +41,8 @@
 				<a href="/boystyle/index.php/401/402.html">品质生活</a>
 			</li>
 		</ul>
-<?php if(1==2) echo<<<Loged
+<?php if (1 == 2) {
+	echo <<<Loged
 		<ul class="nav navbar-nav navbar-right">
 			<li>
 				<a href="#">欢迎</a>
@@ -64,20 +68,25 @@
 			</li>
 		</ul>
 Loged;
+}
+
 ?>
-<?php if(1==1) echo <<<unloged
+<?php if (1 == 1) {
+	echo <<<unloged
        <ul class="nav navbar-nav navbar-right">
 			<li>
-				<a href="#">登录</a>	    
+				<a href="#">登录</a>
 			</li>
 	        <li>
 				<a href="#">/</a>
 			</li>
             <li>
 				<a href="#">免费注册</a>
-			</li>	    
+			</li>
 		</ul>
 unloged;
+}
+
 ?>
 		<form class="navbar-form navbar-right" role="search">
 			<div class="form-group">

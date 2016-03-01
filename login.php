@@ -45,7 +45,7 @@
 									<input type="email" class="form-control" id="emailcell" placeholder="验证码"/>
 								</div>
 								<div class="col-sm-4">
-									<img src="./images/valid.png" style="width:100px;hight:40px;"/>
+									<img src="./validate_img.php" style="width:100px;hight:40px;" onclick="RefreshValidImg(this)"/>
 								</div>
 							</div>
 							<div class="form-group">
