@@ -36,13 +36,16 @@
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="pwd">密码 : </label>
 								<div class="col-sm-4">
-									<input type="password" class="form-control" id="pwd" placeholder="密码必须是6-25位数字、字母、符号"/>
+									<input type="password" class="form-control" id="pwd" placeholder="密码"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="emailcell">验证码 : </label>
 								<div class="col-sm-4">
-									<input type="email" class="form-control" id="emailcell" placeholder="用户名/邮箱"/>
+									<input type="email" class="form-control" id="emailcell" placeholder="验证码"/>
+								</div>
+								<div class="col-sm-4">
+									<img src="./images/valid.png" style="width:100px;hight:40px;"/>
 								</div>
 							</div>
 							<div class="form-group">
