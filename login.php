@@ -30,7 +30,7 @@
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="emailcell">账号 : </label>
 								<div class="col-sm-4">
-									<input type="email" class="form-control" id="emailcell" placeholder="用户名/邮箱"/>
+									<input type="email" class="form-control" id="emailcell" placeholder="用户名 / 邮箱"/>
 								</div>
 							</div>
 							<div class="form-group">
