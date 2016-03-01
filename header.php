@@ -10,10 +10,10 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
-	    </button> 
+	    </button>
 	    <a class="navbar-brand" href="/boystyle/index.php/0.html">BoyStyle</a>
 	</div>
-	
+
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			<li>
@@ -26,7 +26,7 @@
 				<a href="/boystyle/index.php/201/202.html">女神靓装</a>
 			</li>
 			<li>
-				<a href="/boystyle/index.php/203/204/205/206/207/208/209/210/211/212.html">送女友</a>
+				<a href="/boystyle/index.php/203/204/205/206/207/208/209/210/211/212.html">精美配饰</a>
 			</li>
 			<li>
 				<a href="/boystyle/index.php/601.html">美食</a>
@@ -65,10 +65,10 @@
 		<form class="navbar-form navbar-right" role="search">
 			<div class="form-group">
 				<input type="text" class="form-control">
-			</div> 
+			</div>
 			<button type="submit" class="btn btn-default">
 				Search
 			</button>
 		</form>
-	</div>				
+	</div>
 </nav>
