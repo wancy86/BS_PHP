@@ -49,7 +49,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-							    <div class="col-sm-offset-2 col-sm-10">
+							    <div class="col-sm-offset-2 col-sm-4">
 							      <div class="checkbox">
 							        <label>
 							          <input type="checkbox"> 30天自动登录
@@ -58,7 +58,7 @@
 							    </div>
 							</div>
 							<div class="form-group">
-							    <div class="col-sm-offset-2 col-sm-10">
+							    <div class="col-sm-offset-2 col-sm-4">
 							      <button type="submit" class="btn btn-success">登录</button>
 							    </div>
 							</div>
