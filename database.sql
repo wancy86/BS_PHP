@@ -99,4 +99,40 @@ $query .="order by A.pro_id";
 */
 
 
+/*
+*Table for user info
+*/
+create table if not exists BS_User(
+	uid int autoincrement,
+	account varchar(100),
+	email varchar(200),
+	phone varchar(20),
+	pwd varchar(200),/*MD5*/
+	invite_code varchar(20),
+	invite_by int,
+	reg_date timestamp default CURRENT_TIMESTAMP,
+	primary key(uid)
+)default charset=utf8;
 
+insert into BS_User(account,email,phone,pwd)
+select 'admin','wancy86@sina.com','13028865077','E10ADC3949BA59ABBE56E057F20F883E'
+from dual where not exists(
+	select * from BS_User where uid=1
+);
+select * from BS_User;
+
+/*
+*
+*Create Table for JSON files
+*
+*/
+
+create table if not exists BS_JSON(
+	fid int auto_increment,
+	group varchar(20),
+	load_order int,
+	data_rows int,
+	file_name varchar(300),
+	entry_date timestamp default CURRENT_TIMESTAMP,
+	primary key(fid)
+)default charset=utf8;
