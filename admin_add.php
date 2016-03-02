@@ -70,7 +70,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
                     <form class="form-inline" action="admin_gen_json.php" method="get">
                         <div class="form-group">
                             <label for="exampleInputName2">类别</label>
-                            <select class="form-control" style="width:200px;">
+                            <select class="form-control" style="width:200px;" multiple='multiple' size="3">
                                 <option value="ALL">ALL</option>
                                 <?php foreach ($cat_rows as $cat) {
 	echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";
@@ -78,10 +78,6 @@ while (@$row = mysqli_fetch_assoc($result)) {
 ?>
                             </select>
                         </div>
-                        <!-- <div class="form-group">
-                            <label for="exampleInputEmail2">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-                        </div> -->
                         <button type="submit" class="btn btn-success">Re-Generate-JSON >></button>
                     </form>
                     <table class="table table-bordered">
@@ -115,62 +111,6 @@ while (@$row = mysqli_fetch_assoc($result)) {
                                 </td>
                                 <td>
                                     Default
-                                </td>
-                            </tr>
-                            <tr class="active">
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    TB - Monthly
-                                </td>
-                                <td>
-                                    01/04/2012
-                                </td>
-                                <td>
-                                    Approved
-                                </td>
-                            </tr>
-                            <tr class="success">
-                                <td>
-                                    2
-                                </td>
-                                <td>
-                                    TB - Monthly
-                                </td>
-                                <td>
-                                    02/04/2012
-                                </td>
-                                <td>
-                                    Declined
-                                </td>
-                            </tr>
-                            <tr class="warning">
-                                <td>
-                                    3
-                                </td>
-                                <td>
-                                    TB - Monthly
-                                </td>
-                                <td>
-                                    03/04/2012
-                                </td>
-                                <td>
-                                    Pending
-                                </td>
-                            </tr>
-                            <tr class="danger">
-                                <td>
-                                    4
-                                </td>
-                                <td>
-                                    TB - Monthly
-                                </td>
-                                <td>
-                                    04/04/2012
-                                </td>
-                                <td>
-                                    Call in to confirm
                                 </td>
                             </tr>
                         </tbody>
