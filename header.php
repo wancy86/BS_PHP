@@ -43,6 +43,9 @@ require_once './lib/image.func.php';
 			<li>
 				<a href="/boystyle/about.php">About</a>
 			</li>
+			<li>
+				<a href="/boystyle/phpinfo.php">PHPInfo</a>
+			</li>
 		</ul>
 <!-- 未登录 -->
 <?php if (1 == 1) {
