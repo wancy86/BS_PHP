@@ -25,54 +25,31 @@
                     <div class="col-md-6">
                         <form role="form" class="form-horizontal">
                             <div class="form-group">
-                                <div class="col-sm-2">
-                                    <label for="emailcell">
-                                        邮箱/手机号 :
-                                    </label>
-                                </div>
+                                <label class="col-sm-2 control-label" for="emailcell">邮箱/手机号 : </label>
                                 <div class="col-sm-5">
                                     <input type="email" class="form-control" id="emailcell" placeholder="请输入邮箱或手机号" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-2">
-                                    <label for="account">
-                                        用户名 :
-                                    </label>
-                                </div>
+                                <label class="col-sm-2 control-label" for="account">用户名 : </label>
                                 <div class="col-sm-5">
                                     <input type="email" class="form-control" id="account" placeholder="用户名必须是纯字母和数组的组成" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-2">
-                                    <label for="pwd">
-                                        密码 :
-                                    </label>
-                                </div>
+                                <label class="col-sm-2 control-label" for="pwd">密码 : </label>
                                 <div class="col-sm-5">
                                     <input type="password" class="form-control" id="pwd" placeholder="密码必须是6-25位数字、字母、符号" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-2">
-                                    <label for="pdw2">
-                                        确认密码 :
-                                    </label>
-                                </div>
+                                <label class="col-sm-2 control-label" for="pdw2">确认密码 : </label>
                                 <div class="col-sm-5">
                                     <input type="password" class="form-control" id="pdw2" placeholder="请重新输入" />
                                 </div>
                             </div>
-                            <!-- <div class="checkbox">
-								<label>
-									<input type="checkbox" /> Check me out
-								</label>
-							</div> -->
                             <div class="col-sm-offset-2 col-sm-5">
-                                <button type="submit" class="btn btn-success">
-                                    注册
-                                </button>
+                                <button type="submit" class="btn btn-success"> 注册 </button>
                             </div>
                         </form>
                     </div>

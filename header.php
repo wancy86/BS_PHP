@@ -40,7 +40,28 @@ require_once './lib/image.func.php';
 			<li>
 				<a href="/boystyle/index.php/401/402.html">品质生活</a>
 			</li>
+			<li>
+				<a href="/boystyle/about.php">About</a>
+			</li>
 		</ul>
+<!-- 未登录 -->
+<?php if (1 == 1) {
+	echo <<<unloged
+       <ul class="nav navbar-nav navbar-right">
+			<li>
+				<a href="/boystyle/login.php">登录</a>
+			</li>
+	        <li>
+				<a href="#">/</a>
+			</li>
+            <li>
+				<a href="/boystyle/reg.php">免费注册</a>
+			</li>
+		</ul>
+unloged;
+}
+?>
+<!-- 登陆后 -->
 <?php if (1 == 2) {
 	echo <<<Loged
 		<ul class="nav navbar-nav navbar-right">
@@ -69,25 +90,8 @@ require_once './lib/image.func.php';
 		</ul>
 Loged;
 }
-
 ?>
-<?php if (1 == 1) {
-	echo <<<unloged
-       <ul class="nav navbar-nav navbar-right">
-			<li>
-				<a href="#">登录</a>
-			</li>
-	        <li>
-				<a href="#">/</a>
-			</li>
-            <li>
-				<a href="#">免费注册</a>
-			</li>
-		</ul>
-unloged;
-}
 
-?>
 		<form class="navbar-form navbar-right" role="search">
 			<div class="form-group">
 				<input type="text" class="form-control">
