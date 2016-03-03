@@ -67,10 +67,10 @@ while (@$row = mysqli_fetch_assoc($result)) {
                 <div class="col-md-12">
                     <h2>JSON数据文件生成</h2>
                     <hr>
-                    <form class="form-inline" action="admin_gen_json.php" method="get">
+                    <form class="form-inline" action="admin_gen_json.php" method="post">
                         <div class="form-group">
                             <label for="exampleInputName2">类别</label>
-                            <select class="form-control" style="width:200px;" multiple='multiple' size="3">
+                            <select id="category" name="category[]" class="form-control" style="width:200px;" multiple='multiple' size="3">
                                 <option value="ALL">ALL</option>
                                 <?php foreach ($cat_rows as $cat) {
 	echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";

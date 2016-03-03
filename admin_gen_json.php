@@ -5,6 +5,12 @@ require_once './lib/FileUtil.php';
 
 //TODO
 //从数据表查询数据并生成json文件
+// print_r($_POST['category']);
+echo "'".join("','",$_POST['category'])."'";
+
+
+
+
 
 // [PHP_SELF] => /boystyle/index.php
 preg_match('/^\/\w*\//', $_SERVER['PHP_SELF'], $webname);
@@ -69,6 +75,6 @@ if ($json_path != '') {
 // header('Location: http://localhost/boystyle/admin_add.php');.
 // exit();
 // 2.redirect
-echo "<script>window.location.href='http://localhost/boystyle/admin_add.php';alert('导入成功');</script>";
+// echo "<script>window.location.href='http://localhost/boystyle/admin_add.php';alert('导入成功');</script>";
 
 ?>
