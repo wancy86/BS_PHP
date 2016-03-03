@@ -6,11 +6,14 @@ require_once './lib/FileUtil.php';
 //TODO
 //从数据表查询数据并生成json文件
 // print_r($_POST['category']);
-echo "'".join("','",$_POST['category'])."'";
-
-
-
-
+$cats = "'" . join("','", $_POST['category']) . "'";
+$query = "select distinct category from BS_Category";
+// echo $cats;
+if (strpos($cats, 'ALL') > 0) {
+	$query .= " where category in($cats)";
+}
+echo "$query";
+$result = mysqli_query(connect(), $query);
 
 // [PHP_SELF] => /boystyle/index.php
 preg_match('/^\/\w*\//', $_SERVER['PHP_SELF'], $webname);
