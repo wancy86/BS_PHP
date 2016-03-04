@@ -127,6 +127,7 @@ select * from BS_User;
 *
 */
 
+
 create table if not exists BS_JSON(
 	fid int auto_increment,
 	category varchar(100),
@@ -137,7 +138,9 @@ create table if not exists BS_JSON(
 	primary key(fid)
 )default charset=utf8;
 
-$query .="replace into BS_JSON(group ,load_order ,data_rows ,file_name ,entry_date )";
-$query .="values()";
+select * from BS_JSON;
 
-$group ,$load_order ,$data_rows ,$file_name
+/*
+delete from BS_JSON;
+*/
+

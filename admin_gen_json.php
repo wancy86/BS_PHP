@@ -35,7 +35,7 @@ while (@$category = mysqli_fetch_assoc($result)) {
     for ($end = 50; $end < $TotalRowsNum; $end += 100) {
         $filename = strtoupper(substr(md5($cat), 8, 16)) . "_" . $start . "_" . "$end" . ".json";
         $file_Path = $_SERVER['DOCUMENT_ROOT'] . "/$web_name/data/" . $filename;
-        echo $filename;
+        // echo $filename;
         SaveJsonData($cat, $start, $end, $file_Path);
         SaveFileNameToDB($cat, $load_order, $end - $start + 1, $filename);
         $start = $end + 1;
