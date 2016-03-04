@@ -31,15 +31,28 @@ while (@$category = mysqli_fetch_assoc($result)) {
     $TotalRowsNum = $row["TotalRowsNum"];
     // loop to create the JSON
     $start = 1;
+    $load_order = 1;
     for ($end = 50; $end < $TotalRowsNum; $end += 100) {
-        SaveJsonData($web_name, strtoupper(substr(md5($cat), 8, 16)), $start, $end);
+        $filename = $_SERVER['DOCUMENT_ROOT'] . "/$web_name/data/" . strtoupper(substr(md5($cat), 8, 16)) . "_" . $start . "_" . "$end" . ".json";
+        echo $filename;
+        SaveJsonData($cat, $start, $end, $filename);
+        SaveFileNameToDB($cat, $load_order, $end - $start + 1, $filename);
         $start = $end + 1;
+        $load_order += 1;
         // echo $end;
     }
 }
 
+// 按类别保存生产的文件到数据库
+function SaveFileNameToDB($group, $load_order, $data_rows, $file_name)
+{
+    $query = "replace into BS_JSON(group ,load_order ,data_rows ,file_name ,entry_date )";
+    $query .= "values($group ,$load_order ,$data_rows ,$file_name,current_timestamp)";
+    mysqli_query(connect(), $query);
+}
+
 // 从数据表查询数据并生成json文件
-function SaveJsonData($web_name, $category, $start, $end)
+function SaveJsonData($category, $start, $end, $filename)
 {
     $rows = array();
     $query2 = " select pro_id ,title ,img_url ,detail_url ,shop_name ,price ,month_sold ,comm_percent ,seller_ww ,back_BB ,";
@@ -53,7 +66,6 @@ function SaveJsonData($web_name, $category, $start, $end)
     while (@$row = mysqli_fetch_assoc($result2)) {
         $rows[] = $row;
     }
-    $filename = $_SERVER['DOCUMENT_ROOT'] . "/$web_name/data/" . "" . $category . "_" . $start . "_" . "$end" . ".json";
     
     // echo $filename;
     // echo "<br>";
