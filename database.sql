@@ -129,7 +129,7 @@ select * from BS_User;
 
 create table if not exists BS_JSON(
 	fid int auto_increment,
-	group varchar(20),
+	category varchar(100),
 	load_order int,
 	data_rows int,
 	file_name varchar(300),

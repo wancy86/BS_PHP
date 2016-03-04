@@ -33,26 +33,26 @@ while (@$category = mysqli_fetch_assoc($result)) {
     $start = 1;
     $load_order = 1;
     for ($end = 50; $end < $TotalRowsNum; $end += 100) {
-        $filename = $_SERVER['DOCUMENT_ROOT'] . "/$web_name/data/" . strtoupper(substr(md5($cat), 8, 16)) . "_" . $start . "_" . "$end" . ".json";
+        $filename = strtoupper(substr(md5($cat), 8, 16)) . "_" . $start . "_" . "$end" . ".json";
+        $file_Path = $_SERVER['DOCUMENT_ROOT'] . "/$web_name/data/" . $filename;
         echo $filename;
-        SaveJsonData($cat, $start, $end, $filename);
+        SaveJsonData($cat, $start, $end, $file_Path);
         SaveFileNameToDB($cat, $load_order, $end - $start + 1, $filename);
         $start = $end + 1;
         $load_order += 1;
-        // echo $end;
     }
 }
 
 // 按类别保存生产的文件到数据库
-function SaveFileNameToDB($group, $load_order, $data_rows, $file_name)
+function SaveFileNameToDB($category, $load_order, $data_rows, $filename)
 {
-    $query = "replace into BS_JSON(group ,load_order ,data_rows ,file_name ,entry_date )";
-    $query .= "values($group ,$load_order ,$data_rows ,$file_name,current_timestamp)";
+    $query = "replace into BS_JSON(category ,load_order ,data_rows ,file_name ,entry_date )";
+    $query .= "values('$category' ,$load_order ,$data_rows ,'$filename','current_timestamp')";
     mysqli_query(connect(), $query);
 }
 
 // 从数据表查询数据并生成json文件
-function SaveJsonData($category, $start, $end, $filename)
+function SaveJsonData($category, $start, $end, $file_Path)
 {
     $rows = array();
     $query2 = " select pro_id ,title ,img_url ,detail_url ,shop_name ,price ,month_sold ,comm_percent ,seller_ww ,back_BB ,";
@@ -70,18 +70,18 @@ function SaveJsonData($category, $start, $end, $filename)
     // echo $filename;
     // echo "<br>";
     
-    if (! file_exists($filename)) {
+    if (! file_exists($file_Path)) {
         // 文件所在目录
         // echo dirname($json_path);
         // mkdir($json_path, 0777);
-        FileUtil::createFile($filename);
+        FileUtil::createFile($file_Path);
     }
     // 修改文件权限为读写可执行
     // Read 4 - 允许读文件
     // Write 2 - 允许写/修改文件
     // eXecute1 - 读/写/删除/修改/目录
-    chmod($filename, 0777);
-    file_put_contents($filename, json_encode($rows));
+    chmod($file_Path, 0777);
+    file_put_contents($file_Path, json_encode($rows));
 }
 
 // 1.redirect
