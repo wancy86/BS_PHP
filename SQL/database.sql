@@ -127,12 +127,20 @@ select * from BS_User;
 *
 */
 
+
 create table if not exists BS_JSON(
 	fid int auto_increment,
-	group varchar(20),
+	category varchar(100),
 	load_order int,
 	data_rows int,
 	file_name varchar(300),
 	entry_date timestamp default CURRENT_TIMESTAMP,
 	primary key(fid)
 )default charset=utf8;
+
+select * from BS_JSON;
+
+/*
+delete from BS_JSON;
+*/
+
