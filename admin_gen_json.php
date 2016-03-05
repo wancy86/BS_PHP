@@ -8,11 +8,17 @@ preg_match('/^\/\w*\//', $_SERVER['PHP_SELF'], $webname);
 $web_name = str_replace('/', '', $webname[0]);
 
 // 遍历目录
+$cats='ALL';
+if(isset($_POST['category']))
 $cats = "'" . join("','", $_POST['category']) . "'";
+
+// echo $cats;
+
 $query = "select distinct category from BS_Category";
 if (strpos($cats, 'ALL') == 0) {
     $query .= " where category in($cats)";
 }
+
 // echo "$query";
 $result = mysqli_query(connect(), $query);
 
