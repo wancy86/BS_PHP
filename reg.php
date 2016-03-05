@@ -25,9 +25,9 @@
                     <div class="col-md-6">
                         <form role="form" class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-2 control-label" for="emailcell">邮箱/手机号 : </label>
+                                <label class="col-sm-2 control-label" for="emailphone">邮箱/手机号 : </label>
                                 <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="emailcell" placeholder="请输入邮箱或手机号" />
+                                    <input type="email" class="form-control" id="emailphone" placeholder="请输入邮箱或手机号" />
                                 </div>
                             </div>
                             <div class="form-group">

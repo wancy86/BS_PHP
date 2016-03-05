@@ -37,10 +37,10 @@ create TABLE IF NOT EXISTS BS_ProInfo(
 	disabled bit default 0,
 	primary key(pro_id)
 )default charset=utf8;
-
+/*
 use boystyle;
 select * from BS_ProInfo;
-
+*/
 /* DESC BS_ProInfo; */
 
 
@@ -80,6 +80,7 @@ replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(402,'品质生
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(501,'趣玩','趣玩','趣玩');
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(601,'美食','美食','美食');
 
+/*
 select * from BS_Category;
 
 select 
@@ -90,12 +91,6 @@ where A.disabled=0
 and B.category='送女友' 
 order by A.pro_id
 limit 0,15
-/*
-$query  ="select pro_id, title, img_url, detail_url, shop_name, price, month_sold, comm_percent, seller_ww, short_tbk_url, tbk_url ";
-$query .="from BS_ProInfo as A ";
-$query .="join BS_Category as B on A.cat_id=B.cat_id ";
-$query .="where A.disabled=0 and B.category='送女友'";
-$query .="order by A.pro_id";
 */
 
 
@@ -110,7 +105,7 @@ create table if not exists BS_User(
 	pwd varchar(200),/*MD5*/
 	invite_code varchar(20),
 	invite_by int,
-	reg_date timestamp default CURRENT_TIMESTAMP,
+	reg_date datetime,
 	primary key(uid)
 )default charset=utf8;
 
@@ -119,13 +114,15 @@ select 'admin','wancy86@sina.com','13028865077','E10ADC3949BA59ABBE56E057F20F883
 from dual where not exists(
 	select * from BS_User where uid=1
 );
+/*
 select * from BS_User;
-
+*/
 /*
 *
 *Create Table for JSON files
 *
 */
+
 /*
 drop table BS_JSON;
 */
@@ -138,9 +135,9 @@ create table if not exists BS_JSON(
 	entry_date datetime,
 	primary key(file_name)
 )default charset=utf8;
-
+/*
 select * from BS_JSON;
-
+*/
 /*
 delete from BS_JSON;
 */
