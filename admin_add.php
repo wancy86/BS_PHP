@@ -109,6 +109,9 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                 <th>
                                                                                                             文件路径
                                 </th>
+                                <th>
+                                                                                                            修改时间
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -130,6 +133,9 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                             </td>
                             <td>
                                 $filerow[file_name]
+                            </td>
+                            <td>
+                                $filerow[entry_date]
                             </td>
                         </tr>
 JSON_EOD;

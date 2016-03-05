@@ -135,7 +135,7 @@ create table if not exists BS_JSON(
 	load_order int,
 	data_rows int,
 	file_name varchar(300),
-	entry_date timestamp default CURRENT_TIMESTAMP,
+	entry_date datetime,
 	primary key(file_name)
 )default charset=utf8;
 

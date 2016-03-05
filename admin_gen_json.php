@@ -8,14 +8,14 @@ preg_match('/^\/\w*\//', $_SERVER['PHP_SELF'], $webname);
 $web_name = str_replace('/', '', $webname[0]);
 
 // 遍历目录
-$cats='ALL';
-if(isset($_POST['category']))
-$cats = "'" . join("','", $_POST['category']) . "'";
-
-// echo $cats;
-
+// $cats = 'ALL';
+if (isset($_POST['category']))
+    $cats = "'" . join("','", $_POST['category']) . "'";
+    
+    // echo $cats;
 $query = "select distinct category from BS_Category";
-if (strpos($cats, 'ALL') == 0) {
+// strpos 返回字符串在另一字符串中第一次出现的位置，如果没有找到字符串则返回 FALSE。
+if (strpos($cats, 'ALL')) {
     $query .= " where category in($cats)";
 }
 
@@ -53,7 +53,8 @@ while (@$category = mysqli_fetch_assoc($result)) {
 function SaveFileNameToDB($category, $load_order, $data_rows, $filename)
 {
     $query = "replace into BS_JSON(category ,load_order ,data_rows ,file_name ,entry_date )";
-    $query .= "values('$category' ,$load_order ,$data_rows ,'$filename','current_timestamp')";
+    $query .= "values('$category' ,$load_order ,$data_rows ,'$filename',now())";
+    // echo $query;
     mysqli_query(connect(), $query);
 }
 
