@@ -14,6 +14,8 @@ $query = "select top 1 pwd from BS_User where emial='$emailphone' or phone ='$em
 echo $query;
 $result = mysqli_query(connect(), $query);
 
+$msg="";
+$page="index.php"
 if ($row = mysqli_fetch_assoc($result)) {
 	if ($row['pwd'] == $pwd) {
 		//login, keep the session
@@ -21,11 +23,13 @@ if ($row = mysqli_fetch_assoc($result)) {
 	} else {
 		//用户名密码不对
 		$msg = "用户名密码不对";
+		$page="login.php";
 	}
 } else {
 	//用户不存在
 	$msg = "用户名密码不对";
+	$page="login.php";
 }
 
 // redirect
-AlertMessage("注册成功，请登录！", "index.php");
+AlertMessage("$msg", "$page");
