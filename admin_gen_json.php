@@ -92,4 +92,4 @@ function SaveJsonData($category, $start, $end, $file_Path) {
 	file_put_contents($file_Path, json_encode($rows));
 }
 
-AlertMessage("JSON数据文件生成完成", "admin_add.php");
+AlertMessage("admin_add.php", "JSON数据文件生成完成", "");

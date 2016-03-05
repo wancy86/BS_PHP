@@ -4,7 +4,7 @@ function alertMes($mes, $url) {
 	echo "<script>window.location='{$url}';</script>";
 }
 
-function AlertMessage($msg, $page, $script) {
+function AlertMessage($page, $msg, $script) {
 	// 1.redirect
 	// header('Location: http://localhost/boystyle/admin_add.php');.
 	// exit();
@@ -13,11 +13,11 @@ function AlertMessage($msg, $page, $script) {
 	if ($msg != "") {
 		echo "<script>alert('$msg');</script>";
 	}
+	if ($script != "") {
+		echo "<script>$script</script>";
+	}
 	if ($page != "") {
 		echo "<script>window.location.href='http://localhost/boystyle/$page';</script>";
-	}
-	if ($script != "") {
-		echo "$script";
 	}
 
 }
