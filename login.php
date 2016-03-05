@@ -26,23 +26,23 @@
 					<div class="col-md-3">
 					</div>
 					<div class="col-md-6">
-						<form role="form" class="form-horizontal">
+						<form role="form" class="form-horizontal" action="login_action.php" method="POST">
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="emailcell">账号 : </label>
+								<label class="col-sm-2 control-label" for="emailphone">账号 : </label>
 								<div class="col-sm-4">
-									<input type="email" class="form-control" id="emailcell" placeholder="用户名 / 邮箱"/>
+									<input type="text" class="form-control" id="emailphone" name="emailphone" placeholder="用户名 / 邮箱"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="pwd">密码 : </label>
 								<div class="col-sm-4">
-									<input type="password" class="form-control" id="pwd" placeholder="密码"/>
+									<input type="password" class="form-control" id="pwd" name="pwd" placeholder="密码"/>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="emailcell">验证码 : </label>
+								<label class="col-sm-2 control-label" for="validatecode">验证码 : </label>
 								<div class="col-sm-4">
-									<input type="email" class="form-control" id="emailcell" placeholder="验证码"/>
+									<input type="text" class="form-control" id="validatecode" name="validatecode" placeholder="验证码"/>
 								</div>
 								<div class="col-sm-4" style="margin-left: -20px;margin-top: 3px;">
 									<img src="./validate_img.php" style="width:100px;hight:40px;" onclick="RefreshValidImg(this)"/>

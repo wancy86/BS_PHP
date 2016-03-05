@@ -69,25 +69,6 @@ while (@$row = mysqli_fetch_assoc($result)) {
 	$rows[] = $row;
 }
 
-// if ($json_path != '') {
-//     // 数据格式化为json
-//     $index_json = json_encode($rows);
-//     // echo json_encode($index_json);
-//     // 保存到文件
-//     if (! file_exists($json_path)) {
-//         // 文件所在目录
-//         // echo dirname($json_path);
-//         // mkdir($json_path, 0777);
-//         FileUtil::createFile($json_path);
-//     }
-//     // 修改文件权限为读写可执行
-//     // Read 4 - 允许读文件
-//     // Write 2 - 允许写/修改文件
-//     // eXecute1 - 读/写/删除/修改/目录
-//     chmod($json_path, 0777);
-//     file_put_contents($json_path, $index_json);
-// }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

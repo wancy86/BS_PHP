@@ -6,11 +6,14 @@ $account = isset($_POST[account]) ? $_POST[account] : "";
 $email = isset($_POST[emailphone]) ? $_POST[emailphone] : "";
 $phone = isset($_POST[emailphone]) ? $_POST[emailphone] : "";
 $pwd = isset($_POST[pwd]) ? $_POST[pwd] : "";
+$pwd = strtoupper(substr(md5($pwd), 8, 16));
 $invite_code = isset($_POST[invite_code]) ? $_POST[invite_code] : "";
 $invite_by = isset($_POST[invite_by]) ? $_POST[invite_by] : 0;
 
 $query = " insert into BS_User(account, email, phone, pwd, invite_code, invite_by, reg_date)";
 $query .= " values('$account', '$email', '$phone', '$pwd', '$invite_code', $invite_by, now())";
+
+// echo $query;
 $result = mysqli_query(connect(), $query);
 
 // insert into BS_User(account, email, phone, pwd, invite_code, invite_by, reg_date)

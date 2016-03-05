@@ -23,29 +23,29 @@
                     <div class="col-md-3">
                     </div>
                     <div class="col-md-6">
-                        <form role="form" class="form-horizontal">
+                        <form role="form" class="form-horizontal" action="reg_action.php" method="POST">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="emailphone">邮箱/手机号 : </label>
                                 <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="emailphone" placeholder="请输入邮箱或手机号" />
+                                    <input type="email" class="form-control" id="emailphone" name="emailphone" placeholder="请输入邮箱或手机号" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="account">用户名 : </label>
                                 <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="account" placeholder="用户名必须是纯字母和数组的组成" />
+                                    <input class="form-control" id="account" name="account" placeholder="用户名必须是纯字母和数组的组成" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="pwd">密码 : </label>
                                 <div class="col-sm-5">
-                                    <input type="password" class="form-control" id="pwd" placeholder="密码必须是6-25位数字、字母、符号" />
+                                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="密码必须是6-25位数字、字母、符号" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="pdw2">确认密码 : </label>
                                 <div class="col-sm-5">
-                                    <input type="password" class="form-control" id="pdw2" placeholder="请重新输入" />
+                                    <input type="password" class="form-control" id="pdw2" name="pdw2" placeholder="请重新输入" />
                                 </div>
                             </div>
                             <div class="col-sm-offset-2 col-sm-5">
