@@ -1,3 +1,8 @@
+<?php
+// session_start();
+// $_SESSION['age'] = '123';
+// print_r($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
 

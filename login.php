@@ -9,16 +9,20 @@ $accountMsg = "";
 $validateCheck = "";
 $validateMsg = "";
 
-$_SESSION['mark'] = 'mark';
-
-print_r($_SESSION);
+session_start();
+// $_SESSION['mark'] = 'mark';
+// print_r($_SESSION);
 
 //if POST
 // echo $_POST[emailphone];
-echo isset($_SESSION['validatecode']) ? 123 : 456;
+// echo isset($_SESSION['validatecode']) ? 123 : 456;
 
 if (isset($_POST[emailphone])) {
 	$validatecode = isset($_POST[validatecode]) ? $_POST[validatecode] : "";
+	echo $validatecode;
+	echo "-";
+	echo $_SESSION['validatecode'];
+
 	if (!(isset($_SESSION['validatecode']) && $_SESSION['validatecode'] == $validatecode)) {
 		$validateCheck = "has-error";
 		$validateMsg = "验证码输入有误";
