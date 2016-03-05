@@ -1,6 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 require_once './lib/mysql.func.php';
+
 $query = "select cat_id,cat_desc from BS_Category";
 $result = mysqli_query(connect(), $query);
 $rows = array();
@@ -15,6 +16,15 @@ $cat_rows = array();
 while (@$row = mysqli_fetch_assoc($result)) {
 	$cat_rows[] = $row;
 }
+
+//get all JSON file list
+$query2 = "select * from bs_json order by fid";
+$result2 = mysqli_query(connect(), $query2);
+$json_files = array();
+while (@$row = mysqli_fetch_assoc($result2)) {
+    $json_files[] = $row;
+}
+
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -88,31 +98,45 @@ while (@$row = mysqli_fetch_assoc($result)) {
                                     #
                                 </th>
                                 <th>
-                                    Product
+                                                                                                             类别
                                 </th>
                                 <th>
-                                    Payment Taken
+                                                                                                            加载顺序
                                 </th>
                                 <th>
-                                    Status
+                                                                                                            数据行数
+                                </th>
+                                <th>
+                                                                                                            文件路径
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    TB - Monthly
-                                </td>
-                                <td>
-                                    01/04/2012
-                                </td>
-                                <td>
-                                    Default
-                                </td>
-                            </tr>
+                        <?php $rownum =1; 
+                        foreach ($json_files as $filerow) {
+                        echo <<<JSON_EOD
+                        <tr>
+                            <td>
+                                $rownum
+                            </td>
+                            <td>
+                                $filerow[category]
+                            </td>
+                            <td>
+                                $filerow[load_order]
+                            </td>
+                            <td>
+                                $filerow[data_rows]
+                            </td>
+                            <td>
+                                $filerow[file_name]
+                            </td>
+                        </tr>
+JSON_EOD;
+                        $rownum++;
+                        }?>
+
+                            
                         </tbody>
                     </table>
                 </div>
