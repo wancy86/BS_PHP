@@ -98,7 +98,7 @@ limit 0,15
 *Table for user info
 */
 create table if not exists BS_User(
-	uid int autoincrement,
+	uid int auto_increment,
 	account varchar(100),
 	email varchar(200),
 	phone varchar(20),
