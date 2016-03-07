@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 require_once './lib/mysql.func.php';
-// require_once './lib/common.func.php';
+require_once './lib/common.func.php';
 
 $emailphone = isset($_POST[emailphone]) ? $_POST[emailphone] : "";
 $accountCheck = "";
@@ -15,28 +15,38 @@ session_start();
 
 //if POST
 // echo $_POST[emailphone];
-// echo isset($_SESSION['validatecode']) ? 123 : 456;
+// echo isset($_SESSION['verify']) ? 123 : 456;
 
 if (isset($_POST[emailphone])) {
 	$validatecode = isset($_POST[validatecode]) ? $_POST[validatecode] : "";
-	echo $validatecode;
-	echo "-";
-	echo $_SESSION['validatecode'];
+	// echo $validatecode;
+	// echo "-";
+	// echo $_SESSION['verify'];
 
-	if (!(isset($_SESSION['validatecode']) && $_SESSION['validatecode'] == $validatecode)) {
+	if (!(isset($_SESSION['verify']) && $_SESSION['verify'] == $validatecode)) {
 		$validateCheck = "has-error";
 		$validateMsg = "验证码输入有误";
 	} else {
 		$pwd = isset($_POST[pwd]) ? $_POST[pwd] : "";
-		$pwd = strtoupper(substr(md5($pwd), 8, 16));
-		$query = "select pwd from BS_User where email='$emailphone' or account ='$emailphone' limit 1";
+		$pwd = strtoupper(md5($pwd));
+		// echo $pwd;
+		// echo "<br/>";
+
+		$query = "select uid, pwd from BS_User where email='$emailphone' or account ='$emailphone' limit 1";
 		// select top 1 pwd from BS_User where emial='$emailphone' or phone ='$emailphone'
 
 		// echo $query;
+		// echo "<br/>";
+
 		$result = mysqli_query(connect(), $query);
 		if ($result && $row = mysqli_fetch_assoc($result)) {
+			// echo $row['pwd'];
+			// echo "<br/>";
+
 			if ($row['pwd'] == $pwd) {
 				//login, keep the session
+				$uid = $row['uid'];
+
 				$msg = "登录成功";
 				$page = "index.php";
 				AlertMessage($page, $msg, "");

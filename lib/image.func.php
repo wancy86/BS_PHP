@@ -2,7 +2,7 @@
 require_once 'string.func.php';
 require_once './lib/FileUtil.php';
 // 通过GD库做验证码
-function verifyImage($type = 1, $length = 4, $pixel = 0, $line = 0, $sess_name = "validatecode") {
+function verifyImage($type = 1, $length = 4, $pixel = 0, $line = 0, $sess_name = "verify") {
 	// NOTE: 在include.php中已经调用了session_start，这里再调用会有问题
 	// session_start();
 
@@ -15,9 +15,9 @@ function verifyImage($type = 1, $length = 4, $pixel = 0, $line = 0, $sess_name =
 	// 用填充矩形填充画布
 	imagefilledrectangle($image, 1, 1, $width - 2, $height - 2, $white);
 	$chars = buildRandomString($type, $length);
-	$_SESSION['validatecode'] = $chars;
+	$_SESSION['verify'] = $chars;
 	//comment the gif header then debug
-	// echo $_SESSION['validatecode'];
+	// echo $_SESSION['verify'];
 	// $fontfiles = array ("MSYH.TTF", "MSYHBD.TTF", "SIMLI.TTF", "SIMSUN.TTC", "SIMYOU.TTF", "STZHONGS.TTF" );
 	$fontfiles = array(
 		"SIMYOU.TTF",
