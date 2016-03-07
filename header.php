@@ -94,7 +94,6 @@ Loged1;
 					</li>
 Loged2;
 	}
-
 	echo <<<Loged3
 					<li class="divider">
 					</li>
@@ -107,7 +106,6 @@ Loged2;
 Loged3;
 }
 ?>
-
 		<form class="navbar-form navbar-right" role="search">
 			<div class="form-group">
 				<input type="text" class="form-control">

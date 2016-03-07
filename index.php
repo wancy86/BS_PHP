@@ -61,7 +61,7 @@ if ($cat_id != '') {
 	$query .= " and B.cat_id in($cat_id)";
 }
 $query .= " order by A.pro_id";
-$query .= " limit 0, 30";
+$query .= " limit 0, 4";
 
 $result = mysqli_query(connect(), $query);
 $rows = array();
@@ -94,9 +94,10 @@ echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 			<div class="col-md-12">
 				<!--navbar-->
 				<?php require_once 'header.php';?>
-
-				<!--content-->
-				<?php
+			</div>
+		</div>
+		<!--content-->
+		<?php
 $index = 1;
 foreach ($rows as $item) {
 	$item_tbk_url = $item["tbk_url"];
@@ -141,11 +142,12 @@ if ($index % 4 != 0) {
 	echo "</div>";
 }
 ?>
+		<div class="row">
+			<div class="col-md-12">
+				<!--footer-->
+				<?php require_once 'footer.php';?>
 			</div>
 		</div>
-
-		<!--footer-->
-		<?php require_once 'footer.php';?>
 	</div>
 
 	<script src="js/jquery.min.js"></script>
