@@ -60,6 +60,10 @@
 					OK 数据管理页面添加功能实现
 
 					JS加载数据
+					tab改为js事件
+					滚动加载
+					从JSON读取数据，$.getJSON(url,callBack)
+
 
 					JSON文件表的生成设计实现
 						根据数据条数自动生成文件
