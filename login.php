@@ -2,26 +2,17 @@
 header("Content-type: text/html; charset=utf-8");
 require_once './lib/mysql.func.php';
 require_once './lib/common.func.php';
+session_start();
 
 $emailphone = isset($_POST[emailphone]) ? $_POST[emailphone] : "";
+$autologin = isset($_POST[autologin]) ? $_POST[autologin] : 0;
 $accountCheck = "";
 $accountMsg = "";
 $validateCheck = "";
 $validateMsg = "";
 
-session_start();
-// $_SESSION['mark'] = 'mark';
-// print_r($_SESSION);
-
-//if POST
-// echo $_POST[emailphone];
-// echo isset($_SESSION['verify']) ? 123 : 456;
-
 if (isset($_POST[emailphone])) {
 	$validatecode = isset($_POST[validatecode]) ? $_POST[validatecode] : "";
-	// echo $validatecode;
-	// echo "-";
-	// echo $_SESSION['verify'];
 
 	if (!(isset($_SESSION['verify']) && $_SESSION['verify'] == $validatecode)) {
 		$validateCheck = "has-error";
@@ -29,23 +20,19 @@ if (isset($_POST[emailphone])) {
 	} else {
 		$pwd = isset($_POST[pwd]) ? $_POST[pwd] : "";
 		$pwd = strtoupper(md5($pwd));
-		// echo $pwd;
-		// echo "<br/>";
 
-		$query = "select uid, pwd from BS_User where email='$emailphone' or account ='$emailphone' limit 1";
-		// select top 1 pwd from BS_User where emial='$emailphone' or phone ='$emailphone'
-
-		// echo $query;
-		// echo "<br/>";
-
+		$query = "select uid, account, pwd from BS_User where email='$emailphone' or account ='$emailphone' limit 1";
 		$result = mysqli_query(connect(), $query);
 		if ($result && $row = mysqli_fetch_assoc($result)) {
-			// echo $row['pwd'];
-			// echo "<br/>";
 
 			if ($row['pwd'] == $pwd) {
 				//login, keep the session
-				$uid = $row['uid'];
+				if ($autologin) {
+					setcookie("uid", $row['uid'], time() + 30 * 24 * 3600);
+					setcookie("account", $row['account'], time() + 30 * 24 * 3600);
+				}
+				$_SESSION['account'] = $row['account'];
+				$_SESSION['uid'] = $row['uid'];
 
 				$msg = "登录成功";
 				$page = "index.php";
@@ -126,7 +113,7 @@ if (isset($_POST[emailphone])) {
 							    <div class="col-sm-offset-2 col-sm-4">
 							      <div class="checkbox">
 							        <label>
-							          <input type="checkbox"> 30天自动登录
+							          <input type="checkbox" id="autologin" name="autologin" value="1"> 30天自动登录
 							        </label>
 							      </div>
 							    </div>

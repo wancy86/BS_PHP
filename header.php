@@ -1,5 +1,6 @@
 <?php
 require_once './lib/image.func.php';
+session_start();
 ?>
 <div class="page-header">
 	<h1>
@@ -48,7 +49,7 @@ require_once './lib/image.func.php';
 			</li>
 		</ul>
 <!-- 未登录 -->
-<?php if (1 == 1) {
+<?php if (!isset($_SESSION['uid'])) {
 	echo <<<unloged
        <ul class="nav navbar-nav navbar-right">
 			<li>
@@ -65,33 +66,45 @@ unloged;
 }
 ?>
 <!-- 登陆后 -->
-<?php if (1 == 2) {
-	echo <<<Loged
+<?php if (isset($_SESSION['uid'])) {
+	echo <<<Loged1
 		<ul class="nav navbar-nav navbar-right">
 			<li>
 				<a href="#">欢迎</a>
 			</li>
 			<li class="dropdown">
-				 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mark<strong class="caret"></strong></a>
+				 <a href="#" class="dropdown-toggle" data-toggle="dropdown">$_SESSION[account]<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="user_collect.php">收藏</a>
+						<a href="user_collect.php?uid=$_SESSION[uid]">收藏</a>
 					</li>
 					<li>
-						<a href="user_profile.php">资料</a>
+						<a href="user_profile.php?uid=$_SESSION[uid]">资料</a>
 					</li>
 					<li>
-						<a href="user_order.php">订单</a>
+						<a href="user_order.php?uid=$_SESSION[uid]">订单</a>
 					</li>
+Loged1;
+	if ($_SESSION['account'] == 'admin') {
+		echo <<<Loged2
 					<li class="divider">
 					</li>
 					<li>
-						<a href="#">退出</a>
+						<a href="admin_add.php">数据管理</a>
+					</li>
+Loged2;
+	}
+
+	echo <<<Loged3
+					<li class="divider">
+					</li>
+					<li>
+						<a href="logout.php">退出</a>
 					</li>
 				</ul>
 			</li>
 		</ul>
-Loged;
+Loged3;
 }
 ?>
 
