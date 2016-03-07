@@ -61,7 +61,7 @@ if ($cat_id != '') {
 	$query .= " and B.cat_id in($cat_id)";
 }
 $query .= " order by A.pro_id";
-$query .= " limit 0, 100";
+$query .= " limit 0, 30";
 
 $result = mysqli_query(connect(), $query);
 $rows = array();
