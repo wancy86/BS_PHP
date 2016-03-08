@@ -17,3 +17,10 @@ function RefreshValidImg(obj) {
 	src += '?t=' + (new Date()).getTime();
 	$(obj).attr("src", src);
 }
+
+function RenderJSON(jsonURL) {
+	$.getJSON(jsonURL, function(data) {
+		//loop
+		console.log(typeof data);
+	});
+}

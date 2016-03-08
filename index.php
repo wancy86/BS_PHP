@@ -76,6 +76,8 @@ while (@$row = mysqli_fetch_assoc($result)) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="images/bs.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="images/bs.ico" type="image/x-icon" />
 
 <title>BoyStyle</title>
 
@@ -138,21 +140,23 @@ theEnd;
 	}
 	$index = $index + 1;
 }
-if ($index % 4 != 0) {
+if (($index - 1) % 4 != 0) {
 	echo "</div>";
 }
 ?>
-		<div class="row">
-			<div class="col-md-12">
-				<!--footer-->
-				<?php require_once 'footer.php';?>
-			</div>
-		</div>
+
+		<!--footer-->
+		<?php require_once 'footer.php';?>
 	</div>
 
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
+		});
+	</script>
 
 </body>
 </html>

@@ -1,6 +1,4 @@
-
-
-<hr style="margin-top:50px;" />
+<!-- <hr style="margin-top:50px;" /> -->
 <div class="row">
 	<div class="col-md-3">
 		<dl>
