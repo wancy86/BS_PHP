@@ -88,6 +88,11 @@ function RenderJSON(jsonURL) {
 }
 
 function ShowByCategory (category,load_order) {
+	//TODO this need better solution
+	if(window.location.href.indexOf("index.php")<0)
+	{
+		window.location.href="http://localhost/boystyle/index.php";
+	}
 	// "/boystyle/data/BFF7A6473FF23C3C_1_50.json"
 	var jsonURL="/boystyle/data/"+category+"_1_50.json";
 	$("#content").html('');
