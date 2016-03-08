@@ -99,10 +99,52 @@ echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 			</div>
 		</div>
 		<!--content-->
-		<div class="row">
-			<div class="col-md-12" id="content">
-			</div>
-		</div>
+		<?php
+$index = 1;
+foreach ($rows as $item) {
+	$item_tbk_url = $item["tbk_url"];
+	$item_title = $item["title"];
+	$item_img_url = $item["img_url"];
+	$item_title = $item["title"];
+	$item_price = $item["price"];
+	$item_comm_percent = $item["comm_percent"];
+	$item_month_sold = $item["month_sold"];
+	$item_tbk_url = $item["tbk_url"];
+	if ($index % 4 == 1) {
+		echo '<div class="row">';
+	}
+	echo <<<theEnd
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <a href="$item_tbk_url" target="_blank"><img alt="$item_title" src="$item_img_url"/></a>
+                                    <div class="caption">
+                                        <h3>
+                                            $item_title
+            							</h3>
+            							<p>
+            								$item_price / $item_comm_percent
+            							</p>
+            						    <p>
+            								月销量:$item_month_sold
+            							</p>
+            							<p>
+            								<a class="btn btn-danger" href="$item_tbk_url" target="_blank">去看看</a> <a class="btn" href="#">收藏</a>
+            							</p>
+            						</div>
+        					   </div>
+    					   </div>
+theEnd;
+	// 标记好必须顶头写
+	if ($index % 4 == 0) {
+		echo "</div>";
+	}
+	$index = $index + 1;
+}
+if (($index - 1) % 4 != 0) {
+	echo "</div>";
+}
+?>
+
 		<!--footer-->
 		<?php require_once 'footer.php';?>
 	</div>
@@ -113,7 +155,6 @@ echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 	<script type="text/javascript">
 		$(function() {
 			RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
-			// RenderJSON("/boystyle/data/BFF7A6473FF23C3C_51_150.json");
 		});
 	</script>
 

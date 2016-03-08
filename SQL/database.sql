@@ -44,6 +44,11 @@ select * from BS_ProInfo;
 /* DESC BS_ProInfo; */
 
 
+update BS_Proinfo
+set commission=truncate(round(price*comm_percent/100.0,2),2);
+
+
+
 create TABLE IF NOT EXISTS BS_Category(
 	cat_id int,
 	category varchar(100),
