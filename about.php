@@ -74,6 +74,8 @@
 					TODO 实现分页和滚动刷新
 					TODO 实现json数据的缓存
 
+					重新整理分类,数据导入优化
+
 				</pre>
             </div>
             <div class="col-md-6">
