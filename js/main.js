@@ -20,6 +20,8 @@ function RefreshValidImg(obj) {
 
 function RenderJSON(jsonURL) {
 	$.getJSON(jsonURL, function(data) {
+		//clear
+
 		//loop	
 		// data[i]['pro_id']
 		// data[i]['title']
@@ -83,4 +85,11 @@ function RenderJSON(jsonURL) {
 			$("#content").append(Row);
 		}
 	});
+}
+
+function ShowByCategory (category,load_order) {
+	// "/boystyle/data/BFF7A6473FF23C3C_1_50.json"
+	var jsonURL="/boystyle/data/"+category+"_1_50.json";
+	$("#content").html('');
+	RenderJSON(jsonURL);
 }
