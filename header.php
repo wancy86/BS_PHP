@@ -21,25 +21,25 @@ session_start();
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory('E1140E7CF9C2305D')">男神潮装</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'E1140E7CF9C2305D',1)">男神潮装</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory('E0DC46B5A5B998BE')">鞋子</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'E0DC46B5A5B998BE',1)">鞋子</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory('BFF7A6473FF23C3C')">女神靓装</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'BFF7A6473FF23C3C',1)">女神靓装</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory('BFF7A6473FF23C3C')">精美配饰</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'BFF7A6473FF23C3C',1)">精美配饰</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory('FD0F2BA821918F4E')">美食</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'FD0F2BA821918F4E',1)">美食</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory('BFF7A6473FF23C3C')">趣玩</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'BFF7A6473FF23C3C',1)">趣玩</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory('BFF7A6473FF23C3C')">品质生活</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'BFF7A6473FF23C3C',1)">品质生活</a>
 			</li>
 			<li>
 				<a href="/boystyle/about.php">About</a>

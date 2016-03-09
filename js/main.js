@@ -87,14 +87,44 @@ function RenderJSON(jsonURL) {
 	});
 }
 
-function ShowByCategory (category,load_order) {
+function ShowByCategory(obj, category, load_order) {
+	var load_order = load_order || 1;
+	var category = category || '潮装';
+	$("#content").data("category", category);
+	$("#content").data("load_order", load_order);
+
+	$(".nav.navbar-nav li").removeClass("active");
+	$(obj).parents("li").addClass("active");
+
 	//TODO this need better solution
-	if(window.location.href.indexOf("index.php")<0)
-	{
-		window.location.href="http://localhost/boystyle/index.php";
+	if (window.location.href.indexOf("index.php") < 0) {
+		window.location.href = "http://localhost/boystyle/index.php";
 	}
+	var JSON_List = $("#content").data("JSONList");
 	// "/boystyle/data/BFF7A6473FF23C3C_1_50.json"
-	var jsonURL="/boystyle/data/"+category+"_1_50.json";
-	$("#content").html('');
+	var jsonURL = "/boystyle/data/" + category + "_1_50.json";
+
+	if (load_order == 1) {
+		$("#content").html('');
+	}
 	RenderJSON(jsonURL);
 }
+
+function ScrollPaging() {
+	//category, load_order
+	var category = $("#content").data("category");
+	var load_order = $("#content").data("load_order") + 1;
+	var obj = $(".nav.navbar-nav li.active a");
+	if (obj.length == 0) {
+		$(".nav.navbar-nav li").removeClass("active");
+		$(".nav.navbar-nav li").eq(0).addClass("active");
+	}
+	ShowByCategory(category, load_order);
+}
+
+// category
+// load_order
+// Data_rows
+// File_Name
+// $("#content").data("JSONList",JSONList);
+// $("#content").data("load_order",1);
