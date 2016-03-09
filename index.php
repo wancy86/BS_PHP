@@ -114,6 +114,24 @@ echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 		$(function() {
 			RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
 			// RenderJSON("/boystyle/data/BFF7A6473FF23C3C_51_150.json");
+
+			var JSONList=[];
+<?php
+$query = " select category,load_order,Data_rows,File_Name from BS_JSON";
+$query .= " order by category, load_order";
+$result = mysqli_query(connect(), $query);
+while ($row = mysqli_fetch_assoc($result)) {
+	echo <<<JSON_List
+	JSONList.push({
+		category:'$row[category]',
+		load_order:'$row[load_order]',
+		Data_rows:'$row[Data_rows]',
+		File_Name:'$row[File_Name]'
+	});
+JSON_List;
+}
+?>
+			$("#content").data("JSONList",JSONList);
 		});
 	</script>
 
