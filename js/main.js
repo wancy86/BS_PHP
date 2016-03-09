@@ -93,8 +93,8 @@ function RenderJSON(jsonURL) {
 function ShowByCategory(obj, category, load_order) {
 	var category = category || '潮装';
 	var load_order = load_order || 1;
-	console.log(category);
-	console.log(load_order);
+	// console.log(category);
+	// console.log(load_order);
 
 	$("#content").data("category", category);
 	$("#content").data("load_order", load_order);
@@ -113,9 +113,9 @@ function ShowByCategory(obj, category, load_order) {
 	var JSONFile = "";
 	for (var i = 0; i < JSON_List.length; i++) {
 		var temp = JSON_List[i];
-		console.log('-----------------');
-		console.log(temp.category);
-		console.log(temp.load_order);
+		// console.log('-----------------');
+		// console.log(temp.category);
+		// console.log(temp.load_order);
 		if (temp.category == category && temp.load_order == load_order) {
 			JSONFile = temp;
 			break;
@@ -123,6 +123,10 @@ function ShowByCategory(obj, category, load_order) {
 	}
 	if (JSONFile == "") {
 		console.log('没有更多数据');
+		if ($("#content .end_list").length==0) {
+			var nomoreData = $('<div class="row end_list bordered"> <div class="col-md-12"> <h3 class="text-center"> 没有更多数据 </h3> </div> </div>');
+			$("#content").append(nomoreData);
+		}
 		return false;
 	}
 
