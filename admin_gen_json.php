@@ -40,7 +40,7 @@ while (@$category = mysqli_fetch_assoc($result)) {
 	// loop to create the JSON
 	$start = 1;
 	$load_order = 1;
-	for ($end = 50; $end < $TotalRowsNum; $end += 100) {
+	for ($end = 48; $end < $TotalRowsNum; $end += 48) {
 		$filename = strtoupper(substr(md5($cat), 8, 16)) . "_" . $start . "_" . "$end" . ".json";
 		$file_Path = $_SERVER['DOCUMENT_ROOT'] . "/$web_name/data/" . $filename;
 		// echo $filename;

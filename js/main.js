@@ -1,10 +1,12 @@
 $(function() {
 	$(window).scroll(function() {
+		if (window.location.href.indexOf("index.php") < 0) {
+			return false;
+		}
 		var scrollTop = $(this).scrollTop();
-		var windowHeight=$(window).height();
+		var windowHeight = $(window).height();
 		var documentHeight = $(document).height();
-		if(scrollTop == documentHeight-windowHeight)
-		{
+		if (scrollTop == documentHeight - windowHeight) {
 			// console.log('scrollTop:'+scrollTop);
 			// console.log('documentHeight-windowHeight:'+(documentHeight-windowHeight));
 			ScrollPaging();
@@ -91,8 +93,8 @@ function RenderJSON(jsonURL) {
 function ShowByCategory(obj, category, load_order) {
 	var category = category || '潮装';
 	var load_order = load_order || 1;
-	// console.log(category);
-	// console.log(load_order);
+	console.log(category);
+	console.log(load_order);
 
 	$("#content").data("category", category);
 	$("#content").data("load_order", load_order);
@@ -110,10 +112,18 @@ function ShowByCategory(obj, category, load_order) {
 	var JSON_List = $("#content").data("JSONList");
 	var JSONFile = "";
 	for (var i = 0; i < JSON_List.length; i++) {
-		JSONFile = JSON_List[i];
-		if (JSONFile.category == category && JSONFile.load_order == load_order) {
+		var temp = JSON_List[i];
+		console.log('-----------------');
+		console.log(temp.category);
+		console.log(temp.load_order);
+		if (temp.category == category && temp.load_order == load_order) {
+			JSONFile = temp;
 			break;
 		}
+	}
+	if (JSONFile == "") {
+		console.log('没有更多数据');
+		return false;
 	}
 
 	// "/boystyle/data/BFF7A6473FF23C3C_1_50.json"
