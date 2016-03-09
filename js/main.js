@@ -1,15 +1,16 @@
 $(function() {
-	var href = window.location.href;
-	href = href.substr(href.lastIndexOf('/') + 1);
-	href = href.replace(/\.(html|php)/, '');
-
-	InitNavbar(href);
+	$(window).scroll(function() {
+		var scrollTop = $(this).scrollTop();
+		var windowHeight=$(window).height();
+		var documentHeight = $(document).height();
+		if(scrollTop == documentHeight-windowHeight)
+		{
+			// console.log('scrollTop:'+scrollTop);
+			// console.log('documentHeight-windowHeight:'+(documentHeight-windowHeight));
+			ScrollPaging();
+		}
+	});
 });
-
-function InitNavbar(currentPage) {
-	$('.nav li').removeClass('active');
-	$('.nav li a[href*=' + currentPage + ']').parent('li').addClass('active');
-}
 
 function RefreshValidImg(obj) {
 	var src = $(obj).attr("src");
@@ -88,8 +89,11 @@ function RenderJSON(jsonURL) {
 }
 
 function ShowByCategory(obj, category, load_order) {
-	var load_order = load_order || 1;
 	var category = category || '潮装';
+	var load_order = load_order || 1;
+	// console.log(category);
+	// console.log(load_order);
+
 	$("#content").data("category", category);
 	$("#content").data("load_order", load_order);
 
@@ -98,11 +102,24 @@ function ShowByCategory(obj, category, load_order) {
 
 	//TODO this need better solution
 	if (window.location.href.indexOf("index.php") < 0) {
+		// console.log('redirect');
 		window.location.href = "http://localhost/boystyle/index.php";
 	}
+
+	// category // load_order // Data_rows // File_Name
 	var JSON_List = $("#content").data("JSONList");
+	var JSONFile = "";
+	for (var i = 0; i < JSON_List.length; i++) {
+		JSONFile = JSON_List[i];
+		if (JSONFile.category == category && JSONFile.load_order == load_order) {
+			break;
+		}
+	}
+
 	// "/boystyle/data/BFF7A6473FF23C3C_1_50.json"
-	var jsonURL = "/boystyle/data/" + category + "_1_50.json";
+	var jsonURL = "/boystyle/data/" + JSONFile.File_Name;
+
+	console.log(jsonURL);
 
 	if (load_order == 1) {
 		$("#content").html('');
@@ -115,16 +132,10 @@ function ScrollPaging() {
 	var category = $("#content").data("category");
 	var load_order = $("#content").data("load_order") + 1;
 	var obj = $(".nav.navbar-nav li.active a");
-	if (obj.length == 0) {
+	if (!obj || obj.length == 0) {
 		$(".nav.navbar-nav li").removeClass("active");
 		$(".nav.navbar-nav li").eq(0).addClass("active");
+		obj = $(".nav.navbar-nav li.active a");
 	}
-	ShowByCategory(category, load_order);
+	ShowByCategory(obj, category, load_order);
 }
-
-// category
-// load_order
-// Data_rows
-// File_Name
-// $("#content").data("JSONList",JSONList);
-// $("#content").data("load_order",1);

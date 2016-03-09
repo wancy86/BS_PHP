@@ -112,9 +112,7 @@ echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
-			// RenderJSON("/boystyle/data/BFF7A6473FF23C3C_51_150.json");
-
+			// RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
 			var JSONList=[];
 <?php
 $query = " select category,load_order,Data_rows,File_Name from BS_JSON";
@@ -132,6 +130,7 @@ JSON_List;
 }
 ?>
 			$("#content").data("JSONList",JSONList);
+			ScrollPaging();
 		});
 	</script>
 
