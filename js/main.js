@@ -71,11 +71,11 @@ function RenderJSON(jsonURL) {
 		temp += '        <div class="caption">';
 		temp += '            <h3>data_title</h3>';
 		temp += '            <p>';
-		temp += '                data_price / data_commission';
+		temp += '                价格: ￥data_price / 返利: data_commission BB / 月销量:data_month_sold';
 		temp += '            </p>';
-		temp += '            <p>';
-		temp += '                月销量:data_month_sold';
-		temp += '            </p>';
+		// temp += '            <p>';
+		// temp += '                月销量:data_month_sold';
+		// temp += '            </p>';
 		temp += '            <p>';
 		temp += '                <a class="btn btn-danger" href="data_tbk_url" target="_blank">去看看</a> <a class="btn" href="#">收藏</a>';
 		temp += '            </p>';
