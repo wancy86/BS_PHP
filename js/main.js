@@ -11,6 +11,24 @@ $(function() {
 			// console.log('documentHeight-windowHeight:'+(documentHeight-windowHeight));
 			ScrollPaging();
 		}
+
+		//add / remove backToTop
+		if(documentHeight>windowHeight&&scrollTop>300)
+		{
+			//add
+			if($("#backtoTop").length==0){
+				$("body").append($('<div id="backtoTop" style="position:fixed;bottom:200px;right:30px;cursor:pointer;"><img src="./images/top.png"></div>'));
+				$("#backtoTop").click(function (){
+					scroll(0,0);
+					$('#backtoTop').remove();
+				});
+			}
+		}
+		else{
+			//remove
+			$("#backtoTop").remove();
+		}
+		
 	});
 });
 
