@@ -124,7 +124,7 @@ function ShowByCategory(obj, category, load_order) {
 	if (JSONFile == "") {
 		console.log('没有更多数据');
 		if ($("#content .end_list").length==0) {
-			var nomoreData = $('<div class="row end_list bordered"> <div class="col-md-12"> <h3 class="text-center"> 没有更多数据 </h3> </div> </div>');
+			var nomoreData = $('<div class="row end_list well well-lg"> <div class="col-md-12"> <h3 class="text-center"> 没有更多数据 </h3> </div> </div>');
 			$("#content").append(nomoreData);
 		}
 		return false;
