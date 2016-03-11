@@ -53,9 +53,12 @@ while (@$category = mysqli_fetch_assoc($result)) {
 
 // 按类别保存生产的文件到数据库
 function SaveFileNameToDB($category, $load_order, $data_rows, $filename) {
-	$query = "replace into BS_JSON(category ,load_order ,data_rows ,file_name ,entry_date )";
-	$query .= "values('$category' ,$load_order ,$data_rows ,'$filename',now())";
+	$query = "replace into BS_JSON(category ,load_order ,data_rows ,file_name)";
+	$query .= "values('$category' ,$load_order ,$data_rows ,'$filename')";
 	// echo $query;
+	mysqli_query(connect(), $query);
+
+	$query = "update BS_JSON set entry_date=now() where file_name='$filename'";
 	mysqli_query(connect(), $query);
 }
 
@@ -73,6 +76,8 @@ function SaveJsonData($category, $start, $end, $file_Path) {
 	while (@$row = mysqli_fetch_assoc($result2)) {
 		$rows[] = $row;
 	}
+	//random order
+	shuffle($rows);
 
 	// echo $filename;
 	// echo $query2;

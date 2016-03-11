@@ -48,15 +48,17 @@
 
 			<b>任务列表：</b>
 			★★☆优先完成:
+			图片的大小不一样想办法调整: row-col-col
+				可以使用备份的index页面做测试
 			宝贝展示的美化，佣金/收益修改
 			根据用户购买记录关联宝贝列表返还积分
 			用户中心积分返还进度状态
 
-			从about等其他页面到index的跳转bug，cookie
+			OK (上线不显示他们)从about等其他页面到index的跳转bug，cookie
+			OK 利用shuffle()对展示类表洗牌换序
 			admin_add 页面改成tab的方式
 			注册用户需要淘宝账号
 			用户中心展示礼品兑换目标
-			利用shuffle()对展示类表洗牌换序
 
 			</pre>
         </div>
