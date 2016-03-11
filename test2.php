@@ -2,8 +2,14 @@
 header("Content-type: text/html; charset=utf-8");
 // echo 123;
 
+//test mail
+mail('mwan@maxprocessing.com', 'test', 'hello mark');
+
 //test MD5
-echo strtoupper(substr(md5('潮装'), 8, 16));
+if (1 == 2) {
+	echo strtoupper(substr(md5('潮装'), 8, 16));
+}
+
 //e10adc3949ba59abbe56e057f20f883e
 
 //test JSON
