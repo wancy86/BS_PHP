@@ -8,8 +8,6 @@
     <link rel="icon" href="images/bs.ico" type="image/x-icon" />
 	<link rel="shortcut icon" href="images/bs.ico" type="image/x-icon" />
     <title>About</title>
-    <meta name="description" content="Source code generated using layoutit.com">
-    <meta name="author" content="LayoutIt!">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
