@@ -4,7 +4,7 @@ session_start();
 ?>
 <div class="page-header">
 	<h1>
-		BoyStyle! <small>-- 男人，爱生活，爱自己!</small>
+		BoyStyle! <small>-- 爱生活，爱自己!</small>
 	</h1>
 </div>
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
@@ -24,22 +24,37 @@ session_start();
 				<a href="javascript:void(0);" onclick="ShowByCategory(this,'潮装',1)">男神潮装</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'鞋子',1)">鞋子</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'男鞋',1)">男鞋</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'送女友',1)">女神靓装</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)">电子产品</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'送女友',1)">精美配饰</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'靓装',1)">女神靓装</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'女鞋',1)">女鞋</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'精美配饰',1)">精美配饰</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'美容护肤',1)">美容护肤</a>
 			</li>
 			<li>
 				<a href="javascript:void(0);" onclick="ShowByCategory(this,'美食',1)">美食</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'送女友',1)">趣玩</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'童装',1)">童装</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'送女友',1)">品质生活</a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'玩具',1)">玩具</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)">创意趣玩</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'品质生活',1)">品质生活</a>
 			</li>
 			<li>
 				<a href="/boystyle/about.php">About</a>
