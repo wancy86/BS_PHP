@@ -54,9 +54,9 @@
 			根据用户购买记录关联宝贝列表返还积分
 			用户中心积分返还进度状态
 
-			OK (上线不显示他们)从about等其他页面到index的跳转bug，cookie
+			从about等其他页面到index的跳转bug，cookie(上线不显示他们)
 			OK 利用shuffle()对展示类表洗牌换序
-			admin_add 页面改成tab的方式
+			OK admin_add 页面改成tab的方式
 			注册用户需要淘宝账号
 			用户中心展示礼品兑换目标
 
