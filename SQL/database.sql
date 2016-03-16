@@ -196,3 +196,52 @@ delete from BS_Order;
 order_id ,pro_id ,title ,seller_ww ,shop_name ,pro_number ,price ,order_status ,totalcomm_percent ,share_percent ,paid_amount ,earn_preview ,price_real
 ,earn_inplan ,paid_date ,comm_percent ,commission ,butie_percent ,butie_amount ,butie_type ,platform ,thrid_server ,category ,ad_holder ,entry_date
 */
+
+
+/*
+*用户订单查询，添加修改
+*/
+create table if not exists BS_UserOrder(	
+	order_id bigint,/*订单编号*/
+	uid int,
+	primary key(order_id)
+)default charset=utf8;
+/*
+select A.order_id, 
+from BS_UserOrder as A 
+left join BS_Order as B on A.order_id=B.order_id
+where A.uid=$uid
+*/
+
+replace into BS_UserOrder(order_id,uid)  values(1627901148814774,1),(1625509289254774,1);
+
+select A.order_id, 
+IFNULL(B.pro_id,'') as pro_id,
+IFNULL(B.title,'') as title,
+IFNULL(B.seller_ww,'') as seller_ww,
+IFNULL(B.shop_name,'') as shop_name,
+IFNULL(B.pro_number,'') as pro_number,
+IFNULL(B.price,'') as price,
+IFNULL(B.order_status,'') as order_status,
+IFNULL(B.totalcomm_percent,'') as totalcomm_percent,
+IFNULL(B.share_percent,'') as share_percent,
+IFNULL(B.paid_amount,'') as paid_amount,
+IFNULL(B.earn_preview,'') as earn_preview,
+IFNULL(B.price_real,'') as price_real,
+IFNULL(B.earn_inplan,'') as earn_inplan,
+IFNULL(B.paid_date,'') as paid_date,
+IFNULL(B.comm_percent,'') as comm_percent,
+IFNULL(B.commission,'') as commission,
+IFNULL(B.butie_percent,'') as butie_percent,
+IFNULL(B.butie_amount,'') as butie_amount,
+IFNULL(B.butie_type,'') as butie_type,
+IFNULL(B.platform,'') as platform,
+IFNULL(B.thrid_server,'') as thrid_server,
+IFNULL(B.category,'') as category,
+IFNULL(B.ad_holder,'') as ad_holder,
+IFNULL(B.entry_date,'') as entry_date
+from BS_UserOrder as A 
+left join BS_Order as B on A.order_id=B.order_id
+
+
+
