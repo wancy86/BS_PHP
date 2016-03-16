@@ -1,4 +1,6 @@
 <?php
+require_once 'lib/mysql.func.php';
+
 $action = $_GET['action'];
 $uid = $_GET['uid'];
 
@@ -9,7 +11,7 @@ case 'search':
 	$result = mysqli_query(connect(), $query);
 
 	//查询单条记录返回
-	$query = " select A.order_id, A.uid";
+	$query = " select A.order_id, A.uid,";
 	$query .= " IFNULL(B.pro_id,'') as pro_id,";
 	$query .= " IFNULL(B.title,'') as title,";
 	$query .= " IFNULL(B.seller_ww,'') as seller_ww,";
@@ -36,10 +38,12 @@ case 'search':
 	$query .= " IFNULL(B.entry_date,'') as entry_date";
 	$query .= " from BS_UserOrder as A ";
 	$query .= " left join BS_Order as B on A.order_id=B.order_id";
-	$query .= " where A.uid=$uid and A.order_id=$order_id";
+	$query .= " where A.uid=$uid and A.order_id='$order_id'";
 	$result = mysqli_query(connect(), $query);
 
-	echo json_encode($result);
+	// echo "$query";
+
+	echo json_encode(mysqli_fetch_assoc($result));
 	break;
 case 'del':
 	$query = "delete from BS_UserOrder where uid=$uid and order_id=$order_id";

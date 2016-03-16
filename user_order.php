@@ -1,7 +1,8 @@
 <?php
 require_once 'lib/mysql.func.php';
+session_start();
+$uid = $_SESSION['uid'];
 
-$uid = $_GET['uid'];
 $query = " select A.order_id, A.uid,";
 $query .= " IFNULL(B.pro_id,'') as pro_id,";
 $query .= " IFNULL(B.title,'') as title,";
@@ -39,53 +40,63 @@ while (@$row = mysqli_fetch_assoc($result)) {
 }
 // print_r($orders);
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BoyStyle</title>
-    <meta name="description" content="Source code generated using layoutit.com">
-    <meta name="author" content="LayoutIt!">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>BoyStyle</title>
+        <meta name="description" content="Source code generated using layoutit.com">
+        <meta name="author" content="LayoutIt!">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
 
-<body>
-    <div class="container-fluid">
-        <?php require_once 'header.php';?>
-        <div class="row">
-            <div class="col-md-12">
-                <h3>
-				订单列表
-			</h3>
+    <body>
+        <div class="container-fluid">
+            <?php require_once 'header.php';?>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3> 订单列表 </h3>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-bordered table-striped table-hover">
-                    <colgroup>
-                        <col class="span1">
-                        <col class="span7">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>订单号</th>
-                            <th>商品描述</th>
-                            <th>成交价格</th>
-                            <th>订单状态</th>
-                            <th>预计返利</th>
-                            <th>返利状态</th>
-                            <th>订单日期</th>
-                            <th>计算日期</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php $index = 1;foreach ($orders as $order) {
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="navbar-form navbar-left" role="search" style="padding-left:0px;">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="order_id" name="order_id" placeholder="订单号码">
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="SearchUserOrder(this, <?php echo " $uid "; ?>)">
+                            查询订单 >>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped table-hover">
+                        <colgroup>
+                            <col class="span1">
+                            <col class="span7">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>订单号</th>
+                                <th>商品描述</th>
+                                <th>成交价格</th>
+                                <th>订单状态</th>
+                                <th>预计返利</th>
+                                <th>返利状态</th>
+                                <th>订单日期</th>
+                                <th>计算日期</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $index = 1;foreach ($orders as $order) {
 	echo <<<ORDER_EOD
 						<tr>
                             <td>
@@ -123,78 +134,73 @@ ORDER_EOD;
 	$index++;
 }
 ?>
-
-                    </tbody>
-                </table>
-                <div class="col-md-12">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#">Prev</a>
-                        </li>
-                        <li>
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#">4</a>
-                        </li>
-                        <li>
-                            <a href="#">5</a>
-                        </li>
-                        <li>
-                            <a href="#">Next</a>
-                        </li>
-                    </ul>
+                        </tbody>
+                    </table>
+                    <div class="col-md-12">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#">Prev</a>
+                            </li>
+                            <li>
+                                <a href="#">1</a>
+                            </li>
+                            <li>
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li>
+                                <a href="#">4</a>
+                            </li>
+                            <li>
+                                <a href="#">5</a>
+                            </li>
+                            <li>
+                                <a href="#">Next</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <?php require_once "footer.php";?>
         </div>
-        <?php require_once "footer.php"?>
-    </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+        function SearchUserOrder(obj, uid) {
+            //查询用户订单，没有记录则添加记录
+            $.ajax({
+                url: "admin_ajax.php",
+                data: {
+                    uid: uid,
+                    action: "search",
+                    order_id: $("#order_id").val()
+                },
+                success: function(data) {
+                    //删除页面的DOM TR, 或者刷新列表
+                    console.log(data);
+                }
+            });
+        }
 
-    function SearchUserOrder(obj,uid,order_id)
-	{
-		//查询用户订单，没有记录则添加记录
-		$.ajax({
-			url:"admin_ajax.php"
-			data:{
-				uid:uid,
-				action:"search",
-				order_id:order_id
-			},
-			success:function(data){
-				//删除页面的DOM TR, 或者刷新列表
-				console.log(data);
-			}
-		});
-	}
-	function DeleteUserOrder(obj,uid,order_id)
-	{
-		//删除用户订单
-		$.ajax({
-			url:"admin_ajax.php"
-			data:{
-				uid:uid,
-				action:"del",
-				order_id:order_id
-			},
-			success:function(data){
-				//删除页面的DOM TR, 或者刷新列表
-				console.log(data);
-			}
-		});
-	}
-    </script>
+        function DeleteUserOrder(obj, uid, order_id) {
+            //删除用户订单
+            $.ajax({
+                url: "admin_ajax.php",
+                data: {
+                    uid: uid,
+                    action: "del",
+                    order_id: order_id
+                },
+                success: function(data) {
+                    //删除页面的DOM TR, 或者刷新列表
+                    console.log(data);
+                }
+            });
+        }
+        </script>
+    </body>
 
-
-</body>
-
-</html>
+    </html>
