@@ -22,7 +22,7 @@ $query2 = "select * from bs_json order by fid";
 $result2 = mysqli_query(connect(), $query2);
 $json_files = array();
 while (@$row = mysqli_fetch_assoc($result2)) {
-    $json_files[] = $row;
+	$json_files[] = $row;
 }
 
 ?>
@@ -53,13 +53,13 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                     <div class="tabbable" id="tabs-1">
                         <ul class="nav nav-tabs">
                             <li class="active">
-                                <a href="#panel-1" data-toggle="tab">数据导入</a>
+                                <a href="#panel-1" data-toggle="tab">商品数据导入</a>
                             </li>
                             <li>
                                 <a href="#panel-2" data-toggle="tab">JSON生成</a>
                             </li>
                             <li>
-                                <a href="#panel-3" data-toggle="tab">xxxx</a>
+                                <a href="#panel-3" data-toggle="tab">订单数据导入</a>
                             </li>
                             <li>
                                 <a href="#panel-4" data-toggle="tab">xxxx</a>
@@ -69,20 +69,21 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                             <div class="tab-pane active" id="panel-1">
                                 <div class="row">
                                     <div class="col-md-12 ">
-                                        <h2>导入数据</h2>
+                                        <h2>商品数据导入</h2>
                                         <hr>
                                         <form action="admin_import.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1"> 类别 </label>
                                                 <select id="cat_id" name="cat_id" class="form-control" style="width: 200px;">
                                                     <?php foreach ($rows as $sub_cat) {
-                                                            echo "<option value='" . $sub_cat["cat_id"] . "'>" . $sub_cat["cat_desc"] . "</option>";
-                                                        }
-                                                    ?>
+	echo "<option value='" . $sub_cat["cat_id"] . "'>" . $sub_cat["cat_desc"] . "</option>";
+}
+?>
                                                 </select>
                                             </div>
                                             <div class="form-group" style="margin-left: 20px;">
                                                 <label for="exampleInputFile"> 导入文件 </label>
+                                                <input type="hidden" name="datatype" value="prodata"/>
                                                 <input type="file" id="file" name="file" />
                                                 <p class="help-block">选择从淘宝客导出的Excel文件.</p>
                                             </div>
@@ -102,9 +103,9 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                                 <select id="category" name="category[]" class="form-control" style="width:200px;" multiple='multiple' size="3">
                                                     <option value="ALL">ALL</option>
                                                     <?php foreach ($cat_rows as $cat) {
-                                                            echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";
-                                                        }
-                                                    ?>
+	echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";
+}
+?>
                                                 </select>
                                             </div>
                                             <button type="submit" class="btn btn-success">Re-Generate-JSON >></button>
@@ -122,9 +123,9 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php $rownum =1; 
-                                            foreach ($json_files as $filerow) {
-                                            echo <<<JSON_EOD
+                                            <?php $rownum = 1;
+foreach ($json_files as $filerow) {
+	echo <<<JSON_EOD
                                             <tr>
                                                 <td>
                                                     $rownum
@@ -146,8 +147,9 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                                 </td>
                                             </tr>
 JSON_EOD;
-                                            $rownum++;
-                                            }?>
+	$rownum++;
+}
+?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -156,20 +158,12 @@ JSON_EOD;
                             <div class="tab-pane" id="panel-3">
                                 <div class="row">
                                     <div class="col-md-12 ">
-                                        <h2>导入数据</h2>
+                                        <h2>订单数据导入</h2>
                                         <hr>
                                         <form action="admin_import.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1"> 类别 </label>
-                                                <select id="cat_id" name="cat_id" class="form-control" style="width: 200px;">
-                                                    <?php foreach ($rows as $sub_cat) {
-                                                            echo "<option value='" . $sub_cat["cat_id"] . "'>" . $sub_cat["cat_desc"] . "</option>";
-                                                        }
-                                                    ?>
-                                                </select>
-                                            </div>
                                             <div class="form-group" style="margin-left: 20px;">
                                                 <label for="exampleInputFile"> 导入文件 </label>
+                                                <input type="hidden" name="datatype" value="orderdata"/>
                                                 <input type="file" id="file" name="file" />
                                                 <p class="help-block">选择从淘宝客导出的Excel文件.</p>
                                             </div>
@@ -181,8 +175,8 @@ JSON_EOD;
                         </div> <!-- tabcontent -->
                     </div> <!-- tabable -->
                 </div> <!-- col -->
-            </div> <!-- row -->           
-            
+            </div> <!-- row -->
+
             <!--footer-->
             <?php require_once 'footer.php';?>
         </div> <!-- container -->

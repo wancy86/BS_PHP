@@ -151,3 +151,48 @@ select * from BS_JSON;
 delete from BS_JSON;
 */
 
+
+/*
+*订单表，记录成交的订单数据，来自淘宝客中心的数据
+*/
+/*
+drop table BS_Order;
+*/
+create table if not exists BS_Order(
+	order_id bigint,/*订单编号*/
+	pro_id bigint,/*商品ID*/
+	title varchar(1000),/*商品详情*/
+	seller_ww VARCHAR(200),	/*卖家旺旺*/
+	shop_name VARCHAR(200),/*店铺名称*/
+	pro_number int,/*商品数量*/
+	price float,/*商品单价*/
+	order_status varchar(200),/*订单状态*/
+	totalcomm_percent FLOAT,/*收入比例*/
+	share_percent varchar(100),/*分成比例*/
+	paid_amount float,/*付款金额*/
+	earn_preview float,/*效果预估*/
+	price_real float,/*计算金额*/
+	earn_inplan float,/*预估收入*/
+	paid_date datetime,/*计算时间*/
+	comm_percent FLOAT,/*佣金比例*/
+	commission float,/*佣金*/
+	butie_percent float,/*补贴比例*/
+	butie_amount float,/*补贴金额*/
+	butie_type varchar(200),/*补贴类型*/
+	platform varchar(100),/*成交平台，PC*/
+	thrid_server varchar(200),/*第三方服务*/
+	category varchar(200),/*类目名称*/
+	ad_holder bigint,/*来源媒体ID*/
+	entry_date datetime,/*录入时间*/
+	primary key(order_id)
+)default charset=utf8;
+/*
+select * from BS_Order;
+*/
+/*
+delete from BS_Order;
+*/
+/*
+order_id ,pro_id ,title ,seller_ww ,shop_name ,pro_number ,price ,order_status ,totalcomm_percent ,share_percent ,paid_amount ,earn_preview ,price_real
+,earn_inplan ,paid_date ,comm_percent ,commission ,butie_percent ,butie_amount ,butie_type ,platform ,thrid_server ,category ,ad_holder ,entry_date
+*/
