@@ -131,3 +131,7 @@ Loged3;
 		</form>
 	</div>
 </nav>
+<script>
+$('li.dropdown').mouseover(function() {
+     $(this).addClass('open');    }).mouseout(function() {        $(this).removeClass('open');    });
+</script>
