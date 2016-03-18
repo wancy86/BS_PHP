@@ -176,3 +176,16 @@ function ScrollPaging() {
 	}
 	ShowByCategory(obj, category, load_order);
 }
+
+function AddFavorite (uid,pro_uid) {
+	$.ajax({
+		url:"",
+		method:"get",
+		data:{
+			
+		},
+		success:function  (data){
+			
+		}
+	});	
+}

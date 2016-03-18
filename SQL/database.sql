@@ -245,3 +245,26 @@ left join BS_Order as B on A.order_id=B.order_id
 
 
 
+/*
+*用户收藏夹
+*使用insert
+*/
+create table if not exists BS_Favorite(	
+	fid int auto_increment,
+	uid int,
+	pro_id bigint,
+	memo varchar(200),
+	entrydate date,
+	primary key(fid)
+)default charset=utf8;
+
+/*
+
+replace into BS_Favorite(uid,pro_id,entrydate)
+values($uid,$pro_id,getdate())
+
+delete from BS_Favorite	where uid=$uid and pro_id=$pro_id
+
+*/
+
+
