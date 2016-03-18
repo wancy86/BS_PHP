@@ -88,8 +88,8 @@ echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 	</div>
 
 	<script src="js/jquery.min.js"></script>
-	<script src="js/main.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			// RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");

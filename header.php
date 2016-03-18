@@ -17,44 +17,84 @@ session_start();
 	    </button>
 	    <a class="navbar-brand" href="/boystyle/index.php/0.html">BoyStyle</a>
 	</div>
-
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'潮装',1)">男神潮装</a>
+			<li></li> <!-- placeholder -->
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">男神潮装<strong class="caret"></strong></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'潮装',1)">男神潮装</a>
+					</li>
+					<li class="divider"> </li>
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'男鞋',1)">男鞋</a>
+					</li>
+				</ul>
 			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'男鞋',1)">男鞋</a>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">女神靓装<strong class="caret"></strong></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'靓装',1)">女神靓装</a>
+					</li>
+					<li class="divider"> </li>
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'女鞋',1)">女鞋</a>
+					</li>
+					<li class="divider"> </li>
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'精美配饰',1)">精美配饰</a>
+					</li>
+					<li class="divider"> </li>
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'美容护肤',1)">美容护肤</a>
+					</li>
+				</ul>
 			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)">电子产品</a>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">童装<strong class="caret"></strong></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'童装',1)">童装</a>
+					</li>
+					<li class="divider"> </li>
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'玩具',1)">玩具</a>
+					</li>
+					<li class="divider"> </li>
+					<li>
+						<a href="user_collect.php">T恤</a>
+					</li>
+				</ul>
 			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'靓装',1)">女神靓装</a>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">电子产品<strong class="caret"></strong></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)">电子产品</a>
+					</li>
+					<li class="divider"> </li>
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)">电子产品</a>
+					</li>
+				</ul>
 			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'女鞋',1)">女鞋</a>
-			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'精美配饰',1)">精美配饰</a>
-			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'美容护肤',1)">美容护肤</a>
-			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'美食',1)">美食</a>
-			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'童装',1)">童装</a>
-			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'玩具',1)">玩具</a>
-			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)">创意趣玩</a>
-			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'品质生活',1)">品质生活</a>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">其他<strong class="caret"></strong></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'美食',1)">美食</a>
+					</li>
+					<li class="divider"> </li>
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)">创意趣玩</a>
+					</li>
+					<li class="divider"> </li>
+					<li>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'品质生活',1)">品质生活</a>
+					</li>
+				</ul>
 			</li>
 			<li>
 				<a href="/boystyle/about.php">About</a>
@@ -131,7 +171,3 @@ Loged3;
 		</form>
 	</div>
 </nav>
-<script>
-$('li.dropdown').mouseover(function() {
-     $(this).addClass('open');    }).mouseout(function() {        $(this).removeClass('open');    });
-</script>

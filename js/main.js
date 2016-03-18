@@ -13,22 +13,27 @@ $(function() {
 		}
 
 		//add / remove backToTop
-		if(documentHeight>windowHeight&&scrollTop>300)
-		{
+		if (documentHeight > windowHeight && scrollTop > 300) {
 			//add
-			if($("#backtoTop").length==0){
+			if ($("#backtoTop").length == 0) {
 				$("body").append($('<div id="backtoTop" style="position:fixed;bottom:200px;right:30px;cursor:pointer;"><img src="./images/top.png"></div>'));
-				$("#backtoTop").click(function (){
-					scroll(0,0);
+				$("#backtoTop").click(function() {
+					scroll(0, 0);
 					$('#backtoTop').remove();
 				});
 			}
-		}
-		else{
+		} else {
 			//remove
 			$("#backtoTop").remove();
 		}
-		
+
+	});
+
+
+	$('li.dropdown').mouseover(function() {
+		$(this).addClass('open');
+	}).mouseout(function() {
+		$(this).removeClass('open');
 	});
 });
 
@@ -141,7 +146,7 @@ function ShowByCategory(obj, category, load_order) {
 	}
 	if (JSONFile == "") {
 		console.log('没有更多数据');
-		if ($("#content .end_list").length==0) {
+		if ($("#content .end_list").length == 0) {
 			var nomoreData = $('<div class="row end_list well well-lg"> <div class="col-md-12"> <h3 class="text-center"> 没有更多数据 </h3> </div> </div>');
 			$("#content").append(nomoreData);
 		}
