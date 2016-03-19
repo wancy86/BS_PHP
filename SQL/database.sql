@@ -252,7 +252,7 @@ left join BS_Order as B on A.order_id=B.order_id
 create table if not exists BS_Favorite(	
 	fid int auto_increment,
 	uid int,
-	pro_id bigint,
+	pro_id bigint,c
 	memo varchar(200),
 	entrydate date,
 	primary key(fid)

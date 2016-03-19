@@ -131,7 +131,7 @@ unloged;
 				 <a href="#" class="dropdown-toggle" data-toggle="dropdown">$_SESSION[account]<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="user_collect.php">收藏</a>
+						<a href="user_favorite.php">收藏</a>
 					</li>
 					<li>
 						<a href="user_profile.php">资料</a>
