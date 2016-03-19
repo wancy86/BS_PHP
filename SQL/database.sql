@@ -250,12 +250,11 @@ left join BS_Order as B on A.order_id=B.order_id
 *使用insert
 */
 create table if not exists BS_Favorite(	
-	fid int auto_increment,
 	uid int,
-	pro_id bigint,c
+	pro_id bigint,
 	memo varchar(200),
 	entrydate date,
-	primary key(fid)
+	primary key(uid,pro_id)
 )default charset=utf8;
 
 /*
