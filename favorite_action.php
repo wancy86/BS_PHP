@@ -12,9 +12,9 @@ switch ($action) {
 		//add favorite items
 		$query  =" replace into BS_Favorite(uid,pro_id,entrydate)";
 		$query .=" values($uid,$pro_id,now())";
-		echo "$query";
+		// echo "$query";
 		mysqli_query(connect(),$query);
-		echo "添加成功";
+		echo "收藏成功，可以在我的收藏中查看.";
 
 		break;
 	case 'delete':
@@ -31,7 +31,7 @@ switch ($action) {
 		$query .= " from BS_ProInfo AS P";
 		$query .= " join BS_Favorite as C on P.pro_id=C.pro_id";
 		$query .= " where P.disabled=0 and C.uid=$uid";
-		$query .= " limit 30";//TODO add paging
+		// $query .= " limit 30";//TODO add paging
 
 		// echo "$query";
 

@@ -131,13 +131,13 @@ unloged;
 				 <a href="#" class="dropdown-toggle" data-toggle="dropdown">$_SESSION[account]<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="user_favorite.php">收藏</a>
+						<a href="user_profile.php">我的资料</a>
 					</li>
 					<li>
-						<a href="user_profile.php">资料</a>
-					</li>
+						<a href="user_favorite.php">我的收藏</a>
+					</li>					
 					<li>
-						<a href="user_order.php">订单</a>
+						<a href="user_order.php">我的订单</a>
 					</li>
 Loged1;
 	if ($_SESSION['account'] == 'admin') {

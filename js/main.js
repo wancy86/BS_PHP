@@ -47,7 +47,7 @@ function RefreshValidImg(obj) {
 //get JSON data from URL then render
 function RenderJSON(jsonURL) {
     $.getJSON(jsonURL, function(data) {
-		RenderJSONData(data);
+        RenderJSONData(data);
     });
 }
 
@@ -86,7 +86,11 @@ function RenderJSONData(data) {
     // temp += '                月销量:data_month_sold';
     // temp += '            </p>';
     temp += '            <p>';
-    temp += '                <a class="btn btn-danger" href="data_tbk_url" target="_blank">去看看</a> <a onclick="AddFavorite(data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star-empty"></span>收藏</a>';
+    if (window.location.href.indexOf('user_favorite.php') > 0) {
+        temp += '			<a class="btn btn-danger" href="data_tbk_url" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="DelFavorite(data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star"></span>取消收藏</a>';
+    } else {
+        temp += '			<a class="btn btn-danger" href="data_tbk_url" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="AddFavorite(this, data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star-empty"></span>添加收藏</a>';
+    }
     temp += '            </p>';
     temp += '        </div>';
     temp += '    </div>';
@@ -181,7 +185,7 @@ function ScrollPaging() {
     ShowByCategory(obj, category, load_order);
 }
 
-function AddFavorite(pro_id) {
+function AddFavorite(obj, pro_id) {
     $.ajax({
         url: "favorite_action.php",
         method: "get",
@@ -190,12 +194,20 @@ function AddFavorite(pro_id) {
             pro_id: pro_id
         },
         success: function(data) {
-            console.log(data);
+            $(obj).attr({
+				"title": "收藏成功",
+				"data-toggle": "popover",
+				"data-trigger": "focus",
+				"data-content": "请在我的收藏中查看"//,
+				// "data-container": $(obj).parent().selector
+            }).popover('show');
+
+            // console.log(data);
         }
     });
 }
 
-function DelFavorite(pro_uid) {
+function DelFavorite(pro_id) {
     $.ajax({
         url: "favorite_action.php",
         method: "get",
@@ -204,7 +216,9 @@ function DelFavorite(pro_uid) {
             pro_id: pro_id
         },
         success: function(data) {
-            console.log(data);
+            // console.log(data);
+            window.location.reload();
+            //TODO using AJAX
         }
     });
 }
@@ -219,7 +233,7 @@ function ShowFavorite() {
         },
         success: function(data) {
             console.log(data);
-            RenderJSONData(data);
+            RenderJSONData($.parseJSON(data));
         }
     });
 }
