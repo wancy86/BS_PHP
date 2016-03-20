@@ -112,5 +112,40 @@ JSON_List;
 		});
 	</script>
 
+
+	<!-- template -->	
+	<script id="pro_item" type="text/html">
+	<%var index=1;%>
+	<%var total_rows = Math.ceil(data.length / 4);%>
+    <%var last_cols = data.length % 4;%>
+    <%for (var i = 0; i < total_rows; i++) {%>
+    <%    var cols = (last_cols > 0 && i == total_rows - 1) ? last_cols : 4;%>
+        <div class="row">
+        <%for (var j = 0; j < cols; j++) {%>
+			<div class="col-md-3">
+			    <div class="thumbnail">
+			        <a href="<%=data[i*4+j]['tbk_url']%>" target="_blank"><img alt="<%=data[i*4+j]['title']%>" src="<%=data[i*4+j]['img_url']%>" /></a>
+			        <div class="caption">
+			            <h3><%=data[i*4+j]['title']%></h3>
+			            <p>
+			                价格: ￥<%=data[i*4+j]['price']%> / 返利: <%=data[i*4+j]['commission']%> BB / 月销量:<%=data[i*4+j]['month_sold']%>
+			            </p>
+			            <p>
+						<a class="btn btn-danger" href="<%=data[i*4+j]['tbk_url']%>" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="DelFavorite(<%=data[i*4+j]['pro_id']%>)" class="btn" href="#"><span class="glyphicon glyphicon-star"></span>取消收藏</a>
+						<a class="btn btn-danger" href="<%=data[i*4+j]['tbk_url']%>" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="AddFavorite(this, <%=data[i*4+j]['pro_id']%>)" class="btn" href="#"><span class="glyphicon glyphicon-star-empty"></span>添加收藏</a>
+			            </p>
+			        </div>
+			    </div>
+			</div>
+		<%}%>
+		</div>
+	<%}%>
+	</script>
+
+
+	<script id="fav_item" type="text/html">
+
+	</script>
+
 </body>
 </html>
