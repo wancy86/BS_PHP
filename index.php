@@ -112,5 +112,34 @@ JSON_List;
 		});
 	</script>
 
+
+	<!-- template -->	
+	<script id="pro_item" type="text/html">
+
+		
+	<div class="col-md-3">
+	    <div class="thumbnail">
+	        <a href="data_tbk_url" target="_blank"><img alt="data_title" src="data_img_url" /></a>
+	        <div class="caption">
+	            <h3>data_title</h3>
+	            <p>
+	                价格: ￥data_price / 返利: data_commission BB / 月销量:data_month_sold
+	            </p>
+	            <p>
+				<a class="btn btn-danger" href="data_tbk_url" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="DelFavorite(data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star"></span>取消收藏</a>
+				<a class="btn btn-danger" href="data_tbk_url" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="AddFavorite(this, data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star-empty"></span>添加收藏</a>
+	            </p>
+	        </div>
+	    </div>
+	</div>
+
+// var row = '<div class="row"></div>';
+	</script>
+
+
+	<script id="fav_item" type="text/html">
+
+	</script>
+
 </body>
 </html>
