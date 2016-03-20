@@ -34,9 +34,7 @@ $uid = $_SESSION['uid'];
                 <!--footer-->
                 <?php require_once 'footer.php';?>
             </div>
-            <script src="js/jquery.min.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/main.js"></script>
+            <?php require_once 'script.php';?>
             <script>
             $(function  (){
                 ShowFavorite();   

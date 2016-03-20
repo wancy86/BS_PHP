@@ -73,7 +73,9 @@
 			OK 收藏列表
 			OK 收藏表设计
 			OK 添加收藏、取消收藏
-			引入BaiduTemplate JS模板引擎
+			引入JS模板引擎,对比后选择腾讯的atrtemplate
+
+			有时间研究下popover插件，显示问题
 
 			添加移除收藏无刷新完善
 			已收藏过的宝贝展示页面显示已收藏
@@ -170,9 +172,7 @@
         <!--footer-->
         <?php require_once 'footer.php';?>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <?php require_once 'script.php';?>
 </body>
 
 </html>

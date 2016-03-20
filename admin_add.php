@@ -180,9 +180,7 @@ JSON_EOD;
             <!--footer-->
             <?php require_once 'footer.php';?>
         </div> <!-- container -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
+        <?php require_once 'script.php';?>
     </body>
 
     </html>

@@ -87,9 +87,7 @@ echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 		<?php require_once 'footer.php';?>
 	</div>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
+	<?php require_once 'script.php';?>
 	<script type="text/javascript">
 		$(function() {
 			// RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");

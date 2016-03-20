@@ -165,9 +165,7 @@ ORDER_EOD;
             </div>
             <?php require_once "footer.php";?>
         </div>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
+        <?php require_once 'script.php';?>
         <script>
         function SearchUserOrder(obj, uid) {
             //查询用户订单，没有记录则添加记录
