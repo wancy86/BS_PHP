@@ -29,12 +29,29 @@ $(function() {
 
     });
 
-
+    //make the menu open onfocus
     $('li.dropdown').mouseover(function() {
         $(this).addClass('open');
     }).mouseout(function() {
         $(this).removeClass('open');
     });
+
+    //add click event to pro link
+    $(".pro").on("click", function() {     
+        console.log($(this).attr("pro_id"));   
+        $.ajax({
+            url: "ClickHistory_Action.php",
+            data: {
+                action: "click",
+                pro_id: $(this).attr("pro_id")
+            },
+            success: function(data) {
+                console.log(data);
+            }
+        });
+        window.open($(this).atrr("url"));
+    });
+
 });
 
 function RefreshValidImg(obj) {
@@ -76,7 +93,7 @@ function RenderJSONData(data) {
     var temp = "";
     temp += '<div class="col-md-3">';
     temp += '    <div class="thumbnail">';
-    temp += '        <a href="data_tbk_url" target="_blank"><img alt="data_title" src="data_img_url" /></a>';
+    temp += '        <a class="pro" href="javascript:void(0);" pro_id="data_pro_id" url="data_tbk_url" target="_blank"><img alt="data_title" src="data_img_url" /></a>';
     temp += '        <div class="caption">';
     temp += '            <h3>data_title</h3>';
     temp += '            <p>';
@@ -87,9 +104,9 @@ function RenderJSONData(data) {
     // temp += '            </p>';
     temp += '            <p>';
     if (window.location.href.indexOf('user_favorite.php') > 0) {
-        temp += '			<a class="btn btn-danger" href="data_tbk_url" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="DelFavorite(data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star"></span>取消收藏</a>';
+        temp += '			<a class="btn btn-danger pro" href="javascript:void(0);" pro_id="data_pro_id" url="data_tbk_url" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="DelFavorite(data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star"></span>取消收藏</a>';
     } else {
-        temp += '			<a class="btn btn-danger" href="data_tbk_url" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="AddFavorite(this, data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star-empty"></span>添加收藏</a>';
+        temp += '			<a class="btn btn-danger pro" href="javascript:void(0);" pro_id="data_pro_id" url="data_tbk_url" target="_blank">去看看</a> <a role="button" tabindex="0" onclick="AddFavorite(this, data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star-empty"></span>添加收藏</a>';
     }
     temp += '            </p>';
     temp += '        </div>';
@@ -195,11 +212,11 @@ function AddFavorite(obj, pro_id) {
         },
         success: function(data) {
             $(obj).attr({
-				"title": "收藏成功",
-				"data-toggle": "popover",
-				"data-trigger": "focus",
-				"data-content": "请在我的收藏中查看"//,
-				// "data-container": $(obj).parent().selector
+                "title": "收藏成功",
+                "data-toggle": "popover",
+                "data-trigger": "focus",
+                "data-content": "请在我的收藏中查看" //,
+                    // "data-container": $(obj).parent().selector
             }).popover('show');
 
             // console.log(data);
@@ -237,5 +254,3 @@ function ShowFavorite() {
         }
     });
 }
-
-
