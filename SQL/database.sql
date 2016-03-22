@@ -247,7 +247,7 @@ left join BS_Order as B on A.order_id=B.order_id
 
 /*
 *用户收藏夹
-*使用insert
+*
 */
 create table if not exists BS_Favorite(	
 	uid int,
@@ -266,4 +266,23 @@ delete from BS_Favorite	where uid=$uid and pro_id=$pro_id
 
 */
 
+/*
+*用户访问历史表，订单关联验证，智能推荐
+*需要记录时间，且不能覆盖
+*/
+/*
+drop table BS_ClickHistory
+*/
+create table if not exists BS_ClickHistory(	
+	uid int,
+	pro_id bigint,
+	entrydate date,
+	memo varchar(200),
+	primary key(uid,pro_id,entrydate)
+)default charset=utf8;
+
+/*
+replace into BS_ClickHistory(uid, pro_id, entrydate)
+values($uid, $pro_id, now())
+*/
 
