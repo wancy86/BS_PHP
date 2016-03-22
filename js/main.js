@@ -37,8 +37,13 @@ $(function() {
     });
 
     //add click event to pro link
+<<<<<<< HEAD
     $("#content .pro").on("click", function() {
         console.log($(this).attr("pro_id"));
+=======
+    $(".pro").on("click", function() {     
+        console.log($(this).attr("pro_id"));   
+>>>>>>> 9aff169ae68531628d6110cd3d6a540c6fc35f0a
         $.ajax({
             url: "ClickHistory_Action.php",
             data: {
@@ -49,7 +54,11 @@ $(function() {
                 console.log(data);
             }
         });
+<<<<<<< HEAD
         window.open($(this).attr("url"));
+=======
+        window.open($(this).atrr("url"));
+>>>>>>> 9aff169ae68531628d6110cd3d6a540c6fc35f0a
     });
 
 });
