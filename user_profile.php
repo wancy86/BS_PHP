@@ -27,10 +27,16 @@ $uid = $_SESSION['uid'];
             </div>
         </div>
         <div class="row">
+            <div class="col-md-12">
+                <h3>我的资料</h3>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-1">
             </div>
             <div class="col-md-11">
-                <img style="width:140px;height:140px;" alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" />
+                <img style="width:140px;height:140px;" alt="Bootstrap Image Preview" src="./images/user_header.png" />
                 <dl>
                     <dt>
                         Description lists

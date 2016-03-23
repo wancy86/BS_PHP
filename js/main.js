@@ -103,9 +103,9 @@ function RenderJSONData(data) {
     // temp += '            </p>';
     temp += '            <p>';
     if (window.location.href.indexOf('user_favorite.php') > 0) {
-        temp += '			<a class="btn btn-danger pro" href="javascript:void(0);" pro_id="data_pro_id" url="data_tbk_url" target="_blank">去看看</a> <button tabindex="0" onclick="DelFavorite(data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-star"></span>取消收藏</button>';
+        temp += '			<a class="btn btn-danger pro" href="javascript:void(0);" pro_id="data_pro_id" url="data_tbk_url" target="_blank">去看看</a> <button tabindex="0" onclick="DelFavorite(data_pro_id)" class="btn" href="#"><span class="glyphicon glyphicon-heart"></span> 取消收藏</button>';
     } else {
-        temp += '			<a class="btn btn-danger pro" href="javascript:void(0);" pro_id="data_pro_id" url="data_tbk_url" target="_blank">去看看</a> <button tabindex="0" onclick="AddFavorite(this, data_pro_id)" class="btn"><span class="glyphicon glyphicon-star-empty"></span>添加收藏</button>';
+        temp += '			<a class="btn btn-danger pro" href="javascript:void(0);" pro_id="data_pro_id" url="data_tbk_url" target="_blank">去看看</a> <button tabindex="0" onclick="AddFavorite(this, data_pro_id)" class="btn"><span class="glyphicon glyphicon-heart-empty"></span> 添加收藏</button>';
     }
     temp += '            </p>';
     temp += '        </div>';

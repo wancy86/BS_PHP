@@ -15,7 +15,7 @@ session_start();
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="/boystyle/index.php/0.html">BoyStyle</a>
+	    <a class="navbar-brand" href="/boystyle/index.php">BoyStyle</a>
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
@@ -135,7 +135,7 @@ unloged;
 					</li>
 					<li>
 						<a href="user_favorite.php">我的收藏</a>
-					</li>					
+					</li>
 					<li>
 						<a href="user_order.php">我的订单</a>
 					</li>
@@ -165,8 +165,8 @@ Loged3;
 			<div class="form-group">
 				<input type="text" class="form-control">
 			</div>
-			<button type="submit" class="btn btn-default">
-				Search
+			<button type="submit" class="btn ">
+				<span class="glyphicon glyphicon-search"></span> 搜索
 			</button>
 		</form>
 	</div>

@@ -60,6 +60,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
             <div class="row">
                 <div class="col-md-12">
                     <h3> 订单列表 </h3>
+                    <hr>
                 </div>
             </div>
             <div class="row">
@@ -69,7 +70,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
                             <input type="text" class="form-control" id="order_id" name="order_id" placeholder="订单号码">
                         </div>
                         <button type="button" class="btn btn-success" onclick="SearchUserOrder(this, <?php echo " $uid "; ?>)">
-                            查询订单 >>
+                            <span class="glyphicon glyphicon-search"></span> 查询订单
                         </button>
                     </form>
                 </div>

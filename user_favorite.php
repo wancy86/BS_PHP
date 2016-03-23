@@ -26,6 +26,13 @@ $uid = $_SESSION['uid'];
                         <?php require_once 'header.php';?>
                     </div>
                 </div>
+                <!--title-->
+                <div class="row">
+                    <div class="col-md-12" id="content">
+                        <h3>我的收藏</h3>
+                        <hr>
+                    </div>
+                </div>
                 <!--content-->
                 <div class="row">
                     <div class="col-md-12" id="content">
