@@ -12,7 +12,7 @@ case 'click':
 	//add favorite items
 	$query = "replace into BS_ClickHistory(uid, pro_id, entrydate)";
 	$query .= "values($uid, $pro_id, now())";
-	echo "$query";
+	// echo "$query";
 	mysqli_query(connect(), $query);
 	echo "点击的链接已记录.";
 

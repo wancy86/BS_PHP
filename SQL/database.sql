@@ -270,12 +270,9 @@ delete from BS_Favorite	where uid=$uid and pro_id=$pro_id
 *用户访问历史表，订单关联验证，智能推荐
 *需要记录时间，且不能覆盖
 */
-<<<<<<< HEAD
 /*
 drop table BS_ClickHistory
 */
-=======
->>>>>>> 9aff169ae68531628d6110cd3d6a540c6fc35f0a
 create table if not exists BS_ClickHistory(	
 	uid int,
 	pro_id bigint,

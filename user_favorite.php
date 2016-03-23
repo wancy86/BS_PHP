@@ -37,7 +37,7 @@ $uid = $_SESSION['uid'];
             <?php require_once 'script.php';?>
             <script>
             $(function  (){
-                ShowFavorite();   
+                ShowFavorite();
             });
             </script>
         </body>

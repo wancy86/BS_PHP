@@ -37,13 +37,8 @@ $(function() {
     });
 
     //add click event to pro link
-<<<<<<< HEAD
-    $("#content .pro").on("click", function() {
-        console.log($(this).attr("pro_id"));
-=======
-    $(".pro").on("click", function() {     
-        console.log($(this).attr("pro_id"));   
->>>>>>> 9aff169ae68531628d6110cd3d6a540c6fc35f0a
+    $("#content").on("click", 'a.pro', function() {
+        // console.log($(this).attr("pro_id"));
         $.ajax({
             url: "ClickHistory_Action.php",
             data: {
@@ -54,13 +49,8 @@ $(function() {
                 console.log(data);
             }
         });
-<<<<<<< HEAD
         window.open($(this).attr("url"));
-=======
-        window.open($(this).atrr("url"));
->>>>>>> 9aff169ae68531628d6110cd3d6a540c6fc35f0a
     });
-
 });
 
 function RefreshValidImg(obj) {
@@ -133,14 +123,14 @@ function RenderJSONData(data) {
         var Cols = "";
         for (var j = 0; j < cols; j++) {
             Cols += temp.replace('data_tbk_url', data[i * 4 + j]['tbk_url'])
-                .replace('data_pro_id', data[i * 4 + j]['pro_id'])
-                .replace('data_title', data[i * 4 + j]['title'])
-                .replace('data_img_url', data[i * 4 + j]['img_url'])
-                .replace('data_title', data[i * 4 + j]['title'])
-                .replace('data_price', data[i * 4 + j]['price'])
-                .replace('data_commission', data[i * 4 + j]['commission'])
-                .replace('data_month_sold', data[i * 4 + j]['month_sold'])
-                .replace('data_tbk_url', data[i * 4 + j]['tbk_url']);
+                .replace(/data_pro_id/g, data[i * 4 + j]['pro_id'])
+                .replace(/data_title/g, data[i * 4 + j]['title'])
+                .replace(/data_img_url/g, data[i * 4 + j]['img_url'])
+                .replace(/data_title/g, data[i * 4 + j]['title'])
+                .replace(/data_price/g, data[i * 4 + j]['price'])
+                .replace(/data_commission/g, data[i * 4 + j]['commission'])
+                .replace(/data_month_sold/g, data[i * 4 + j]['month_sold'])
+                .replace(/data_tbk_url/g, data[i * 4 + j]['tbk_url']);
         }
         Row.html(Cols);
         $("#content").append(Row);
@@ -190,7 +180,7 @@ function ShowByCategory(obj, category, load_order) {
     // "/boystyle/data/BFF7A6473FF23C3C_1_50.json"
     var jsonURL = "/boystyle/data/" + JSONFile.File_Name;
 
-    console.log(jsonURL);
+    // console.log(jsonURL);
 
     if (load_order == 1) {
         $("#content").html('');
@@ -258,7 +248,7 @@ function ShowFavorite() {
             action: "show"
         },
         success: function(data) {
-            console.log(data);
+            // console.log(data);
             RenderJSONData($.parseJSON(data));
         }
     });
