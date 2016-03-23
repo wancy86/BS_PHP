@@ -2,6 +2,8 @@
 git status
 git add .
 echo Please input comment:
-set /p input_source=
-git commit -m "!input_source!"
+set /p comments=
+git commit -m "%comments%"
 git push origin master
+
+
