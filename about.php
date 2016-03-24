@@ -20,8 +20,31 @@
                 <?php require_once 'header.php';?>
             </div>
         </div>
-        <div class="col-md-6">
-            <pre>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+                    <h3>三期</h3>
+                    <b>架构设计：</b>
+                    搜索全面导向爱淘宝
+                    还可以单独建立导航页面，推广爱淘宝
+                    数据导入可以全面启用淘宝客接口
+                    接口研究和设计
+                    每个链接添加搜索同款接口，这样能导航到爱淘宝
+                    每个人都有推广链接
+                    
+
+                </pre>
+            </div>
+            <div class="col-md-6">
+                <pre>
+                    <h3>四期</h3>
+                    <b>架构设计：</b>
+                </pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
             <h3>二期</h3>
             <b>架构设计：</b>
             1.淘宝客平台的接入
@@ -116,8 +139,7 @@
             用户中心展示礼品兑换目标
 
             </pre>
-        </div>
-        <div class="row">
+            </div>
             <div class="col-md-6">
                 <pre>
                 <h3>一期已完成</h3>
@@ -172,11 +194,8 @@
                     OK 实现json数据的缓存
                     OK 添加按钮滚动到顶部
                     OK 站长统计连接的接入
-
-
                 </pre>
             </div>
-
         </div>
         <div class="row">
             <div class="col-md-12">
