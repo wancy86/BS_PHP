@@ -3,7 +3,7 @@ header("Content-type: text/html; charset=utf-8");
 // echo 123;
 
 //test mail
-mail('mwan@maxprocessing.com', 'test', 'hello mark');
+// mail('mwan@maxprocessing.com', 'test', 'hello mark');
 
 //test MD5
 if (1 == 2) {
@@ -31,5 +31,8 @@ if (1 == 2) {
 	$obj->status = NULL;
 	echo json_encode($obj);
 }
+
+echo $_server[self];
+
 ?>
 <title>测试</title>
