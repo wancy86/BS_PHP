@@ -67,7 +67,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
                 <div class="col-md-12">
                     <form class="navbar-form navbar-left" role="search" style="padding-left:0px;">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="order_id" name="order_id" placeholder="订单号码">
+                            <input type="text" class="form-control" id="order_id" name="order_id" placeholder="输入订单号码">
                         </div>
                         <button type="button" class="btn btn-success" onclick="SearchUserOrder(this, <?php echo " $uid "; ?>)">
                             <span class="glyphicon glyphicon-search"></span> 查询订单

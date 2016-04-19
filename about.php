@@ -21,8 +21,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <pre>
+            <div class="col-md-6
+                            <pre>
                     <h3>三期</h3>
                     <b>架构设计：</b>
                     搜索全面导向爱淘宝
@@ -31,7 +31,7 @@
                     接口研究和设计
                     每个链接添加搜索同款接口，这样能导航到爱淘宝
                     每个人都有推广链接
-                    
+                        
 
                 </pre>
             </div>

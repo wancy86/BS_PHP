@@ -4,7 +4,7 @@ session_start();
 ?>
 <div class="page-header">
 	<h1>
-		BoyStyle! <small>-- 爱生活，爱自己!</small>
+		BoyStyle! <small>-- 爱生活，爱自己! 想逛一下淘宝？我们帮你挑选出了最好最便的宝贝，为你省心、省力、省钱，还能赚钱！</small>
 	</h1>
 </div>
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
