@@ -83,7 +83,7 @@ session_start();
 				<a href="javascript:void(0);" onclick="ShowByCategory(this,'美食',1)">美食</a>
 			</li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">其他<strong class="caret"></strong></a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)" class="dropdown-toggle" data-toggle="dropdown">其他<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
 						<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)">创意趣玩</a>
@@ -159,13 +159,15 @@ Loged2;
 Loged3;
 }
 ?>
-		<form target="_blank" class="navbar-form navbar-right" role="search" title="搜索将进入爱淘宝，购物同样有返利">
-			<div class="form-group">
-				<input name="keyword" type="text" class="form-control" placeholder="爱淘宝搜索返利">
-			</div>
-			<button type="button" class="btn " onclick="GotoAitaobao()">
-				<span class="glyphicon glyphicon-search"></span> 搜索
-			</button>
-		</form>
+		<ul class="nav navbar-nav navbar-right" title="搜索将进入爱淘宝，购物同样有返利" style="padding: 6px;">
+			<li >
+				<input id="keyword" name="keyword" type="text" class="form-control" placeholder="爱淘宝搜索返利">
+			</li>
+			<li style="margin-left:5px;">
+				<button id="search" type="button" class="btn " onclick="GotoAitaobao()">
+					<span class="glyphicon glyphicon-search"></span> 搜索
+				</button>
+			</li>
+		</ul>
 	</div>
 </nav>
