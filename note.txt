@@ -1,0 +1,16 @@
+
+爱淘宝接口
+mm_113779107_12426830_47170418
+http://mosaic.re.taobao.com/search?clk1=
+&p4pTags=
+&ismall=
+&buckid=
+&refpos=
+&refpid=mm_113779107_12426830_47170418
+&keyword=
+&_input_charset=utf-8
+&isinner=0
+
+http://mosaic.re.taobao.com/search?refpid=mm_113779107_12426830_47170418&_input_charset=utf-8&keyword=雨鞋
+
+
