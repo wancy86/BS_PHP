@@ -214,7 +214,7 @@ function AddFavorite(obj, pro_id) {
                 "title": "收藏成功",
                 "data-toggle": "popover",
                 "data-trigger": "focus",
-                "data-content": "请在我的收藏中查看" 
+                "data-content": "请在我的收藏中查看"
             }).popover('show');
 
             // console.log(data);
@@ -252,3 +252,13 @@ function ShowFavorite() {
         }
     });
 }
+
+
+function GotoAitaobao() {
+    var keyword = $(":input[name=keyword]").val()
+    keyword = keyword != "" ? keyword : "女装";
+    var url = "http://mosaic.re.taobao.com/search?refpid=mm_113779107_12426830_47170418&_input_charset=utf-8&keyword=" + encodeURIComponent(keyword)
+    window.open(url);
+    // window.open("http://mosaic.re.taobao.com/search?refpid=mm_113779107_12426830_47170418&_input_charset=utf-8&keyword=雨鞋")
+}
+

@@ -21,26 +21,26 @@ session_start();
 		<ul class="nav navbar-nav">
 			<li></li> <!-- placeholder -->
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">男神潮装<strong class="caret"></strong></a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'潮装',1)" class="dropdown-toggle" data-toggle="dropdown">男装<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'潮装',1)">男神潮装</a>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'潮装',1)">衣裤</a>
 					</li>
 					<li class="divider"> </li>
 					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'男鞋',1)">男鞋</a>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'男鞋',1)">鞋子</a>
 					</li>
 				</ul>
 			</li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">女神靓装<strong class="caret"></strong></a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'靓装',1)" class="dropdown-toggle" data-toggle="dropdown">女装<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'靓装',1)">女神靓装</a>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'靓装',1)">衣裙</a>
 					</li>
 					<li class="divider"> </li>
 					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'女鞋',1)">女鞋</a>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'女鞋',1)">鞋子</a>
 					</li>
 					<li class="divider"> </li>
 					<li>
@@ -53,7 +53,7 @@ session_start();
 				</ul>
 			</li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">童装<strong class="caret"></strong></a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'童装',1)" class="dropdown-toggle" data-toggle="dropdown">童装<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
 						<a href="javascript:void(0);" onclick="ShowByCategory(this,'童装',1)">童装</a>
@@ -68,25 +68,23 @@ session_start();
 					</li>
 				</ul>
 			</li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">电子产品<strong class="caret"></strong></a>
+			<li>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)">电子产品</a>
+			</li>
+			<!-- <li class="dropdown">
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)" class="dropdown-toggle" data-toggle="dropdown">电子产品<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
-					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)">电子产品</a>
-					</li>
-					<li class="divider"> </li>
 					<li>
 						<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)">电子产品</a>
 					</li>
 				</ul>
+			</li> -->
+			<li>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'美食',1)">美食</a>
 			</li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">其他<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
-					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'美食',1)">美食</a>
-					</li>
-					<li class="divider"> </li>
 					<li>
 						<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)">创意趣玩</a>
 					</li>
@@ -161,11 +159,11 @@ Loged2;
 Loged3;
 }
 ?>
-		<form class="navbar-form navbar-right" role="search">
+		<form target="_blank" class="navbar-form navbar-right" role="search" title="搜索将进入爱淘宝，购物同样有返利">
 			<div class="form-group">
-				<input type="text" class="form-control">
+				<input name="keyword" type="text" class="form-control" placeholder="爱淘宝搜索返利">
 			</div>
-			<button type="submit" class="btn ">
+			<button type="button" class="btn " onclick="GotoAitaobao()">
 				<span class="glyphicon glyphicon-search"></span> 搜索
 			</button>
 		</form>

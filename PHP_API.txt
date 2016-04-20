@@ -1,0 +1,1235 @@
+PHP5内置函数大全
+--------------------------------------------------------------------------
+ODBC
+ODBC连接类
+--------------------------------------------------------------------------
+odbc_connect 打开一个ODBC连接
+odbc_close 关闭一个已经打开的ODBC连接
+odbc_close_all 关闭所有已经打开的ODBC连接
+odbc_pconnect 打开一个持续有效的ODBC连接
+
+--------------------------------------------------------------------------
+ODBC操作类
+--------------------------------------------------------------------------
+odbc_commit 更新所有处于未决状态的操作
+odbc_do 在打开的ODBC连接上执行SQL语句
+odbc_exec 执行SQL语句
+odbc_execute 执行一个预置的SQL语句
+odbc_free_result 释放传回资料所占用的内存
+odbc_prepare 预置SQL语句的执行
+odbc_rollback 撤销所有处于未决状态的操作
+
+--------------------------------------------------------------------------
+ODBC信息获取类
+--------------------------------------------------------------------------
+odbc_columnprivileges 列出给定表的列和相关的权限
+odbc_columns 列出指定表的列的名称
+odbc_cursor 获取光标的名称
+odbc_data_source 返回连接数据库的信息
+odbc_error 获取最后的错误代码
+odbc_errormsg 获取最后的错误信息
+odbc_fetch_array 获取结果集数组
+odbc_fetch_into 获取传回的指定列
+odbc_fetch_object 返回结果集到对象
+odbc_fetch_row 获取传回的一列
+odbc_field_len 获取字段的长度
+odbc_field_name 获取字段的名称
+odbc_field_num 获取字段的序号
+odbc_field_precision 获取字段的长度
+odbc_field_scale 获取字段的浮点数
+odbc_field_type 获取字段的资料类型
+odbc_foreignkeys 返回特定表的外来键
+odbc_gettypeinfo 返回数据库的类型信息
+odbc_longreadlen 设定传回栏的最大值
+odbc_num_fields 获取字段数目
+odbc_num_rows 获取传回的列数目
+odbc_primarykeys 返回列的名字作为表的主键
+odbc_procedurecolumns 返回检索过程的参数信息
+odbc_procedures 获取存在于特定数据源中的进程信息
+odbc_result_all 传回HTML表格信息
+odbc_result 获取结果数据
+odbc_specialcolumns 返回一个表中在传送更新时可以自动更新的列
+odbc_statistics 获取表的状态及其索引
+odbc_tableprivileges 列出表格和每个表格关联的权限
+odbc_tables 获取特定数据库上的表的名称
+ODBC设置类
+odbc_autocommit 开启或关闭自动更新
+odbc_binmode 设定二进制的数据处理方式
+odbc_next_result 检查下一个结果集是否可用
+odbc_setoption 调整ODBC设定
+
+--------------------------------------------------------------------------
+MySQL
+MySQL连接类
+--------------------------------------------------------------------------
+mysql_connect 打开一个到MySQL服务器的连接
+mysql_close 关闭MySQL连接
+mysql_pconnect 打开一个到MySQL服务器的持久链接
+MySQL操作类
+mysql_create_db 新建一个MySQL数据库
+mysql_data_seek 移动内部结果的指针
+mysql_db_query 发送一条MySQL查询
+mysql_drop_db 删除一个MySQL数据库
+mysql_escape_string 转义一个用来查询的字符串
+mysql_free_result 释放结果内存
+mysql_list_dbs 列出MySQL服务器中所有的数据库
+mysql_list_fields 列出MySQL结果中的字段
+mysql_list_processes 列出MySQL进程
+mysql_list_tables 列出MySQL数据库中的表
+mysql_ping Ping一个服务器连接，如果没有连接则重新连接
+mysql_query 发送一条MySQL查询
+mysql_real_escape_string 转义SQL语句中的特殊字符
+mysql_result 获取结果数据
+mysql_select_db 选择MySQL数据库
+mysql_unbuffered_query 向MySQL发送一条SQL查询，并不获取和缓存结果的行
+
+--------------------------------------------------------------------------
+MySQL信息获取类
+--------------------------------------------------------------------------
+mysql_affected_rows 获取前一次MySQL操作所影响的记录行数
+mysql_client_encoding 获取字符集的名称
+mysql_db_name 获取数据库名
+mysql_errno 返回上一个MySQL操作中的错误信息的数字编码
+mysql_error 返回上一个MySQL操作产生的文本错误信息
+mysql_fetch_array 从结果集中获取一行作为关联数组，或数字数组，或二者都有
+mysql_fetch_assoc 从结果集中获取一行作为关联数组
+mysql_fetch_field 从结果集中获取列信息并作为对象返回
+mysql_fetch_lengths 获取结果集中每个输出的长度
+mysql_fetch_object 从结果集中获取一行作为对象
+mysql_fetch_row 从结果集中获取一行作为枚举数组
+mysql_field_flags 从结果集中获取字段关联的标志
+mysql_field_len 返回指定字段的长度
+mysql_field_name 获取结果集中指定字段的字段名
+mysql_field_seek 将结果集中的指针设定为指定的字段偏移量
+mysql_field_table 获取指定字段所在的表名
+mysql_field_type 获取结果集中指定字段的类型
+mysql_get_client_info 获取MySQL客户端信息
+mysql_get_host_info 获取MySQL主机信息
+mysql_get_proto_info 获取MySQL协议信息
+mysql_get_server_info 获取MySQL服务器信息
+mysql_info 获取最近一条查询的信息
+mysql_insert_id 获取上一个INSERT操作产生的ID
+mysql_num_fields 获取结果集中字段的数目
+mysql_num_rows 获取结果集中行的数目
+mysql_stat 获取当前系统状态
+mysql_tablename 获取表名
+mysql_thread_id 获取当前线程的ID
+
+--------------------------------------------------------------------------
+数组字符篇
+Arrays
+数组建立类
+--------------------------------------------------------------------------
+array 新建一个数组
+array_combine 用两个数组的值作为新数组的键与值来新建一个数组
+range 建立一个包含指定范围单元的数组
+
+数组操作类
+--------------------------------------------------------------------------
+array_chunk 将一个数组分割成多个数组
+array_count_values 统计数组中所有的值出现的次数
+array_diff_assoc 带索引检查计算数组的差集
+array_diff_key 使用键名比较计算数组的差集
+array_diff_uassoc 用回调做索引检查来计算数组的差集
+array_diff_ukey 用回调对键名比较计算数组的差集
+array_diff 计算数组的差集
+array_fill 用给定的值填充数组
+array_filter 用回调过滤数组中的单元
+array_flip 交换数组中的键和值
+array_intersect_assoc 带索引检查计算数组的交集
+array_intersect_key 使用键名比较计算数组的交集
+array_intersect_uassoc 带索引检查计算数组的交集，并用回调比较索引
+array_intersect_ukey 用回调比较键名来计算数组的交集
+array_intersect 计算数组的交集
+array_key_exists 检查给定的键名或索引是否存在于数组中
+array_map 将回调作用到给定数组的单元上
+array_merge_recursive 递归地合并一个或多个数组
+array_merge 合并一个或多个数组
+array_multisort 对多个数组或多维数组进行排序
+array_pad 用值将数组填补到指定长度
+array_pop 将数组的最后一个单元弹出
+array_push 将一个或多个单元压入数组的末尾
+array_rand 从数组中随机取出一个或多个单元
+array_reduce 用回调迭代地将数组简化为单一的值
+array_search 在数组中查找给定的值并返回相应的键名
+array_shift 移除数组开头的一个单元
+array_unique 移除数组中重复的值
+array_unshift 在数组开头插入一个或多个单元
+array_slice 从数组中取出一段
+array_splice 把数组中的一部分去掉并用其他值取代
+array_sum 计算数组中所有值的和
+array_uintersect_assoc 带索引检查计算数组的交集并用回调比较数据
+array_uintersect_uassoc 带索引检查计算数组的交集并用回调比较数据和索引
+array_uintersect 计算数组的交集并用回调比较数据
+array_walk_recursive 对数组中的每个成员递归地应用用户
+array_walk 对数组中的每个成员应用用户
+compact 用变量名和值建立一个数组
+count 计算数组中的单元数目或对象中的属性个数
+current 返回数组中的当前单元
+extract 从数组中将变量导入当前的符号表中
+in_array 查找数组中是否存在某个值
+key 从关联数组中获取键名
+list 把数组中的值赋给一些变量
+next 将数组中的内部指针向前移动一位
+prev 将数组中的内部指针倒回一位
+reset 将数组中的内部指针指向第一个单元
+shuffle 打乱一个数组
+
+数组信息获取类
+--------------------------------------------------------------------------
+array_change_key_case 返回字符串键名全为小写或大写的数组
+array_keys 返回数组中所有的键名
+array_reverse 返回一个单元顺序相反的数组
+array_values 返回数组中所有的值
+each 返回数组中当前的键/值对并将数组指针向前移动一步
+数组比较类
+arsort 对数组进行逆向排序并保持索引关系
+asort 对数组进行排序并保持索引关系
+krsort 对数组按照键名逆向排序
+ksort 对数组按照键名排序
+natcasesort 用自然排序算法对数组进行不区分大小写字母的排序
+natsort 用自然排序算法对数组排序
+rsort 对数组逆向排序
+sort 对数组排序
+uasort 使用用户自定义的比较对数组中的值进行排序并保持索引关联
+uksort 使用用户自定义的比较对数组中的键名进行排序
+usort 使用用户自定义的比较对数组中的值进行排序
+
+--------------------------------------------------------------------------
+Strings
+字符串转换类
+--------------------------------------------------------------------------
+addcslashes 以C语言风格使用反斜线转义字符串中的字符
+addslashes 使用反斜线引用字符串
+chop 清除字符串中的连续空格
+get_html_translation_table 返回htmlspecialchars()和htmlentities()的转换表
+chunk_split 将字符串分割成小块
+hebrev 转换希伯来逻辑字符为可见字符
+hebrevc 转换希伯来语文本为可见文本，包括换行符
+html_entity_decode 转换HTML字符编码为字符
+htmlentities 转换字符为HTML字符编码
+htmlspecialchars_decode 转换特殊HTML字符编码为字符
+htmlspecialchars 转换特殊字符为HTML字符编码
+nl2br 将换行字符转换成“br”
+quotemeta 加入引用符
+rtrim 清除字符串末尾的空白(或其他字符)
+strip_tags 清除HTML及PHP的标记
+stripcslashes 将用addslashes()处理后的字符串原样返回
+stripslashes 清除字符串中的反斜线
+strtolower 将字符串中的字母全部转换为小写
+strtoupper 将字符串中的字母全部转换为大写
+trim 截取字符串首尾的空格(或其他字符)
+
+字符串操作类
+--------------------------------------------------------------------------
+explode 将字符串按指定字符切开
+str_pad 用一个字符串填充另一个字符串到指定长度
+str_split 把字符串转化为数组
+str_shuffle 随机打乱字符串中的字符顺序
+str_ireplace 将某个子字符串替换为另一个字符串
+localeconv 获取当地的数字和货币信息
+ltrim 清除字符串左端的连续空白(或者其他字符)
+money_format 把数字字符串转换为货币表示形式
+nl_langinfo 获取语言和地区信息
+number_format 用千位分隔符格式化数字字符串
+parse_str 将字符串解析为变量
+setlocale 设置地区信息
+similar_text 计算两个字符串中相匹配的字符串数量
+str_repeat 重复使用指定字符串
+str_replace 区分大小写的字符串替换
+str_word_count 返回字符串中的单词数
+strcasecmp 对两个字符串进行比较
+strlen 统计字符串的长度
+strnatcmp 使用自然顺序演算法来对比字符串
+strrev 颠倒字符串
+strtok 切开字符串
+strtr 转换字符串的某些字符
+substr_count 计算一个字符串在另一个字符串中出现的次数
+substr_replace 替换字符串中的一部分为另一个字符串
+substr 截取字符串
+ucfirst 将字符串中第一个字符改为大写
+ucwords 将字符串中每个单词的第一个字母改为大写
+wordwrap 将字符串按字符个数换行
+
+字符串查找类
+--------------------------------------------------------------------------
+chr 将指定的序数转化为相应的ASCII码字符
+implode 将数组合并为字符串
+join 将数组转化为字符串
+crc32 计算一个字符串的crc32多项式
+strchr 返回字符串在另一个字符串中首次出现的位置到末尾的子字符串
+strcspn 返回字符串中起首不符合mask的子字符串长度
+stripos 查找一个字符串在另一个字符串中首次出现的位置(不区分大小写)
+stristr 返回一个字符串在另一个字符串中首次出现的位置到后者末尾的子字符串(不区分大小写)
+strripos 不区分大小写查找字符在字符串中首次出现的位置
+strrpos 查找字符在字符串中最后出现的位置
+strspn 返回字符串中起首符合mask的子字符串长度
+strstr 返回字符串中某字符串开始处至结束的字符串
+字符串编码类
+bin2hex 将二进制字符转化为十六进制
+convert_cyr_string 将字符由一种Cyrillic字符转换成另一种
+convert_uudecode 对用uuencode算法编码的字符串解码
+convert_uuencode 对字符串进行uuencode算法编码
+count_chars 返回字符串中所有字符的信息
+ord 返回一个字符的ASCII码
+quoted_printable_decode 将qp编码字符串转换成8
+str_rot13 对一个字符串进行rot13编码
+
+字符串加密类
+--------------------------------------------------------------------------
+crypt 将字符串用DES编码加密
+md5_file 计算给定文件的MD5hash
+md5 对一个字符串进行MD5加密
+sha1_file 计算给定文件的sha1hash
+sha1 计算字符串的sha1hash
+
+字符串输出类
+--------------------------------------------------------------------------
+echo 输出一个或多个字符
+fprintf 输出格式化字符串到流
+print 输出格式化字符串
+printf 输出一个格式化的字符串
+sprintf 返回一个格式化的字符串到变量
+sscanf 按照一定格式解析输入的字符串
+vfprintf 输出格式化字符串到流
+vprintf 输出一个格式化的字符串
+vsprintf 输出格式化的字符串到变量
+
+字符串比较类
+--------------------------------------------------------------------------
+levenshtein 计算两个字符串的Levenshtein距离
+metaphone 计算字符串的metaphone键
+soundex 计算字符串的soundex键
+strcoll 对两个字符串进行比较
+strcmp 比较两个字符串
+strnatcasecmp 用自然运算法则比较字符串(不区分大小写)
+strncasecmp 比较字符串的前n个字符(不区分大小写)
+strncmp 比较两个字符串的前n个字符
+strpbrk 查找字符串中的一系列字符
+strpos 寻找字符串中某字符最先出现的位置
+strrchr 查找一个字符串在另一个字符串中末次出现的位置，并返回从字符串中的这个位置起，一直到字符串结尾的子字符串
+substr_compare 从指定起始位置起在一定长度内比较两个字符串(二进制精确，区分大小写可选)
+
+--------------------------------------------------------------------------
+Hash
+PHP中的常用Hash
+--------------------------------------------------------------------------
+hash_algos 返回已经注册的Hash规则列表
+hash_file 用指定的文件内容生成一个Hash值
+hash_final 完成一个增加的Hash值并返回结果摘要
+hash_hmac_file 用指定文件和HMAC模式生成一个包含密钥的Hash值
+hash_hmac 用HMAC模式生成一个包含密钥的Hash值
+hash_init 初始化一个增加的Hash值
+hash_update_file 从一个文件向一个动态的Hash值灌注数据
+hash_update_stream 从一个打开的数据流向一个动态的Hash值灌注数据
+hash_update 向一个动态的Hash值灌注数据
+hash 生成一个Hash值
+
+--------------------------------------------------------------------------
+正则表达式
+Perl兼容的正则表达式
+--------------------------------------------------------------------------
+preg_grep 返回与模式匹配的数组单元
+preg_match_all 进行全局正则表达式匹配
+preg_match 进行正则表达式匹配
+preg_quote 转义正则表达式字符
+preg_replace_callback 用回调执行正则表达式的查找和替换
+preg_replace 执行正则表达式的查找和替换
+preg_split 用正则表达式分割字符串
+
+--------------------------------------------------------------------------
+文件目录操作篇
+Directories
+PHP中常用的目录操作
+--------------------------------------------------------------------------
+chdir 改变目录
+chroot 改变根目录
+dir 仿照面向对象的机制来读取一个目录
+closedir 关闭目录句柄
+getcwd 获取当前工作目录
+opendir 打开目录句柄
+readdir 从目录句柄中读取条目
+rewinddir 倒回目录句柄
+scandir 列出指定路径中的文件和目录
+
+--------------------------------------------------------------------------
+FilePro
+PHP中常用的FilePro
+--------------------------------------------------------------------------
+filepro_fieldcount 返回FilePro数据库上的表的数量
+filepro_fieldname 返回表的名称
+filepro_fieldtype 返回表的类型
+filepro_fieldwidth 返回一个表的宽度
+filepro_retrieve 检索数据库中的数据
+filepro_rowcount 返回数据库的行数
+filepro 将读取核对地图文件并存储表的数量和信息
+
+--------------------------------------------------------------------------
+FileSystem
+文件打开关闭类
+--------------------------------------------------------------------------
+fopen 打开本地或远程的文件
+fclose 关闭已打开的文件指针
+popen 根据指定模式打开进程文件指针
+pclose 关闭进程文件指针
+
+--------------------------------------------------------------------------
+文件操作类
+--------------------------------------------------------------------------
+chgrp 改变文件所属的组
+chmod 改变文件的访问模式
+chown 修改文件的所有者
+clearstatcache 清除文件状态缓存
+copy 复制文件
+delete 删除文件
+flock 锁定文件
+fpassthru 输出文件中的剩余数据
+fputcsv 将行数据格式化为CSV格式并写入文件
+fputs 将字符串写入文件
+fread 读取文件内容
+fscanf 将文件内容格式化输出
+fseek 在文件中设置指针位置
+ftruncate 将文件截断到指定的长度
+fwrite 写入文件
+glob 查找与模式匹配的文件路径
+link 建立硬连接
+move_uploaded_file 将上传的文件移动到新位置
+parse_ini_file 解析一个配置文件
+readfile 输出一个文件的内容
+rename 重命名一个文件或目录
+rewind 倒回文件指针
+set_file_buffer 设置文件缓冲区大小
+tempnam 在指定目录下建立临时文件
+touch 修改文件时间
+unlink 删除文件
+文件信息获取类
+--------------------------------------------------------------------------
+fileowner 获取文件所有者
+fileperms 获取文件权限
+filesize 获取文件大小
+filetype 获取文件类型
+fstat 获取打开文件的统计信息
+ftell 返回文件指针读/写的位置
+lstat 返回文件或符号连接的信息
+pathinfo 返回文件路径信息
+realpath 返回规范化的文件绝对路径
+stat 返回文件的信息
+文件类型判断类
+--------------------------------------------------------------------------
+is_dir 判断指定文件是否是目录
+is_executable 判断指定文件是否是可执行文件
+is_file 判断指定文件是否是一个正常的文件
+is_link 判断指定文件是否是一个符号连接
+is_readable 判断指定文件是否可读
+is_uploaded_file 判断指定文件是否是通过POST上传
+is_writable 判断指定文件是否可写
+
+文件目录操作类
+--------------------------------------------------------------------------
+mkdir 建立目录
+rmdir 删除目录
+disk_free_space 返回指定目录的剩余空间
+disk_total_space 返回指定目录的磁盘总空间大小
+
+--------------------------------------------------------------------------
+Stream
+PHP中的Stream
+--------------------------------------------------------------------------
+stream_bucket_append 为队列添加数据
+stream_bucket_make_writeable 从操作的队列中返回一个数据对象
+stream_bucket_new 为当前队列创建一个新的数据
+stream_bucket_prepend 预备数据到队列
+stream_context_create 创建数据流上下文
+stream_context_get_default 获取默认的数据流上下文
+stream_context_get_options 获取数据流的设置
+stream_context_set_option 对数据流、数据包或者上下文进行设置
+stream_context_set_params 为数据流、数据包或者上下文设置参数
+stream_copy_to_stream 在数据流之间进行复制操作
+stream_filter_append 为数据流添加过滤器
+stream_filter_prepend 为数据流预备添加过滤器
+stream_filter_register 注册一个数据流的过滤器并作为PHP类执行
+stream_filter_remove 从一个数据流中移除过滤器
+stream_get_contents 读取数据流中的剩余数据到字符串
+stream_get_filters 返回已经注册的数据流过滤器列表
+stream_get_line 按照给定的定界符从数据流资源中获取行
+stream_get_meta_data 从封装协议文件指针中获取报头/元数据
+stream_get_transports 返回注册的Socket传输列表
+stream_get_wrappers 返回注册的数据流列表
+stream_register_wrapper 注册一个用PHP类实现的URL封装协议
+stream_select 接收数据流数组并等待它们状态的改变
+stream_set_blocking 将一个数据流设置为堵塞或者非堵塞状态
+stream_set_timeout 对数据流进行超时设置
+stream_set_write_buffer 为数据流设置缓冲区
+stream_socket_accept 接受由stream_ stream_socket_client 打开网络或者UNIX主机的Socket连接
+stream_socket_enable_crypto 为一个已经连接的Socket打开或者关闭数据加密
+stream_socket_get_name 获取本地或者网络Socket的名称
+stream_socket_pair 创建两个无区别的Socket数据流连接
+stream_socket_recvfrom 从Socket获取数据，不管其连接与否
+stream_socket_sendto 向Socket发送数据，不管其连接与否
+stream_socket_server 创建一个网络或者UNIX
+stream_wrapper_restore 恢复一个事先注销的数据包
+stream_wrapper_unregister 注销一个URL地址包
+
+--------------------------------------------------------------------------
+网络通信篇
+Socket
+Socket连接类
+--------------------------------------------------------------------------
+socket_accept 接受一个Socket连接
+socket_bind 绑定一个Socket连接
+socket_close 关闭Socket连接
+socket_connect 在Socket上初始化一个连接
+socket_create_pair 建立一对Socket，并存储在数组中
+Socket_create 建立Socket连接
+socket_listen 监听一个Socket连接
+Socket操作类
+
+--------------------------------------------------------------------------
+socket_clear_error 清空Socket错误信息或者最后一个错误代码
+Socket_create_listen 在Socket上打开一个端口接受连接
+Socket_get_option 获取Socket的设置选项
+socket_getpeername 获取远程主机的Socket信息
+Socket_getsockname 获取本地主机的Socket信息
+socket_last_error 返回Socket最后一个错误代号
+Socket_read 从连接中读取设置的最大长度的字节数
+Socket_recv 从一个连接的Socket中接收数据
+Socket_recvfrom 接收数据，不管连接是否断开
+socket_select 查询Socket状态
+socket_send 发送数据
+socket_sendto 发送一条消息到Socket，不管连接是否断开
+socket_set_block 锁定Socket
+Socket_set_nonblock 设置不锁定状态
+socket_set_option 设置Socket连接选项
+socket_shutdown 关闭一个Socket连接
+socket_strerror 返回一个包含Socket错误信息的字符串
+socket_write 写入一个Socket
+
+--------------------------------------------------------------------------
+SNMP
+PHP中的SNMP
+--------------------------------------------------------------------------
+snmp_get_quick_print 返回UCD库中quick_print设置的当前值
+snmp_get_valueretrieval 返回SNMP值如何被返回的路径
+snmp_read_mib 读取并从分析MIB文件到动态的MIB树
+snmp_set_enum_print 返回所有的枚举值
+snmp_set_oid_numeric_print 返回所有的对象，包括它们各自的对象ID并指明
+snmp_set_quick_print 设置UCD
+snmp_set_valueretrieval 指明SNMP的值的返回路径
+snmpget 获取一个SNMP对象
+snmpgetnext 发送一个SNMP对象
+snmprealwalk 返回指定的所有对象，包括它们各自的对象ID
+snmpset 设置一个SNMP对象
+snmpwalk 从代理返回所有的SNMP对象
+snmpwalkoid 查询关于网络实体的信息树
+
+--------------------------------------------------------------------------
+Session
+PHP中常用的Session
+--------------------------------------------------------------------------
+session_cache_expire 获取或者设置当前Session的过期时间
+session_cache_limiter 获取或者设置当前的cache限制者
+session_commit 存储Session中的数据并终止Session
+session_decode 解密Session数据
+session_destroy 结束所有已经注册的Session
+session_encode 将当前Session会话值加密为一个字符串
+session_get_cookie_params 获取Session
+session_id 获取或者设置当前的Session
+session_is_registered 检查变量是否被注册为Session
+session_module_name 获取或者设置目前的Session模组
+session_name 获取或者设置目前的Session名称
+session_regenerate_id 用一个新值更新当前的Session
+session_register 注册Session为新的全局变量
+session_save_path 获取或者设置目前的Session保存路径
+session_set_cookie_params 设置Cookie的参数
+session_set_save_handler 设置用户级的Session存储
+session_start 初始化Session数据
+session_unregister 从当前Session中注销一个值
+session_unset 释放所有的Session变量
+session_write_close 向Session中写入数据并终止Session
+
+--------------------------------------------------------------------------
+URL
+PHP中的URL
+--------------------------------------------------------------------------
+base64_decode 对使用MIME
+base64_encode 使用MIME
+get_headers 获取HTTP请求头部信息
+get_meta_tags 从一个文件中提取所有的meta标签并返回一个数组
+http_build_query 生成url-encoded之后的请求字符串
+parse_url 解析URL并返回其组成部分
+rawurldecode 对已编码的URL字符串进行解码
+rawurlencode 按照RFC
+urldecode 解码已编码的URL字符串
+urlencode 编码URL字符串
+
+--------------------------------------------------------------------------
+Mail
+PHP中的Mail
+--------------------------------------------------------------------------
+ezmlm_hash 计算EZMLM所需的散列值
+mail 发送邮件
+
+--------------------------------------------------------------------------
+HTTP
+PHP中的HTTP
+--------------------------------------------------------------------------
+header 发送一个原始HTTP标头
+headers_list 返回已发送(或准备发送)
+headers_sent 检查标头是否已被发送以及在哪里被发送
+setcookie 发送一个Cookie信息
+setrawcookie 发送一个其值未经urlencode编码的Cookie
+
+--------------------------------------------------------------------------
+FTP
+FTP连接类
+--------------------------------------------------------------------------
+ftp_close 关闭一个活动的FTP连接
+ftp_connect 建立一个新的FTP连接
+ftp_login 登录FTP服务器
+ftp_ssl_connect 通过SSL连接FTP服务器
+ftp_quit 关闭一个活动的FTP连接
+
+--------------------------------------------------------------------------
+FTP文件操作类
+--------------------------------------------------------------------------
+ftp_cdup 切换到当前目录的父目录
+ftp_chdir 在FTP服务器上切换当前目录
+ftp_chmod 修改FTP服务器文件的访问权限
+ftp_delete 删除FTP服务器上的一个文件
+ftp_fget 从FTP服务器上下载一个文件并保存到本地一个已经打开的文件中343
+ftp_fput 上传一个已经打开的文件到FTP服务器
+ftp_get 从FTP服务器上下载一个文件
+ftp_mdtm 返回指定文件的最后修改时间
+ftp_mkdir 建立新目录
+ftp_nb_continue 连续获取/发送文件
+ftp_nb_fget 下载远程FTP服务器文件
+ftp_nb_fput 上传文件到FTP服务器
+ftp_nb_get 从FTP服务器上获取文件并写入本地文件
+ftp_nb_put 存储一个文件至FTP服务器
+ftp_nlist 返回给定目录的文件列表
+ftp_put 上传文件到FTP服务器
+ftp_pwd 返回当前目录名
+ftp_rename 更改FTP服务器上指定的文件名
+ftp_rmdir 删除一个目录
+ftp_size 返回指定文件的大小
+
+--------------------------------------------------------------------------
+FTP服务器访问类
+--------------------------------------------------------------------------
+ftp_get_option 返回当前FTP连接的各种不同的选项设置
+ftp_pasv 设置当前FTP被动模式是否打开
+ftp_set_option 设置各种FTP运行时选项
+ftp_systype 返回远程FTP服务器的系统类型
+FTP命令类
+ftp_alloc 发送ALO命令到远程的FTP服务器
+ftp_exec 请求运行一条FTP命令
+ftp_raw 发送命令到FTP服务器
+ftp_rawlist 返回指定目录下文件的详细列表
+ftp_site 向服务器发送SITE命令
+
+--------------------------------------------------------------------------
+Network
+主机操作类Network
+--------------------------------------------------------------------------
+checkdnsrr 查找主机的域名记录
+dns_check_record 查找主机的DNS记录
+dns_get_mx 获取主机的MX记录
+dns_get_record 获取主机的DNS记录
+gethostbyaddr 返回主机名称
+gethostbyname 返回IP地址
+gethostbynamel 返回IP地址列表
+getmxrr 根据给出的域名返回MX记录
+getprotobyname 返回协议名对应的协议号
+getprotobynumber 返回协议号对应的协议名称
+getservbyname 获取协议名称对应的端口号
+getservbyport 获取端口对应的协议名称
+
+--------------------------------------------------------------------------
+日志操作类Network
+closelog 关闭系统日志
+--------------------------------------------------------------------------
+define_syslog_variables 初始化所有系统日志的内容
+openlog 打开到系统日志的连接
+syslog 产生一个系统日志
+
+
+其他操作类Network
+--------------------------------------------------------------------------
+debugger_off 禁用PHP
+debugger_on 启用PHP
+fsockopen 打开网络Socket连接
+inet_ntop 把网络IP地址转换为可识别的形式
+inet_pton 把可识别形式的IP地址转换为网络IP
+ip2long 把IP地址转换为一个整数
+long2ip 把一个整数转换为IP地址
+pfsockopen 打开网络Socket持续连接
+
+--------------------------------------------------------------------------
+图像处理篇
+Exif
+PHP中的Exif
+--------------------------------------------------------------------------
+exif_imagetype 判断一个图像的类型
+exif_read_data 从JPEG或TIFF文件中读取Exif头信息
+exif_tagname 获取图像索引的头信息
+exif_thumbnail 获取嵌入在TIFF或JPEG图像中的缩略图
+read_exif_data 从JPEG或TIFF文件中读取Exif头信息
+
+--------------------------------------------------------------------------
+Image
+PHP中的Image
+--------------------------------------------------------------------------
+gd_info 获取当前安装的GD库的信息
+getimagesize 获取图像的大小
+image_type_to_extension 获取图像类型的文件后缀
+image_type_to_mime_type 判断一个IMAGETYPE常量的MIME类型
+image2wbmp 以WBMP格式将图像输出到浏览器或文件
+imagealphablending 设定图像的混色模式
+imageantialias 是否使用antialias(抗锯齿)功能
+imagearc 画椭圆弧
+imagechar 水平地画一个字符
+imagecharup 垂直地画一个字符
+imagecolorallocate 为一幅图像分配颜色
+imagecolorallocatealpha
+imagecolorat 获取某像素的颜色索引值
+imagecolorclosest 获取与指定颜色最接近的颜色的索引值
+imagecolorclosestalpha 获取与指定颜色加透明度最接近的颜色的索引值390
+imagecolorclosesthwb 获取与指定颜色最接近的色度的黑白色的索引
+imagecolordeallocate 取消图像颜色的分配
+imagecolorexact 获取指定颜色的索引值
+imagecolorexactalpha 获取指定颜色加透明度的索引值
+imagecolormatch 使一个图像中调色板版本的颜色与真彩色版本更能匹配393
+imagecolorresolve 获取指定颜色的索引值或有可能得到的最接近的替代值393
+imagecolorresolvealpha 获取指定颜色透明度的索引值或有可能得到的最接近的替代值
+imagecolorset 给指定调色板索引设定颜色
+imagecolorsforindex 获取某索引的颜色
+imagecolorstotal 获取一幅图像的调色板中颜色的数目
+imagecolortransparent 将某个颜色定义为透明色
+imageconvolution 申请一个3*3的卷积矩阵
+imagecopy 复制图像的一部分
+imagecopymerge 复制并合并图像的一部分
+imagecopymergegray 用灰度复制并合并图像的一部分
+imagecopyresampled 重采样复制部分图像并调整大小
+imagecopyresized 复制部分图像并调整大小
+imagecreate 新建一个基于调色板的图像
+imagecreatefromgd2 从GD
+imagecreatefromgd2part 从给定的GD
+imagecreatefromgd 从GD文件或URL中新建一个图像
+imagecreatefromgif 从GIF文件或URL中新建一个图像
+imagecreatefromjpeg 从JPEG文件或URL中新建一个图像
+imagecreatefrompng 从PNG文件或URL中新建一个图像
+imagecreatefromstring 从字符串中的图像流新建一个图像
+imagecreatefromwbmp 从WBMP文件或URL中新建一个图像
+imagecreatefromxbm 从XBM文件或URL中新建一个图像
+imagecreatefromxpm 从XPM文件或URL中新建一个图像
+imagecreatetruecolor 新建一个真彩色图像
+imagedashedline 画一条虚线
+imagedestroy 销毁一个图像
+imageellipse 画一个椭圆
+imagefill 用指定颜色填充一个区域
+imagefilledarc 画一个椭圆弧并填充
+imagefilledellipse 画一个椭圆并填充
+imagefilledpolygon 画一个多边形并填充
+imagefilledrectangle 画一个矩形并填充
+imagefilltoborder 区域填充到指定颜色的边界为止
+imagefilter 对图像使用过滤器
+imagefontheight 获取字体高度
+imagefontwidth 获取字体宽度
+imageftbbox 给出一个使用FreeType2字体的文本框
+imagefttext 使用FreeType2字体将文本写入图像
+imagegammacorrect 对GD图像应用gamma修正
+imagegd2 将GD
+imagegd 将GD图像输出到浏览器或文件
+imagegif 以GIF格式将图像输出到浏览器或文件
+imageinterlace 激活或禁止隔行扫描
+imageistruecolor 检查图像是否为真彩色图像
+imagejpeg 以JPEG格式将图像输出到浏览器或文件
+imagelayereffect 设定alpha混色标志以使用绑定的libgd分层效果
+imageline 画一条线段
+imageloadfont 载入一个新字体
+imagepalettecopy 将调色板从一幅图像复制到另一幅
+imagepng 以PNG格式将图像输出到浏览器或文件
+imagepolygon 画一个多边形
+imagepsbbox 给出一个使用PostScript
+imagepsencodefont 改变字体中的字符编码矢量
+imagepsextendfont 扩充或精简字体
+imagepsfreefont 释放一个PostScript
+imagepsloadfont 从文件中加载一个PostScript
+imagepsslantfont 倾斜某字体
+imagepstext 用PostScript
+imagerectangle 画一个矩形
+imagerotate 用给定角度旋转图像
+imagesavealpha 设置标记以在保存PNG图像时保存完整的alpha通道信息430
+imagesetbrush
+imagesetpixel 画一个单一的像素
+imagesetstyle 设定画线的风格
+imagesetthickness 设定画线的宽度
+imagesettile 设定用于填充的贴图
+imagestring 水平地画一行字符串
+imagestringup 垂直地画一行字符串
+imagesx 获取图像宽度
+imagesy 获取图像高度
+imagetruecolortopalette 将真彩色图像转换为调色板图像
+imagettfbbox 取得使用TrueType字体的文本的范围
+imagettftext 用TrueType字体向图像写入文本
+imagetypes 返回当前PHP版本所支持的图像类型
+imagewbmp 以WBMP格式将图像输出到浏览器或文件
+imagexbm 将XBM图像输出到浏览器或文件
+iptcembed 将二进制IPTC数据嵌入一幅JPEG图像中
+iptcparse 将二进制IPTC块解析为单个标记
+jpeg2wbmp 将JPEG图像文件转换为WBMP图像文件
+png2wbmp 将PNG图像文件转换为WBMP图像文件
+
+--------------------------------------------------------------------------
+Win32篇
+Win32API
+PHP中的Win32API
+--------------------------------------------------------------------------
+w32api_deftype 为w32api_functions定义一个类型
+w32api_init_dtype 创建了一个数据类型的实例，并且将返回值填入实例中
+w32api_invoke_function 带一个传递参数的执行，传递参数在名的后面
+w32api_register_function 从指定库中使用PHP注册一个
+w32api_set_call_method 设置调用的方法
+
+--------------------------------------------------------------------------
+Win32PS
+PHP中的Win32PS
+--------------------------------------------------------------------------
+win32_ps_list_procs 列出不同进程的内存使用情况和CPU时间
+win32_ps_stat_mem 列出当前系统的内存使用情况和CPU时间
+win32_ps_stat_proc 列出特定进程的内存使用情况和CPU时间
+--------------------------------------------------------------------------
+XML篇
+XML解析
+PHP中的语法解析
+--------------------------------------------------------------------------
+utf8_decode 将用UTF-8方式编码的ISO-8859-1字符串转换成单字节的ISO-8859-1字符串
+utf8_encode 将ISO-8859-1编码的字符串转换为UTF-8编码
+xml_error_string 获取XML解析器的错误字符串
+xml_get_current_byte_index 获取XML解析器的当前字节索引
+xml_get_current_column_number 获取XML解析器的当前列号
+xml_get_current_line_number 获取XML解析器的当前行号
+xml_get_error_code 获取XML解析器的错误代码
+xml_parse_into_struct 将XML数据解析到数组中
+xml_parse 开始解析一个XML文档
+xml_parser_create_ns 生成一个支持命名空间的XML解析器
+xml_parser_create 建立一个XML解析器
+xml_parser_free 释放指定的XML解析器
+xml_parser_get_option 从XML解析器获取选项设置信息
+xml_parser_set_option 为指定的XML解析器进行选项设置
+xml_set_character_data_handler 建立字符数据处理器
+xml_set_default_handler 建立默认处理器
+xml_set_element_handler 建立起始和终止元素处理器
+xml_set_end_namespace_decl_handler 建立终止命名空间声明处理器
+xml_set_external_entity_ref_handler 建立外部实体指向处理器
+xml_set_notation_decl_handler 建立注释声明处理器
+xml_set_object 在对象中使用XML解析器
+xml_set_processing_instruction_handler 建立处理指令处理器
+xml_set_start_namespace_decl_handler 建立起始命名空间声明处理器
+xml_set_unparsed_entity_decl_handler 建立未解析实体定义声明处理器468
+
+--------------------------------------------------------------------------
+XMLRPC
+PHP中的XMLRPC
+--------------------------------------------------------------------------
+xmlrpc_decode_request 将XML译码为PHP本身的类型
+xmlrpc_decode 将XML译码为PHP本身的类型
+xmlrpc_encode_request 为PHP的值生成XML
+xmlrpc_encode 为PHP的值生成XML
+xmlrpc_get_type 为PHP值获取XMLRPC的类型
+xmlrpc_is_fault 检查XMLRPC是否出错
+xmlrpc_parse_method_descriptions 将XML译码成方法描述的列表
+xmlrpc_server_add_introspection_data 添加自我描述的文档
+xmlrpc_server_call_method 解析XML请求同时调用方法
+xmlrpc_server_create 创建一个XMLRPC服务端
+xmlrpc_server_destroy 销毁服务端资源
+xmlrpc_server_register_introspection_callback 注册一个PHP用于生成文档
+xmlrpc_server_register_method 注册一个PHP用于匹配XMLRPC方法名
+xmlrpc_set_type 为一个PHP字符串值设置XMLRPC的类型
+
+--------------------------------------------------------------------------
+Errors
+PHP中的Errors
+--------------------------------------------------------------------------
+debug_backtrace 产生一个backtrace
+debug_print_backtrace 输出一个PHP
+error_log 发送一个错误信息到指定位置
+error_reporting 设置PHP错误报告等级
+restore_error_handler 恢复错误信息指针
+restore_exception_handler 恢复事先定义的例外指针
+set_error_handler 设置一个用户自定义的错误信息
+set_exception_handler 设置一个用户自定义的例外句柄
+trigger_error 产生一个用户级的错误、警告或者注意信息
+
+--------------------------------------------------------------------------
+Math
+数学计算
+--------------------------------------------------------------------------
+abs 求绝对值
+ceil 进一法取整
+floor 舍去法取整
+fmod 返回除法的浮点数余数
+log10 返回以10为底的对数
+log1p 返回log(1+number)
+log 返回指定数值的(自然)
+pow 返回指定数值的n次方
+round 对浮点数进行四舍五入运算
+sqrt 返回指定数值的平方根
+
+--------------------------------------------------------------------------
+数学三角
+--------------------------------------------------------------------------
+acos 求反余弦
+acosh 求反双曲余弦
+asin 求反正弦
+asinh 求反双曲正弦
+atan2 计算两个参数的反正切
+atan 求反正切
+atanh 求反双曲正切
+cos 求余弦
+cosh 求双曲余弦
+sin 求正弦
+sinh 求双曲正弦
+tan 求正切
+tanh 求双曲正切
+求最值
+getrandmax 显示随机数最大的可能值
+max 找出最大值
+min 找出最小值
+mt_getrandmax 显示随机数的最大可能值
+
+--------------------------------------------------------------------------
+进制转换
+--------------------------------------------------------------------------
+base_convert 在任意进制之间转换数字
+bindec 二进制转换为十进制
+decbin 十进制转换为二进制
+dechex 十进制转换为十六进制
+decoct 十进制转换为八进制
+hexdec 十六进制转换为十进制
+octdec 八进制转换为十进制
+
+--------------------------------------------------------------------------
+其他数学
+--------------------------------------------------------------------------
+deg2rad 将角度转换为弧度
+exp 计算e的指数
+expm1 返回exp(number)-1
+hypot 计算直角三角形的斜边长度
+is_finite 判断是否为有限值
+is_infinite 判断是否为无限值
+is_nan 判断是否为合法数值
+lcg_value 组合线性同余发生器
+mt_rand 生成更好的随机数
+mt_srand 播下一个更好的随机数发生器种子
+pi 获取圆周率值
+rad2deg 将弧度数转换为相应的角度数
+rand 产生一个随机整数
+srand 播下随机数发生器种子
+
+--------------------------------------------------------------------------
+Output
+PHP中的输出控制
+--------------------------------------------------------------------------
+flush 刷新输出缓冲
+ob_clean 清空输出缓冲
+ob_end_clean 清空缓冲区并且关闭正在进行的输出缓冲
+ob_end_flush 发送缓冲区数据并且关闭缓冲区
+ob_flush 发送缓冲区数据
+ob_get_clean 获取缓冲区内容并且结束缓冲区
+ob_get_contents 获取缓冲区数据
+ob_get_flush 刷新缓冲区数据，返回数据并且关闭缓冲区
+ob_get_length 获取缓冲区长度
+ob_get_level 获取缓冲区等级
+ob_get_status 获取缓冲区状态
+ob_gzhandler 供ob_start使用的回调用来压缩输出缓冲区
+ob_implicit_flush 打开或者关闭原本固有的输出缓冲区
+ob_list_handlers 列出所有使用的输出句柄
+ob_start 打开缓冲区
+output_add_rewrite_var 添加URL
+output_reset_rewrite_vars 重置URL
+
+--------------------------------------------------------------------------
+PHP
+PHP信息获取类
+--------------------------------------------------------------------------
+assert 检查assertion声明是否错误
+extension_loaded 检查PHP扩展是否加载
+get_cfg_var 获取PHP配置选项的值
+get_current_user 获取当前PHP脚本的所有者的名称
+get_defined_constants 返回一个包含PHP预定义常量信息的数组
+get_extension_funcs 返回一个包含指定模块中的所有名称的数组
+get_include_path 返回当前配置的文件包含路径的信息
+get_included_files 返回一个关于文件包含信息的数组
+get_loaded_extensions 返回一个包含所有装载模块信息的数组
+get_magic_quotes_gpc 获取magic_quotes_gpc的状态信息
+get_magic_quotes_runtime 获取magic_quotes_ get_required_files 返回一个关于文件包含信息的数组
+getenv 获取PHP环境变量的值
+getlastmod 获取当前PHP页面文件的最后修改时间
+getmygid 获取当前PHP脚本页面所有者的GID号码
+getmyinode 获取当前PHP脚本页面的INODE号码
+getmypid 获取PHP的PID
+getmyuid 获取PHP脚本页面所有者的UID号码
+getopt 从命令行参数列表获取设置
+getrusage 获取当前的资源语法
+ini_get_all 获取所有配置选项
+ini_get 获取配置选项的值
+memory_get_usage 返回PHP脚本占用的内存空间
+php_ini_scanned_files 返回配置文件目录下的配置文件列表
+php_logo_guid 获取LOGO图片的GUID
+php_sapi_name 获取PHP和Web服务器之间的接口类型
+php_uname 获取PHP脚本运行的操作系统信息
+phpcredits 打印credits列表
+phpinfo 输出PHP的信息
+phpversion 获取PHP版本
+zend_logo_guid 获取ZEND的LOGO图片的GUID
+zend_version 获取ZEND引擎的版本
+
+--------------------------------------------------------------------------
+PHP配置类
+--------------------------------------------------------------------------
+assert_options 设置或者获取不同的声明标记
+ini_alter 设置PHP配置选项的值
+ini_restore 恢复配置选项的值
+ini_set 设置PHP配置选项的值
+putenv 设置环境变量
+restore_include_path 恢复文件包含路径配置信息
+set_include_path 设置文件包含路径配置选项
+set_magic_quotes_runtime 设置magic_quotes运行时间
+set_time_limit 设置最大执行时间
+
+--------------------------------------------------------------------------
+其他类
+--------------------------------------------------------------------------
+dl 加载PHP的扩展模块
+main 只是一个挂名的main()
+version_compare 比较PHP两个版本值
+
+--------------------------------------------------------------------------
+Program
+PHP中的程序执行
+--------------------------------------------------------------------------
+escapeshellarg 过滤用作命令参数的字符串
+escapeshellcmd 过滤用作命令的字符串中的特殊字符
+exec 执行命令
+passthru 执行程序但不输出数据
+proc_close 关闭一个由proc_open()打开的进程，并返回进程的退出
+proc_get_status 获取进程的状态信息
+proc_nice 改变当前进程的优先权
+proc_open 执行命令并且打开输入输出文件指针
+proc_terminate 杀死进程
+shell_exec 执行命令并且将完整的输出结果作为一个字符串返回
+system 执行程序并输出结果
+
+--------------------------------------------------------------------------
+Date/Time
+PHP中的日期、时间
+--------------------------------------------------------------------------
+checkdate 验证一个格里高里日期
+date_default_timezone_get 获取一个脚本中所有日期、时间所使用的默认时区
+date_default_timezone_set 设定用于一个脚本中所有日期、时间的默认时区
+date_sunrise 返回给定的日期与地点的日出时间
+date_sunset 返回给定的日期与地点的日落时间
+date 格式化一个本地时间/日期
+getdate 获取日期/时间信息
+gettimeofday 获取当前时间
+gmdate 格式化一个GMT/UTC日期/时间
+gmmktime 获取GMT日期的UNIX时间戳
+gmstrftime 根据区域设置格式化GMT/UTC时间/日期
+idate 将本地时间、日期格式化为整数
+localtime 获取本地时间
+microtime 返回当前UNIX时间戳和微秒数
+mktime 获取一个日期的UNIX时间戳
+strftime 根据区域设置格式化本地时间/日期
+strptime 解析由strftime生成的日期/时间
+strtotime 将任何英文文本的日期、时间描述解析为UNIX时间戳
+time 返回当前的UNIX时间戳
+
+--------------------------------------------------------------------------
+Classes/Objects
+PHP中的类/对象
+--------------------------------------------------------------------------
+class_exists 检查类是否已定义
+get_class_methods 返回由类的方法名组成的数组
+get_class_vars 返回由类的默认属性组成的数组
+get_class 返回对象的类名
+get_declared_classes 返回由已定义类的名字所组成的数组
+get_declared_interfaces 返回一个声明接口的数组
+get_object_vars 返回由对象属性组成的关联数组
+get_parent_class 返回对象或类的父类名
+interface_exists 检查接口是否定义
+is_a 判断对象是否属于某一个类
+is_subclass_of 判断对象是否属于某一个类的子类
+method_exists 检查类的方法是否存在
+property_exists 检查对象或类是否具有指定的属性
+
+--------------------------------------------------------------------------
+COM
+PHP中的COM与.NET
+--------------------------------------------------------------------------
+COM COM类构造，提供了将(D)COM组件整合到PHP脚本中的框架
+DOTNET 从.NET集合创建类并调用类的方法，使用类的属性
+VARIANT 将变量封装进VARIANT结构中的简单容器
+com_create_guid 产生一个全局唯一标识符(GUID)
+com_event_sink 在COM对象与PHP对象之间建立连接
+com_get_active_object 返回已经运行的一个COM类的实例的句柄
+com_invoke 调用COM组件的方法
+com_isenum 获取一个IenumVariant
+com_load_typelib 装载一个Typelib
+com_load 创建新的COM组件的引用
+com_message_pump 停止运行指定的时间，等待有信息到来
+com_print_typeinfo 输出一个定义为进程接口的PHP类
+
+--------------------------------------------------------------------------
+杂项
+PHP中的杂项
+--------------------------------------------------------------------------
+connection_aborted 判断客户端的连接状态
+connection_status 返回客户端的连接状态
+connection_timeout 判断脚本的运行状态
+constant 返回常量的值
+define 定义一个常量的值
+defined 判断一个常量是否存在
+die 退出程序
+eval 将一个字符串作为PHP代码来执行
+exit 退出并输出信息
+get_browser 获取客户端浏览器的各项功能
+highlight_file 对一个文件进行高亮度显示
+highlight_string 对一个字符串进行高亮度显示
+ignore_user_abort 设定是否在客户端断开连接时，结束PHP代码的运行
+pack 将指定数据打包为二进制字符串
+php_check_syntax 检查PHP文件的语法
+php_strip_whitespace 去除PHP文件中的注释和空格
+show_source 对一个文件进行高亮度显示
+sleep 暂停执行程序
+time_nanosleep 暂停执行程序
+time_sleep_until 在指定时间唤醒程序
+uniqid 生成一个单独的ID
+unpack 从二进制字符串中解包出数据到数组
+usleep 以微秒级暂停程序
+spl_autoload_register() 注册类的自动加载
+
+
+--------------------------------------------------------------------------
+DOM类
+4.DOMAttr DOMAttr类
+--------------------------------------------------------------------------
+1.DOMAttr::__construct 创建一个新DOMAttr对象
+2.DOMAttr::isId 检查如果属性是一个定义的ID
+5.DOMCdataSection DOMCdataSection类
+1.DOMCdataSection::__construct 构造一个新DOMCdataSection对象
+6.DOMCharacterData DOMCharacterData类
+1.DOMCharacterData::appendData 字符串附加到该节点的字符数据的结束
+2.DOMCharacterData::deleteData 从节点中删除一个字符范围
+3.DOMCharacterData::insertData 将字符串指定的16位为单位的偏移
+4.DOMCharacterData::replaceData 更换子内DOMCharacterData节点
+5.DOMCharacterData::substringData 从节点提取的数据范围
+7.DOMComment DOMComment类
+1.DOMComment::__construct 创建一个新DOMComment对象
+8.DOMDocument DOMDocument类
+1.DOMDocument::__construct 创建一个新的DOMDocument对象
+2.DOMDocument::createAttribute 创建新的属性
+3.DOMDocument::createAttributeNS 创建新的属性节点关联的命名空间
+4.DOMDocument::createCDATASection 创建新的CDATA节点
+5.DOMDocument::createComment 创建新的注释节点
+6.DOMDocument::createDocumentFragment 创建新的文档片段
+7.DOMDocument::createElement 创建新的元素节点
+8.DOMDocument::createElementNS 创建新的元素节点关联的命名空间
+9.DOMDocument::createEntityReference 创建新的实体引用节点
+10.DOMDocument::createProcessingInstruction 创建新的PI节点
+11.DOMDocument::createTextNode 创建新的文本节点
+12.DOMDocument::getElementById 搜索元素具有一定的id
+13.DOMDocument::getElementsByTagName 局部变量名的所有元素与搜索
+14.DOMDocument::getElementsByTagNameNS 搜索给定的标记名称在指定的命名空间中的所有元素
+15.DOMDocument::importNode 导入到当前文档中的节点
+16.DOMDocument::load 从文件中加载XML
+17.DOMDocument::loadHTML 从字符串中加载HTML
+18.DOMDocument::loadHTMLFile 从文件中加载HTML
+19.DOMDocument::loadXML 从字符串中加载XML
+20.DOMDocument::normalizeDocument 标准化文件
+21.DOMDocument::registerNodeClass 注册扩展类用于创建基本节点类型
+22.DOMDocument::relaxNGValidate 文件上进行relaxNG验证
+23.DOMDocument::relaxNGValidateSource 文件上进行relaxNG验证
+24.DOMDocument::save 内部转储到一个文件中的XML树背
+25.DOMDocument::saveHTML 内部文件转储到一个使用HTML格式的字符串
+26.DOMDocument::saveHTMLFile 内部文件转储到一个文件中使用HTML格式
+27.DOMDocument::saveXML 转储内部XML树转换回一个字符串
+28.DOMDocument::schemaValidate 根据模式验证文件
+29.DOMDocument::schemaValidateSource 根据模式验证文件
+30.DOMDocument::validate 验证基于它的DTD文件
+31.DOMDocument::xinclude 代用品XIncludes DOMDocument对象
+9.DOMDocumentFragment DOMDocumentFragment类
+1.DOMDocumentFragment::appendXML 附加原始XML数据
+.DOMDocumentType 一层类
+11.DOMElement 该DomElement类
+1.DOMElement::__construct 创建一个新domElement为对象
+2.DOMElement::getAttribute 返回值的属性
+3.DOMElement::getAttributeNode 返回属性节点
+4.DOMElement::getAttributeNodeNS 返回属性节点
+5.DOMElement::getAttributeNS 返回值的属性
+6.DOMElement::getElementsByTagName 获取元素的标记名
+7.DOMElement::getElementsByTagNameNS 获取元素的namespaceURI和localName
+8.DOMElement::hasAttribute 检查，看是否存在属性
+9.DOMElement::hasAttributeNS 检查，看是否存在属性
+10.DOMElement::removeAttribute 删除属性
+11.DOMElement::removeAttributeNode 删除属性
+12.DOMElement::removeAttributeNS 删除属性
+13.DOMElement::setAttribute 添加新的属性
+14.DOMElement::setAttributeNode 添加新的属性节点元素
+15.DOMElement::setAttributeNodeNS 添加新的属性节点元素
+16.DOMElement::setAttributeNS 添加新的属性
+17.DOMElement::setIdAttribute 声明指定的属性名ID类型
+18.DOMElement::setIdAttributeNode 声明指定的节点ID类型的属性
+19.DOMElement::setIdAttributeNS 声明指定的本地名称和命名空间URI的属性类型ID
+12.DOMEntity DOMEntity类
+13.DOMEntityReference DOMEntityReference类
+1.DOMEntityReference::__construct 创建一个新DOMEntityReference对象
+14.DOMException 的DOMException异常类的
+15.DOMImplementation DOMImplementation类的
+1.DOMImplementation::__construct 创建一个新的DOMImplementation的对象
+2.DOMImplementation::createDocument 创建一个DOMDocument对象的指定类型的文档元素
+3.DOMImplementation::createDocumentType 创建一个空的一层对象
+4.DOMImplementation::hasFeature 测试DOM实现是否实现特定的功能
+16.DOMNamedNodeMap DOMNamedNodeMap类
+1.DOMNamedNodeMap::getNamedItem 检索指定的节点名称
+2.DOMNamedNodeMap::getNamedItemNS 检索指定节点的本地名称和命名空间URI
+3.DOMNamedNodeMap::item 检索指定索引节点
+17.DOMNode 的DOMNode类
+1.DOMNode::appendChild 添加新的子节点
+2.DOMNode::C14N 规范化节点为一个字符串
+3.DOMNode::C14NFile 规范化到一个文件中的节点
+4.DOMNode::cloneNode 克隆一个节点
+5.DOMNode::getLineNo 行号节点
+6.DOMNode::getNodePath 一个XPath节点
+7.DOMNode::hasAttributes 检查如果节点有属性（成功返回TRUE）
+7.DOMNode::Attributes 查找节点的属性（通过DOMNode::value=“值” 方法赋值）
+8.DOMNode::hasChildNodes 节点检查是否有子节点（成功返回TRUE）
+8.DOMNode::ChildNodes 查找一个节点的子节点
+9.DOMNode::insertBefore 参考节点前添加一个新的子
+10.DOMNode::isDefaultNamespace 如果指定的namespaceURI检查是默认的命名空间或不
+11.DOMNode::isSameNode 表示两个节点是否在相同的节点
+12.DOMNode::isSupported 支持指定的版本检查，如果功能
+13.DOMNode::lookupNamespaceURI 基于前缀获取节点的命名空间URI
+14.DOMNode::lookupPrefix 获取节点的命名空间前缀的基础上的命名空间URI
+15.DOMNode::normalize 标准化的节点
+16.DOMNode::parentNode 查找父节点
+16.DOMNode::removeChild 从列表中删除子节点
+17.DOMNode::replaceChild 替换一个子节点
+18.DOMNodeList 的的DOMNodeList类
+1.DOMNodelist::item 检索指定索引节点
+2.DOMNodelist::length 检索得到几个节点
+19.DOMNotation DOMNotation类
+20.DOMProcessingInstruction DOMProcessingInstruction类
+1.DOMProcessingInstruction::__construct 创建一个新DOMProcessingInstruction对象
+21.DOMText DOMText类
+1.DOMText::__construct 创建一个新DOMText对象
+2.DOMText::isWhitespaceInElementContent 表示这个文本节点是否包含空格
+3.DOMText::splitText 将此节点拆分为两个节点，在指定的偏移量
+22.DOMXPath DOMXPath的类
+1.DOMXPath::__construct 创建一个新的DOMXPath对象
+2.DOMXPath::evaluate 计算给定XPath表达式，并返回一个类型化的结果，如果可能的话
+3.DOMXPath::query 计算给定的XPath表达式
+4.DOMXPath::registerNamespace 寄存器的命名空间DOMXPath对象
+5.DOMXPath::registerPhpFunctions XPath函数注册的PHP函数
+23.dom_import_simplexml 获取一个domElement为对象，从一个SimpleXMLElement对象
+
