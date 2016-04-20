@@ -71,14 +71,6 @@ session_start();
 			<li>
 				<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)">电子产品</a>
 			</li>
-			<!-- <li class="dropdown">
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)" class="dropdown-toggle" data-toggle="dropdown">电子产品<strong class="caret"></strong></a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'电子产品',1)">电子产品</a>
-					</li>
-				</ul>
-			</li> -->
 			<li>
 				<a href="javascript:void(0);" onclick="ShowByCategory(this,'美食',1)">美食</a>
 			</li>
