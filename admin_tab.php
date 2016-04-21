@@ -62,7 +62,10 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                 <a href="#panel-3" data-toggle="tab">订单数据导入</a>
                             </li>
                             <li>
-                                <a href="#panel-4" data-toggle="tab">xxxx</a>
+                                <a href="#panel-4" data-toggle="tab">佣金管理</a>
+                            </li>
+                            <li>
+                                <a href="#panel-5" data-toggle="tab">xxxx</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -161,6 +164,23 @@ JSON_EOD;
                                         <h2>订单数据导入</h2>
                                         <hr>
                                         <form action="admin_import.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
+                                            <div class="form-group" style="margin-left: 20px;">
+                                                <label for="exampleInputFile"> 导入文件 </label>
+                                                <input type="hidden" name="datatype" value="orderdata"/>
+                                                <input type="file" id="file" name="file" />
+                                                <p class="help-block">选择从淘宝客导出的Excel文件.</p>
+                                            </div>
+                                            <button type="submit" class="btn btn-success">导入 >></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="panel-4">
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <h2>佣金管理</h2>
+                                        <hr>
+                                        <form action="admin_commission.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
                                             <div class="form-group" style="margin-left: 20px;">
                                                 <label for="exampleInputFile"> 导入文件 </label>
                                                 <input type="hidden" name="datatype" value="orderdata"/>

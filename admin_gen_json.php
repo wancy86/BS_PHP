@@ -72,6 +72,9 @@ function SaveJsonData($category, $start, $end, $file_Path) {
 	$query2 .= " where P.disabled=0 and C.category ='$category'";
 	$query2 .= " limit $start, $end";
 
+	// echo $query2;
+	// exit();
+
 	$result2 = mysqli_query(connect(), $query2);
 	while (@$row = mysqli_fetch_assoc($result2)) {
 		$rows[] = $row;
@@ -97,4 +100,4 @@ function SaveJsonData($category, $start, $end, $file_Path) {
 	file_put_contents($file_Path, json_encode($rows));
 }
 
-AlertMessage("admin_add.php", "JSON数据文件生成完成", "");
+AlertMessage("admin_tab.php", "JSON数据文件生成完成", "");

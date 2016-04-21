@@ -112,6 +112,7 @@ create table if not exists BS_User(
 	email varchar(200),
 	phone varchar(20),
 	pwd varchar(200),/*MD5*/
+	taobao_account varchar(200),
 	invite_code varchar(20),
 	invite_by int,
 	reg_date datetime,
@@ -123,6 +124,18 @@ select 'admin','wancy86@sina.com','13028865077','E10ADC3949BA59ABBE56E057F20F883
 from dual where not exists(
 	select * from BS_User where uid=1
 );
+
+/*
+IF NOT exists
+  (SELECT 1
+   FROM information_schema.COLUMNS
+   WHERE TABLE_NAME = 'BS_User'
+     AND COLUMN_NAME = 'taobao_account')
+*/  
+ALTER TABLE BS_User 
+ADD COLUMN taobao_account varchar(200)
+
+
 /*
 select * from BS_User;
 */

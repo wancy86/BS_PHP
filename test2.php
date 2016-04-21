@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-ERROR: manifest length read was "343112" should be "1130320972"
-=======
 <?php
 header("Content-type: text/html; charset=utf-8");
 // echo 123;
@@ -37,6 +34,9 @@ if (1 == 2) {
 
 echo $_server[self];
 
+echo strtoupper(substr(md5('admin'), 8, 16));
+
 ?>
 <title>测试</title>
->>>>>>> 4aeeb79879861bbc428ba2a461c81c34def8e02a
+
+

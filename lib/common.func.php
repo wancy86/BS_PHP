@@ -6,10 +6,10 @@ function alertMes($mes, $url) {
 
 function AlertMessage($page, $msg, $script) {
 	// 1.redirect
-	// header('Location: http://localhost/boystyle/admin_add.php');.
+	// header('Location: http://localhost/boystyle/admin_tab.php');.
 	// exit();
 	// 2.redirect
-	// echo "<script>alert('JSON数据文件生成完成');window.location.href='http://localhost/boystyle/admin_add.php';</script>";
+	// echo "<script>alert('JSON数据文件生成完成');window.location.href='http://localhost/boystyle/admin_tab.php';</script>";
 	if ($msg != "") {
 		echo "<script>alert('$msg');</script>";
 	}

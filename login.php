@@ -19,7 +19,7 @@ if (isset($_POST[emailphone])) {
 		$validateMsg = "验证码输入有误";
 	} else {
 		$pwd = isset($_POST[pwd]) ? $_POST[pwd] : "";
-		$pwd = strtoupper(md5($pwd));
+		$pwd = strtoupper(substr(md5($pwd), 8, 16));
 
 		$query = "select uid, account, pwd from BS_User where email='$emailphone' or account ='$emailphone' limit 1";
 		$result = mysqli_query(connect(), $query);

@@ -135,7 +135,7 @@ Loged1;
 					<li class="divider">
 					</li>
 					<li>
-						<a href="admin_add.php">数据管理</a>
+						<a href="admin_tab.php">数据管理</a>
 					</li>
 Loged2;
 	}

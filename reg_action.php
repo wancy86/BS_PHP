@@ -7,11 +7,12 @@ $email = isset($_POST[emailphone]) ? $_POST[emailphone] : "";
 $phone = isset($_POST[emailphone]) ? $_POST[emailphone] : "";
 $pwd = isset($_POST[pwd]) ? $_POST[pwd] : "";
 $pwd = strtoupper(substr(md5($pwd), 8, 16));
+$taobao_account = isset($_POST[taobao_account]) ? $_POST[taobao_account] : "";
 $invite_code = isset($_POST[invite_code]) ? $_POST[invite_code] : "";
 $invite_by = isset($_POST[invite_by]) ? $_POST[invite_by] : 0;
 
-$query = " insert into BS_User(account, email, phone, pwd, invite_code, invite_by, reg_date)";
-$query .= " values('$account', '$email', '$phone', '$pwd', '$invite_code', $invite_by, now())";
+$query = " insert into BS_User(account, email, phone, pwd, taobao_account, invite_code, invite_by, reg_date)";
+$query .= " values('$account', '$email', '$phone', '$pwd', '$taobao_account', '$invite_code', $invite_by, now())";
 
 // echo $query;
 $result = mysqli_query(connect(), $query);
