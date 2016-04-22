@@ -56,8 +56,7 @@ $(function() {
     $("#keyword").unbind();
     $("#keyword").on("keydown", function(e) {
         console.log(e);
-        if(e.keyCode==13)    
-        {
+        if (e.keyCode == 13) {
             $("#search").click();
         }
     })
@@ -273,3 +272,5 @@ function GotoAitaobao() {
     window.open(url);
     // window.open("http://mosaic.re.taobao.com/search?refpid=mm_113779107_12426830_47170418&_input_charset=utf-8&keyword=雨鞋")
 }
+
+

@@ -45,4 +45,17 @@ function showPage($page,$totalPage,$where=null,$sep="&nbsp;"){
  	return $pageStr;
 }
 
+// 实现bootstrap的分页效果
+function showBSPage($totalRecords,$pageSize=20){
+	$pages=ceil($totalRecords/$pageSize);
+	$header="<nav> <ul class='pagination'><li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&laquo;</span></a></li><li class='active'><a href='#'>1</a></li>";
+	$pagers="";
+
+	for ($i=2; $i <=$pages ; $i++) { 
+		$pagers=$pagers."<li><a href='#'>$i</a></li>";
+	}
+
+	$footer="<li><a href='#' aria-label='Previous'><span aria-hidden='true'>&raquo;</span></a></li></ul> </nav>";
+	return $header.$pagers.$footer;
+}
 

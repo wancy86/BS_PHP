@@ -1,5 +1,7 @@
 <?php
 require_once 'lib/mysql.func.php';
+require_once "lib/page.func.php";
+
 session_start();
 $uid = $_SESSION['uid'];
 
@@ -31,6 +33,16 @@ $query .= " IFNULL(B.entry_date,'') as entry_date";
 $query .= " from BS_UserOrder as A ";
 $query .= " left join BS_Order as B on A.order_id=B.order_id";
 $query .= " where A.uid=$uid";
+
+// get the total records
+$query2 .= "select count(0) as totalrecords from BS_UserOrder as A ";
+$query2 .= " left join BS_Order as B on A.order_id=B.order_id";
+$query2 .= " where A.uid=$uid";
+$result = mysqli_query(connect(), $query2);
+$totalrecords=(mysqli_fetch_assoc($result));
+// echo $totalrecords['totalrecords'];
+$totalrecords=$totalrecords['totalrecords'];
+
 
 // echo "$query";
 $result = mysqli_query(connect(), $query);
@@ -137,30 +149,7 @@ ORDER_EOD;
 ?>
                         </tbody>
                     </table>
-                    <div class="col-md-12">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#">Prev</a>
-                            </li>
-                            <li>
-                                <a href="#">1</a>
-                            </li>
-                            <li>
-                                <a href="#">2</a>
-                            </li>
-                            <li>
-                                <a href="#">3</a>
-                            </li>
-                            <li>
-                                <a href="#">4</a>
-                            </li>
-                            <li>
-                                <a href="#">5</a>
-                            </li>
-                            <li>
-                                <a href="#">Next</a>
-                            </li>
-                        </ul>
+                    <div class="col-md-12" id="pagebar">
                     </div>
                 </div>
             </div>
@@ -199,6 +188,10 @@ ORDER_EOD;
                 }
             });
         }
+
+        $(function  (){
+            $('#pagebar').html(ShowBSPage(<?php echo $totalrecords ?>,1));
+        });
         </script>
     </body>
 
