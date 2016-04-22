@@ -150,7 +150,7 @@ function RenderJSONData(data) {
 }
 
 function ShowByCategory(obj, category, load_order) {
-    var category = category || '潮装';
+    var category = category || '男装';
     var load_order = load_order || 1;
     // console.log(category);
     // console.log(load_order);

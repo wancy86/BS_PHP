@@ -21,10 +21,10 @@ session_start();
 		<ul class="nav navbar-nav">
 			<li></li> <!-- placeholder -->
 			<li class="dropdown">
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'潮装',1)" class="dropdown-toggle" data-toggle="dropdown">男装<strong class="caret"></strong></a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'男装',1)" class="dropdown-toggle" data-toggle="dropdown">男装<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'潮装',1)">衣裤</a>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'男装',1)">衣裤</a>
 					</li>
 					<li class="divider"> </li>
 					<li>
@@ -33,10 +33,10 @@ session_start();
 				</ul>
 			</li>
 			<li class="dropdown">
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'靓装',1)" class="dropdown-toggle" data-toggle="dropdown">女装<strong class="caret"></strong></a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'女装',1)" class="dropdown-toggle" data-toggle="dropdown">女装<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'靓装',1)">衣裙</a>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'女装',1)">衣裙</a>
 					</li>
 					<li class="divider"> </li>
 					<li>
@@ -61,11 +61,7 @@ session_start();
 					<li class="divider"> </li>
 					<li>
 						<a href="javascript:void(0);" onclick="ShowByCategory(this,'玩具',1)">玩具</a>
-					</li>
-					<li class="divider"> </li>
-					<li>
-						<a href="user_collect.php">T恤</a>
-					</li>
+					</li>					
 				</ul>
 			</li>
 			<li>
@@ -75,14 +71,14 @@ session_start();
 				<a href="javascript:void(0);" onclick="ShowByCategory(this,'美食',1)">美食</a>
 			</li>
 			<li class="dropdown">
-				<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)" class="dropdown-toggle" data-toggle="dropdown">其他<strong class="caret"></strong></a>
+				<a href="javascript:void(0);" onclick="ShowByCategory(this,'品质生活',1)" class="dropdown-toggle" data-toggle="dropdown">其他<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)">创意趣玩</a>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'品质生活',1)">品质生活</a>
 					</li>
 					<li class="divider"> </li>
 					<li>
-						<a href="javascript:void(0);" onclick="ShowByCategory(this,'品质生活',1)">品质生活</a>
+						<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)">创意趣玩</a>
 					</li>
 				</ul>
 			</li>

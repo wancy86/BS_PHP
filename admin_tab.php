@@ -2,6 +2,30 @@
 header("Content-type: text/html; charset=utf-8");
 require_once './lib/mysql.func.php';
 
+// ajax_action=get_subcat
+$ajax_action = isset($_GET['ajax_action']) ? $_GET['ajax_action'] : "";
+if ($ajax_action != "") {
+	$data = "";
+	switch ($ajax_action) {
+	case 'get_subcat':
+		$category = isset($_GET['category']) ? $_GET['category'] : "";
+		$query = "select cat_id,sub_cat from BS_Category where category='$category'";
+		$result = mysqli_query(connect(), $query);
+		$rows = array();
+		$data = "";
+		while (@$row = mysqli_fetch_assoc($result)) {
+			$data = $data . "<option value='" . $row["cat_id"] . "'>" . $row["sub_cat"] . "</option>";
+		}
+		break;
+
+	default:
+		# code...
+		break;
+	}
+	echo $data;
+	exit();
+}
+
 $query = "select cat_id,cat_desc from BS_Category";
 $result = mysqli_query(connect(), $query);
 $rows = array();
@@ -26,6 +50,7 @@ while (@$row = mysqli_fetch_assoc($result2)) {
 }
 
 ?>
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -76,12 +101,16 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                         <hr>
                                         <form action="admin_import.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1"> 类别 </label>
+                                                <label for="main_cat">类别</label>
+                                                <select id="main_cat" name="main_cat" class="form-control" style="width:200px;" size="1"> <!--multiple='multiple'-->
+                                                    <option value="-1">请选择类别</option>
+                                                    <?php foreach ($cat_rows as $cat) {echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";}?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1"> 子类别 </label>
                                                 <select id="cat_id" name="cat_id" class="form-control" style="width: 200px;">
-                                                    <?php foreach ($rows as $sub_cat) {
-	echo "<option value='" . $sub_cat["cat_id"] . "'>" . $sub_cat["cat_desc"] . "</option>";
-}
-?>
+                                                    <option value="-1">请选择类别</option>
                                                 </select>
                                             </div>
                                             <div class="form-group" style="margin-left: 20px;">
@@ -102,13 +131,10 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                         <hr>
                                         <form class="form-inline" action="admin_gen_json.php" method="post">
                                             <div class="form-group">
-                                                <label for="exampleInputName2">类别</label>
+                                                <label for="category">类别</label>
                                                 <select id="category" name="category[]" class="form-control" style="width:200px;" multiple='multiple' size="3">
                                                     <option value="ALL">ALL</option>
-                                                    <?php foreach ($cat_rows as $cat) {
-	echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";
-}
-?>
+                                                    <?php foreach ($cat_rows as $cat) {echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";}?>
                                                 </select>
                                             </div>
                                             <button type="submit" class="btn btn-success">Re-Generate-JSON >></button>
@@ -202,6 +228,25 @@ JSON_EOD;
         </div> <!-- container -->
         <?php require_once 'script.php';?>
     </body>
+
+    <script type="text/javascript">
+    $(function() {
+        $("#main_cat").change(function() {
+            if ($(this).val() == "-1") {
+                $("#cat_id").html('<option value="-1">请选择类别</option>');
+            }
+            $.ajax({
+                url: "admin_tab.php?ajax_action=get_subcat",
+                type: "get",
+                data: "category="+$("#main_cat").val(),
+                success: function(data) {
+                    $("#cat_id").html(data);
+                }
+            });
+        });
+    });
+
+    </script>
 
     </html>
 

@@ -58,36 +58,47 @@ create TABLE IF NOT EXISTS BS_Category(
 )default charset=utf8;
 
 delete from BS_Category;
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(101,'潮装','T恤','男神 - T恤');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(102,'潮装','裤子','男神 - 裤子');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(103,'潮装','衬衣','男神 - 衬衣');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(101,'男装','T恤','男神 - T恤');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(102,'男装','裤子','男神 - 裤子');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(103,'男装','衬衣','男神 - 衬衣');
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(104,'男鞋','运动鞋','男神 - 运动鞋');
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(105,'男鞋','皮鞋','男神 - 皮鞋');
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(106,'男鞋','板鞋','男神 - 板鞋');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(107,'男鞋','凉鞋','男神 - 凉鞋');
 
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(201,'靓装','连衣裙春夏','女神 - 连衣裙春夏');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(202,'靓装','短裙','女神 - 短裙');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(203,'精美配饰','饰品','女神 - 饰品');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(201,'女装','连衣裙','女神 - 连衣裙');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(202,'女装','短裙','女神 - 短裙');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(203,'女装','外套','女神 - 外套');
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(204,'女鞋','单鞋','女神 - 单鞋');
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(205,'女鞋','凉鞋','女神 - 凉鞋');
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(206,'女鞋','高跟鞋','女神 - 高跟鞋');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(207,'精美配饰','丝袜','女神 - 丝袜');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(208,'精美配饰','文胸','女神 - 文胸');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(209,'精美配饰','内裤','女神 - 内裤');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(210,'精美配饰','包包','女神 - 包包');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(211,'美容护肤','护肤','女神 - 护肤');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(212,'美容护肤','化妆品','女神 - 化妆品');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(207,'内衣','文胸','女神 - 文胸');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(208,'内衣','内裤','女神 - 内裤');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(209,'内衣','丝袜','女神 - 丝袜');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(210,'包包','单肩包','单肩包');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(211,'包包','斜挎包','斜挎包');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(212,'包包','手提包','手提包');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(213,'包包','链条包','链条包');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(214,'美容护肤','护肤','女神 - 护肤');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(215,'美容护肤','化妆品','女神 - 化妆品');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(216,'精美配饰','饰品','女神 - 饰品');
 
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(301,'童装','小衣服','儿童 - 小衣服');
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(302,'童装','小裤子','儿童 - 小裤子');
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(303,'玩具','玩具','儿童 - 玩具');
 
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(401,'品质生活','品质生活','品质生活 - 其他');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(402,'电子产品','鼠键','品质生活 - 鼠键');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(403,'电子产品','手机','品质生活 - 手机');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(402,'电子产品','鼠键','鼠键');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(403,'电子产品','手机','手机');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(404,'电子产品','平板/Pad','平板/Pad');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(405,'电子产品','笔记本','笔记本');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(406,'电子产品','台式机','台式机');
 
 replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(501,'创意趣玩','创意趣玩','创意趣玩');
-replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(601,'美食','美食','美食');
+
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(601,'美食','零食','零食');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(602,'美食','早餐/下午茶','早餐/下午茶');
+replace into BS_Category(cat_id,category,sub_cat,cat_desc) values(603,'美食','配菜','配菜');
 
 /*
 select * from BS_Category;
