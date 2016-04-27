@@ -39,7 +39,12 @@ $uid = $_SESSION['uid'];
                 <img style="width:140px;height:140px;" alt="Bootstrap Image Preview" src="./images/user_header.png" />
                 <dl>
                     <dt>
-                        Description lists
+                        账号
+                        邮箱
+                        淘宝账号、修改添加
+                        修改密码
+                        
+
                     </dt>
                     <dd>
                         A description list is perfect for defining terms.
