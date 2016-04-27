@@ -39,7 +39,12 @@ $uid = $_SESSION['uid'];
                 <img style="width:140px;height:140px;" alt="Bootstrap Image Preview" src="./images/user_header.png" />
                 <dl>
                     <dt>
-                        注册邮箱
+                        账号
+                        邮箱
+                        淘宝账号、修改添加
+                        修改密码
+                        
+
                     </dt>
                     <dd>
                         myemail@123.com
