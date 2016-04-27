@@ -81,13 +81,7 @@ session_start();
 						<a href="javascript:void(0);" onclick="ShowByCategory(this,'创意趣玩',1)">创意趣玩</a>
 					</li>
 				</ul>
-			</li>
-			<li>
-				<a href="/boystyle/about.php">About</a>
-			</li>
-			<li>
-				<a href="/boystyle/phpinfo.php">PHPInfo</a>
-			</li>
+			</li>			
 		</ul>
 <!-- 未登录 -->
 <?php if (!isset($_SESSION['uid'])) {
@@ -132,6 +126,12 @@ Loged1;
 					</li>
 					<li>
 						<a href="admin_tab.php">数据管理</a>
+					</li>
+					<li>
+						<a href="/boystyle/about.php">About</a>
+					</li>
+					<li>
+						<a href="/boystyle/phpinfo.php">PHPInfo</a>
 					</li>
 Loged2;
 	}
