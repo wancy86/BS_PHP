@@ -28,7 +28,7 @@ $uid = $_SESSION['uid'];
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h3>我的资料</h3>
+                <h3>结算中心</h3>
                 <hr>
             </div>
         </div>
@@ -39,31 +39,28 @@ $uid = $_SESSION['uid'];
                 <img style="width:140px;height:140px;" alt="Bootstrap Image Preview" src="./images/user_header.png" />
                 <dl>
                     <dt>
-                        Description lists
+                        注册邮箱
                     </dt>
                     <dd>
-                        A description list is perfect for defining terms.
+                        myemail@123.com
                     </dd>
                     <dt>
-                        Euismod
+                        电话
                     </dt>
                     <dd>
-                        Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-                    </dd>
-                    <dd>
-                        Donec id elit non mi porta gravida at eget metus.
+                        12345678911
                     </dd>
                     <dt>
-                        Malesuada porta
+                        淘宝账号
                     </dt>
                     <dd>
-                        Etiam porta sem malesuada magna mollis euismod.
+                        wancy8668
                     </dd>
                     <dt>
-                        Felis euismod semper eget lacinia
+                        收货地址
                     </dt>
                     <dd>
-                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        淘景大厦1301
                     </dd>
                 </dl>
             </div>

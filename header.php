@@ -111,7 +111,7 @@ unloged;
 				 <a href="#" class="dropdown-toggle" data-toggle="dropdown">$_SESSION[account]<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="user_profile.php">我的资料</a>
+						<a href="user_profile.php">结算中心</a>
 					</li>
 					<li>
 						<a href="user_favorite.php">我的收藏</a>
