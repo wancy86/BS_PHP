@@ -71,10 +71,66 @@ while (@$row = mysqli_fetch_assoc($result)) {
             <?php require_once 'header.php';?>
             <div class="row">
                 <div class="col-md-12">
-                    <h3> 订单列表 </h3>
+                    <h3>  结算中心 </h3> <span></span>
                     <hr>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tabbable" id="tabs-1">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#panel-1" data-toggle="tab">待结算订单</a>
+                            </li>
+                            <li>
+                                <a href="#panel-2" data-toggle="tab">未关联订单</a>
+                            </li>
+                            <li>
+                                <a href="#panel-3" data-toggle="tab">已结算订单</a>
+                            </li>
+                            <li>
+                                <a href="#panel-4" data-toggle="tab">收入报表</a>
+                            </li>
+                            <li>
+                                <a href="#panel-5" data-toggle="tab">邀请佣金收入</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="panel-1">
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <h2>商品数据导入</h2>
+                                        <hr>
+                                        <form action="admin_import.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label for="main_cat">类别</label>
+                                                <select id="main_cat" name="main_cat" class="form-control" style="width:200px;" size="1"> <!--multiple='multiple'-->
+                                                    <option value="-1">请选择类别</option>
+                                                    <?php foreach ($cat_rows as $cat) {echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";}?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1"> 子类别 </label>
+                                                <select id="cat_id" name="cat_id" class="form-control" style="width: 200px;">
+                                                    <option value="-1">请选择类别</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="margin-left: 20px;">
+                                                <label for="exampleInputFile"> 导入文件 </label>
+                                                <input type="hidden" name="datatype" value="prodata"/>
+                                                <input type="file" id="file" name="file" />
+                                                <p class="help-block">选择从淘宝客导出的Excel文件.</p>
+                                            </div>
+                                            <button type="submit" class="btn btn-success">导入 >></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div><!--  end tab -->
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <form class="navbar-form navbar-left" role="search" style="padding-left:0px;">

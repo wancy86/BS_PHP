@@ -2,7 +2,7 @@
 require_once './lib/image.func.php';
 session_start();
 ?>
-<div class="page-header">
+<div class="page-header text-primary">
 	<h1>
 		BoyStyle! <small>-- 爱生活，爱自己! 想逛一下淘宝？我们帮你挑选出了最好最便的宝贝，为你省心、省力、省钱，还能赚钱！</small>
 	</h1>
@@ -15,7 +15,7 @@ session_start();
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="/boystyle/index.php">BoyStyle</a>
+	    <a class="navbar-brand" href="/boystyle/index.php"><span class="glyphicon glyphicon-home"></span> BoyStyle</a>
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
@@ -104,20 +104,17 @@ unloged;
 <?php if (isset($_SESSION['uid'])) {
 	echo <<<Loged1
 		<ul class="nav navbar-nav navbar-right">
-			<li>
-				<a href="#">欢迎</a>
-			</li>
 			<li class="dropdown">
-				 <a href="#" class="dropdown-toggle" data-toggle="dropdown">$_SESSION[account]<strong class="caret"></strong></a>
+				 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> <span class="text-primary">$_SESSION[account]</span></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="user_profile.php">结算中心</a>
+						<a href="user_profile.php">我的资料</a>
 					</li>
 					<li>
 						<a href="user_favorite.php">我的收藏</a>
 					</li>
 					<li>
-						<a href="user_order.php">我的订单</a>
+						<a href="user_commission.php">结算中心</a>
 					</li>
 Loged1;
 	if ($_SESSION['account'] == 'admin') {
@@ -125,7 +122,7 @@ Loged1;
 					<li class="divider">
 					</li>
 					<li>
-						<a href="admin_tab.php">数据管理</a>
+						<a href="admin_data.php">数据管理</a>
 					</li>
 					<li>
 						<a href="/boystyle/about.php">About</a>
@@ -139,7 +136,7 @@ Loged2;
 					<li class="divider">
 					</li>
 					<li>
-						<a href="logout.php">退出</a>
+						<a href="logout.php">注销</a>
 					</li>
 				</ul>
 			</li>
