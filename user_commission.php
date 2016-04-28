@@ -96,34 +96,121 @@ while (@$row = mysqli_fetch_assoc($result)) {
                             </li>
                         </ul>
                         <div class="tab-content">
+                            <!-- 待结算订单 -->
                             <div class="tab-pane active" id="panel-1">
                                 <div class="row">
                                     <div class="col-md-12 ">
-                                        <h2>商品数据导入</h2>
+                                        <h2>待结算订单</h2>
                                         <hr>
-                                        <form action="admin_import.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
+                                        <form class="navbar-form navbar-left" role="search" style="padding-left:0px;">
                                             <div class="form-group">
-                                                <label for="main_cat">类别</label>
-                                                <select id="main_cat" name="main_cat" class="form-control" style="width:200px;" size="1"> <!--multiple='multiple'-->
-                                                    <option value="-1">请选择类别</option>
-                                                    <?php foreach ($cat_rows as $cat) {echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";}?>
-                                                </select>
+                                                <input type="text" class="form-control" id="order_id" name="order_id" placeholder="输入订单号码">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1"> 子类别 </label>
-                                                <select id="cat_id" name="cat_id" class="form-control" style="width: 200px;">
-                                                    <option value="-1">请选择类别</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group" style="margin-left: 20px;">
-                                                <label for="exampleInputFile"> 导入文件 </label>
-                                                <input type="hidden" name="datatype" value="prodata"/>
-                                                <input type="file" id="file" name="file" />
-                                                <p class="help-block">选择从淘宝客导出的Excel文件.</p>
-                                            </div>
-                                            <button type="submit" class="btn btn-success">导入 >></button>
+                                            <button type="button" class="btn btn-success" onclick="SearchUserOrder(this, <?php echo " $uid "; ?>)">
+                                                <span class="glyphicon glyphicon-search"></span> 查询订单
+                                            </button>
                                         </form>
                                     </div>
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered table-striped table-hover">
+                                            <colgroup>
+                                                <col class="span1">
+                                                <col class="span7">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>订单号</th>
+                                                    <th>商品描述</th>
+                                                    <th>成交价格</th>
+                                                    <th>订单状态</th>
+                                                    <th>预计返利</th>
+                                                    <th>返利状态</th>
+                                                    <th>订单日期</th>
+                                                    <th>计算日期</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $index = 1;foreach ($orders as $order) {
+                        echo <<<ORDER_EOD
+                                            <tr>
+                                                <td>
+                                                    $index
+                                                </td>
+                                                <td>
+                                                    $order[order_id]
+                                                </td>
+                                                <td>
+                                                    $order[title]
+                                                </td>
+                                                <td>
+                                                    $order[paid_amount]
+                                                </td>
+                                                <td>
+                                                    $order[order_status]
+                                                </td>
+                                                <td>
+                                                    $order[earn_inplan]
+                                                </td>
+                                                <td>
+                                                     待结算
+                                                </td>
+                                                <td>
+                                                    $order[paid_date]
+                                                </td>
+                                                <td>
+                                                    $order[entry_date]
+                                                </td>
+                                                <td>
+                                                    <a href="#" onclick="DeleteUserOrder(this,$order[uid],$order[order_id])">删除</a>
+                                                </td>
+                                            </tr>
+ORDER_EOD;
+        $index++;
+    }
+?>
+                                            </tbody>
+                                        </table>
+                                        <div class="col-md-12" id="pagebar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 未关联订单 -->
+                            <div class="tab-pane" id="panel-2">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>未关联订单</h3>
+                                    </div>
+            
+                                </div>
+                            </div>
+                            <!-- 已结算订单 -->
+                            <div class="tab-pane" id="panel-3">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>已结算订单</h3>
+                                    </div>
+            
+                                </div>
+                            </div>
+                            <!-- 收入报表 -->
+                            <div class="tab-pane" id="panel-4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>收入报表</h3>
+                                    </div>
+            
+                                </div>
+                            </div>
+                            <!-- 邀请佣金收入 -->
+                            <div class="tab-pane" id="panel-5">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>邀请佣金收入</h3>
+                                    </div>
+            
                                 </div>
                             </div>
                         </div>  
@@ -131,84 +218,6 @@ while (@$row = mysqli_fetch_assoc($result)) {
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <form class="navbar-form navbar-left" role="search" style="padding-left:0px;">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="order_id" name="order_id" placeholder="输入订单号码">
-                        </div>
-                        <button type="button" class="btn btn-success" onclick="SearchUserOrder(this, <?php echo " $uid "; ?>)">
-                            <span class="glyphicon glyphicon-search"></span> 查询订单
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-bordered table-striped table-hover">
-                        <colgroup>
-                            <col class="span1">
-                            <col class="span7">
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>订单号</th>
-                                <th>商品描述</th>
-                                <th>成交价格</th>
-                                <th>订单状态</th>
-                                <th>预计返利</th>
-                                <th>返利状态</th>
-                                <th>订单日期</th>
-                                <th>计算日期</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $index = 1;foreach ($orders as $order) {
-	echo <<<ORDER_EOD
-						<tr>
-                            <td>
-                                $index
-                            </td>
-                            <td>
-                                $order[order_id]
-                            </td>
-                            <td>
-                                $order[title]
-                            </td>
-                            <td>
-                                $order[paid_amount]
-                            </td>
-                            <td>
-                                $order[order_status]
-                            </td>
-                            <td>
-                                $order[earn_inplan]
-                            </td>
-                            <td>
-                                 待结算
-                            </td>
-                            <td>
-                                $order[paid_date]
-                            </td>
-                            <td>
-                                $order[entry_date]
-                            </td>
-                            <td>
-								<a href="#" onclick="DeleteUserOrder(this,$order[uid],$order[order_id])">删除</a>
-                            </td>
-                        </tr>
-ORDER_EOD;
-	$index++;
-}
-?>
-                        </tbody>
-                    </table>
-                    <div class="col-md-12" id="pagebar">
-                    </div>
-                </div>
-            </div>
             <?php require_once "footer.php";?>
         </div>
         <?php require_once 'script.php';?>
