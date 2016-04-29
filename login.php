@@ -34,9 +34,10 @@ if (isset($_POST[emailphone])) {
 				$_SESSION['account'] = $row['account'];
 				$_SESSION['uid'] = $row['uid'];
 
-				$msg = "登录成功";
-				$page = "index.php";
-				AlertMessage($page, $msg, "");
+				// $msg = "登录成功";
+				// $page = "index.php";
+				// AlertMessage($page, $msg, "");
+				echo "<script>window.location='index.php';</script>";
 			} else {
 				//用户名密码不对
 				$accountMsg = "用户名密码不对";

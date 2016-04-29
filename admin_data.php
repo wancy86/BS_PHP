@@ -236,7 +236,7 @@ JSON_EOD;
                 $("#cat_id").html('<option value="-1">请选择类别</option>');
             }
             $.ajax({
-                url: "admin_tab.php?ajax_action=get_subcat",
+                url: "admin_data.php?ajax_action=get_subcat",
                 type: "get",
                 data: "category="+$("#main_cat").val(),
                 success: function(data) {
