@@ -1,109 +1,147 @@
 /*
-*Name: BootStrap Pager 
-*Author: CooMark
-*version: 1.0
-*/
+ *Name: BootStrap Pager 
+ *Author: CooMark
+ *version: 2.0
+ *BootStrap version: 3.0
+ */
+(function($) {
+    $.fn.pagingTable = function(options) {
+        var table = $(this);
+        var settings = $.extend({
+            json_url: null,
+            pageSize: 10
+        }, options);
 
-function InitBootPager(options) {
-    var pagerdiv = options.pagerdiv;
-    var json_url = options.json_url;
-    var totalRecords = options.totalRecords;
-    var pageSize = options.pageSize;
-    var datafields = options.datafields;
-    var extracolumns = options.extracolumns;
-
-    pagerdiv = $(pagerdiv);
-    pageSize = pageSize || 20;
-    var pages = Math.ceil(totalRecords / pageSize);
-    var header = "<nav> <ul class='pagination'><li class='disabled previous'><a href='#' aria-label='Next'><span aria-hidden='true'>&laquo;</span></a></li><li class='active'><a href='#'>1</a></li>";
-    var pagers = "";
-
-    for (i = 2; i <= pages; i++) {
-        pagers = pagers + "<li><a href='#'>" + i + "</a></li>";
-    }
-
-    var footer = "<li class='next'><a href='#' aria-label='Previous'><span aria-hidden='true'>&raquo;</span></a></li></ul> </nav>";
-
-    pagerdiv.find('#pagerbar').html(header + pagers + footer);
-    pagerdiv.data({
-        totalrows: totalRecords,
-        pagesize: pageSize,
-        currentpage: 1,
-        dataurl: json_url,
-        totalpages: pages,
-        datafields: datafields,
-        extracolumns: extracolumns
-    });
-
-    pagerdiv.find('li').on("click", function() {
-        var page_index = pagerdiv.data('currentpage');
-        console.log(page_index);
-        if ($(this).hasClass('previous')) {
-            page_index = page_index - 1;
-        } else if ($(this).hasClass('next')) {
-            page_index = page_index + 1;
-        } else {
-            page_index = $(this).find('a').html();
+        if (!table.is("table")) {
+            return this;
         }
 
-        $('li.next').removeClass('disabled');
-        $('li.previous').removeClass('disabled');
-        if (page_index <= 0) {
-            page_index = 1;
-            $('li.previous').addClass('disabled');
+        table.data({
+            pagesize: settings.pageSize,
+            currentpage: 1,
+            dataurl: settings.json_url
+        });
+
+        var load_json = function(currentpage) {
+            var currentpage = currentpage || 1;
+            $.ajax({
+                url: settings.json_url,
+                method: 'get',
+                data: 'pagesize=' + settings.pageSize + '&currentpage=' + currentpage,
+                success: function(resp) {
+                        var re_pagebar = table.data('totalrecords') == resp.totalrecords ? 0 : 1;
+                        table.data('totalrecords', resp.totalrecords);
+                        var data = resp.data;
+                        table.data('totalpages', Math.ceil(resp.totalrecords / settings.pageSize));
+                        table.find('tbody tr').remove();
+
+                        //re-generate the paging bar
+                        var template = table.find("thead tr[template]");
+                        var pk_field = template.attr('pk-field');
+                        var tds = template.find('td');
+
+                        var datarow = (template.clone())
+                            .removeAttr('template')
+                            .removeAttr('pk-field')
+                            .removeAttr('style');
+
+                        for (var dr = 0; dr < data.length; dr++) {
+                            var newrow = datarow.clone()
+                            for (var c = 0; c < tds.length; c++) {
+                                var datafield = template.find('td').eq(c).attr('data-field');
+                                if (datafield) {
+                                    newrow.find('td').eq(c).html(data[dr][datafield]);
+                                }
+                            }
+                            if (pk_field) {
+                                newrow.attr('pk', data[dr][pk_field]);
+                            }
+                            table.find('tbody').append(newrow);
+                        }
+                        if (re_pagebar) {
+                            getPageBar(currentpage);
+                        }
+                    } //end success
+            });
         }
-        if (page_index > pagerdiv.data('totalpages')) {
-            page_index = pagerdiv.data('totalpages');
-            $('li.next').addClass('disabled');
-        }
+        load_json(1);
 
-        if (page_index == pagerdiv.data('currentpage') && page_index != 1) {
-            return false;
-        }
-        pagerdiv.find('li').removeClass('active');
-        pagerdiv.find('li').eq(page_index).addClass('active');
-        pagerdiv.data('currentpage', page_index);
+        var getPageBar = function(currentpage) {
+            var currentpage = currentpage || 1;
+            totalpages = table.data('totalpages');
+            var tmp = '';
+            tmp += "<nav>";
+            tmp += "    <ul class='pagination'>";
+            tmp += "        <li class='disabled first'><a href='#' aria-label='First'><span class='glyphicon glyphicon-step-backward'></span></a></li>";
+            tmp += "        <li class='disabled previous'><a href='#' aria-label='Next'><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
+            tmp += "        <li class='active'><a href='#'>1</a></li>";
 
-        ClickPage(pagerdiv);
-    });
+            var header = tmp;
+            var pagers = "";
 
-    pagerdiv.find('li').eq(1).click();
+            for (i = 2; i <= totalpages; i++) {
+                pagers = pagers + "<li><a href='#'>" + i + "</a></li>";
+            }
 
-}
+            tmp = ''
+            tmp += "        <li class='next'><a href='#' aria-label='Previous'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
+            tmp += "        <li class='last'><a href='#' aria-label='First'><span class='glyphicon glyphicon-step-forward'></span></a></li>";
+            tmp += "    </ul>";
+            tmp += "</nav>";
+            var footer = tmp;
 
-function ClickPage(pagerdiv) {
-    var pagerdiv = $(pagerdiv)
-    var page_index = pagerdiv.data('currentpage');
+            var barName = 'pagerbar_' + table.attr("id");
+            $("#" + barName).remove();
 
-    var url = pagerdiv.data('dataurl') + '?' + $.param({
-            currentpage: pagerdiv.data('currentpage'),
-            pagesize: pagerdiv.data('pagesize')
-        })
+            var pagerbar = $("<div></div>").attr("id", barName);
+            pagerbar.html(header + pagers + footer).insertAfter(table);
 
-    $.ajax({
-        url: url,
-        method: 'get',
-        success: function(data) {
-            var table = pagerdiv.find('table');
-            var columns = table.find("tr:eq(0) th").length;
-            var datafields = pagerdiv.data('datafields');
-            var extracolumns = pagerdiv.data('extracolumns');
+            pagerbar.find('li').on("click", function() {
+                page_click(this);
+            });
 
-            table.find('tr:gt(0)').remove();
+        };
 
-            for (var i = data.length - 1; i >= 0; i--) {
-                var RowData = data[i];
+        var page_click = function(obj) {
+            if ($(obj).hasClass('disabled')) {
+                return false;
+            }
 
-                var tds = '';
-                for (var j = 0; j < datafields.length; j++) {
-                    tds += '<td>' + RowData[datafields[j]] + '</td>';
-                }
-                for (var c = 0; c < columns - datafields.length; c++) {
-                    tds += '<td>' + extracolumns[c] + '</td>';
-                }
+            var pagerbar = $(obj).parents('ul');
+            var page_index = table.data('currentpage');
 
-                table.append($('<tr>' + tds + '</tr>'));
-            };
-        }
-    });
-}
+            if ($(obj).hasClass('previous')) {
+                page_index = page_index - 1;
+            } else if ($(obj).hasClass('next')) {
+                page_index = page_index + 1;
+            } else if ($(obj).hasClass('first')) {
+                page_index = 1;
+            } else if ($(obj).hasClass('last')) {
+                page_index = table.data('totalpages');
+            } else {
+                page_index = $(obj).find('a').html();
+            }
+
+            pagerbar.find('li').removeClass('disabled').removeClass('active');
+
+            if (page_index <= 1) {
+                page_index = 1;
+                pagerbar.find('li.previous, li.first').addClass('disabled');
+            }
+            if (page_index >= table.data('totalpages')) {
+                page_index = table.data('totalpages');
+                pagerbar.find('li.next, li.last').addClass('disabled');
+            }
+
+            page_index = parseInt(page_index);
+            table.data('currentpage', page_index);
+            pagerbar.find('li').eq(page_index + 1).addClass('active');
+
+            load_json(page_index);
+        };
+
+
+        return this;
+    };
+
+})($);
