@@ -70,36 +70,28 @@ while (@$row = mysqli_fetch_assoc($result)) {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="images/bs.ico" type="image/x-icon" />
-<link rel="shortcut icon" href="images/bs.ico" type="image/x-icon" />
+    <!DOCTYPE html>
+    <html lang="en">
 
-<title>BoyStyle</title>
-
-<meta name="description"
-	content="Source code generated using layoutit.com">
-<meta name="author" content="LayoutIt!">
-<?php
+    <head>
+        <title>BoyStyle</title>
+        <?php require_once 'style.php';?>
+        <?php
 echo "<link href='/$pro_name/css/bootstrap.min.css' rel='stylesheet'>";
 echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 ?>
+    </head>
 
-</head>
-<body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<!--navbar-->
-				<?php require_once 'header.php';?>
-			</div>
-		</div>
-		<!--content-->
-		<?php
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--navbar-->
+                    <?php require_once 'header.php';?>
+                </div>
+            </div>
+            <!--content-->
+            <?php
 $index = 1;
 foreach ($rows as $item) {
 	$item_tbk_url = $item["tbk_url"];
@@ -120,19 +112,19 @@ foreach ($rows as $item) {
                                     <div class="caption">
                                         <h3>
                                             $item_title
-            							</h3>
-            							<p>
-            								$item_price / $item_comm_percent
-            							</p>
-            						    <p>
-            								月销量:$item_month_sold
-            							</p>
-            							<p>
-            								<a class="btn btn-danger" href="$item_tbk_url" target="_blank">去看看</a> <a class="btn" href="#">收藏</a>
-            							</p>
-            						</div>
-        					   </div>
-    					   </div>
+                                        </h3>
+                                        <p>
+                                            $item_price / $item_comm_percent
+                                        </p>
+                                        <p>
+                                            月销量:$item_month_sold
+                                        </p>
+                                        <p>
+                                            <a class="btn btn-danger" href="$item_tbk_url" target="_blank">去看看</a> <a class="btn" href="#">收藏</a>
+                                        </p>
+                                    </div>
+                               </div>
+                           </div>
 theEnd;
 	// 标记好必须顶头写
 	if ($index % 4 == 0) {
@@ -144,19 +136,17 @@ if (($index - 1) % 4 != 0) {
 	echo "</div>";
 }
 ?>
+                <!--footer-->
+                <?php require_once 'footer.php';?>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        $(function() {
+            RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
+        });
+        </script>
+    </body>
 
-		<!--footer-->
-		<?php require_once 'footer.php';?>
-	</div>
-
-	<script src="js/jquery.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
-		});
-	</script>
-
-</body>
-</html>
+    </html>

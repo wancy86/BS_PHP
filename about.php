@@ -2,14 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/bs.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="images/bs.ico" type="image/x-icon" />
     <title>About</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <?php require_once 'style.php';?>
 </head>
 
 <body>
@@ -29,7 +23,7 @@
                     OK 1. 注册用户需要淘宝账号
                     OK 2. 用户点击记录 点击访问历史，如果没有访问过必然没有购买过，pro_id, date
                     3. 返利比例和收入比例管理, 如有null，删除json文件重新生成
-                       
+
                     4. 多个功能的分页功能
                     5. JSON数据列表页面需要分页
                     8. 订单页面的验证数据刷新完善
@@ -50,8 +44,8 @@
 
                     TODO 我的资料的完善 添加和显示昵称
                     TODO 网站页脚
-                    TODO 登录页面的完善 
-                    TODO 注册页面的完善 
+                    TODO 登录页面的完善
+                    TODO 注册页面的完善
                     需要思考佣金返利的管理功能
                     TODO 佣金结算和提现，礼品返现-地址
                     TODO 修改密码 修改/添加 淘宝账号

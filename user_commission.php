@@ -39,10 +39,9 @@ $query2 .= "select count(0) as totalrecords from BS_UserOrder as A ";
 $query2 .= " left join BS_Order as B on A.order_id=B.order_id";
 $query2 .= " where A.uid=$uid";
 $result = mysqli_query(connect(), $query2);
-$totalrecords=(mysqli_fetch_assoc($result));
+$totalrecords = (mysqli_fetch_assoc($result));
 // echo $totalrecords['totalrecords'];
-$totalrecords=$totalrecords['totalrecords'];
-
+$totalrecords = $totalrecords['totalrecords'];
 
 // echo "$query";
 $result = mysqli_query(connect(), $query);
@@ -56,14 +55,8 @@ while (@$row = mysqli_fetch_assoc($result)) {
     <html lang="en">
 
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>BoyStyle</title>
-        <meta name="description" content="Source code generated using layoutit.com">
-        <meta name="author" content="LayoutIt!">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+        <?php require_once 'style.php';?>
     </head>
 
     <body>
@@ -133,7 +126,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
                                             </thead>
                                             <tbody>
                                                 <?php $index = 1;foreach ($orders as $order) {
-                        echo <<<ORDER_EOD
+	echo <<<ORDER_EOD
                                             <tr>
                                                 <td>
                                                     $index
@@ -167,8 +160,8 @@ while (@$row = mysqli_fetch_assoc($result)) {
                                                 </td>
                                             </tr>
 ORDER_EOD;
-        $index++;
-    }
+	$index++;
+}
 ?>
                                             </tbody>
                                         </table>
@@ -183,7 +176,7 @@ ORDER_EOD;
                                     <div class="col-md-12">
                                         <h3>未关联订单</h3>
                                     </div>
-            
+
                                 </div>
                             </div>
                             <!-- 已结算订单 -->
@@ -192,7 +185,7 @@ ORDER_EOD;
                                     <div class="col-md-12">
                                         <h3>已结算订单</h3>
                                     </div>
-            
+
                                 </div>
                             </div>
                             <!-- 收入报表 -->
@@ -201,7 +194,7 @@ ORDER_EOD;
                                     <div class="col-md-12">
                                         <h3>收入报表</h3>
                                     </div>
-            
+
                                 </div>
                             </div>
                             <!-- 邀请佣金收入 -->
@@ -210,10 +203,10 @@ ORDER_EOD;
                                     <div class="col-md-12">
                                         <h3>邀请佣金收入</h3>
                                     </div>
-            
+
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div><!--  end tab -->
                 </div>
             </div>

@@ -45,54 +45,48 @@ while (@$row = mysqli_fetch_assoc($result)) {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="images/bs.ico" type="image/x-icon" />
-<link rel="shortcut icon" href="images/bs.ico" type="image/x-icon" />
+    <!DOCTYPE html>
+    <html lang="en">
 
-<title>BoyStyle</title>
-<style>
-	.thumbnail img{
-		max-height:428.25px;
-		min-height:428.25px;
-	}
-</style>
-
-<meta name="description" content="Source code generated using layoutit.com">
-<meta name="author" content="LayoutIt!">
-<?php
+    <head>
+        <title>BoyStyle</title>
+        <?php require_once 'style.php';?>
+        <style>
+        .thumbnail img {
+            max-height: 428.25px;
+            min-height: 428.25px;
+        }
+        </style>
+        <meta name="description" content="Source code generated using layoutit.com">
+        <meta name="author" content="LayoutIt!">
+        <?php
 echo "<link href='/$pro_name/css/bootstrap.min.css' rel='stylesheet'>";
 echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 ?>
+    </head>
 
-</head>
-<body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<!--navbar-->
-				<?php require_once 'header.php';?>
-			</div>
-		</div>
-		<!--content-->
-		<div class="row">
-			<div class="col-md-12" id="content">
-			</div>
-		</div>
-		<!--footer-->
-		<?php require_once 'footer.php';?>
-	</div>
-
-	<?php require_once 'script.php';?>
-	<script type="text/javascript">
-		$(function() {
-			// RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
-			var JSONList=[];
-<?php
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--navbar-->
+                    <?php require_once 'header.php';?>
+                </div>
+            </div>
+            <!--content-->
+            <div class="row">
+                <div class="col-md-12" id="content">
+                </div>
+            </div>
+            <!--footer-->
+            <?php require_once 'footer.php';?>
+        </div>
+        <?php require_once 'script.php';?>
+        <script type="text/javascript">
+        $(function() {
+            // RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
+            var JSONList = [];
+            <?php
 $query = " select category,load_order,Data_rows,File_Name from BS_JSON";
 $query .= " order by category, load_order";
 $result = mysqli_query(connect(), $query);
@@ -107,10 +101,10 @@ while ($row = mysqli_fetch_assoc($result)) {
 JSON_List;
 }
 ?>
-			$("#content").data("JSONList",JSONList);
-			ScrollPaging();
-		});
-	</script>
+            $("#content").data("JSONList", JSONList);
+            ScrollPaging();
+        });
+        </script>
+    </body>
 
-</body>
-</html>
+    </html>

@@ -7,7 +7,6 @@ require_once './lib/FileUtil.php';
 preg_match('/^\/\w*\//', $_SERVER['PHP_SELF'], $webname);
 $pro_name = str_replace('/', '', $webname[0]);
 
-
 // http://localhost/boystyle/index.php/501.HTML
 // 请求URL必须是path_info的模式
 // echo $_SERVER["PATH_INFO"];
@@ -46,38 +45,30 @@ while (@$row = mysqli_fetch_assoc($result)) {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="images/bs.ico" type="image/x-icon" />
-<link rel="shortcut icon" href="images/bs.ico" type="image/x-icon" />
+    <!DOCTYPE html>
+    <html lang="en">
 
-<title>BoyStyle</title>
-
-<meta name="description"
-	content="Source code generated using layoutit.com">
-<meta name="author" content="LayoutIt!">
-<?php
+    <head>
+        <title>BoyStyle</title>
+        <?php require_once 'style.php';?>
+        <?php
 echo "<link href='/$pro_name/css/bootstrap.min.css' rel='stylesheet'>";
 echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 ?>
+    </head>
 
-</head>
-<body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<!--navbar-->
-				<?php require_once 'header.php';?>
-			</div>
-		</div>
-		<!--content-->
-		<div class="row">
-			<div class="col-md-12">
-<?php
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--navbar-->
+                    <?php require_once 'header.php';?>
+                </div>
+            </div>
+            <!--content-->
+            <div class="row">
+                <div class="col-md-12">
+                    <?php
 foreach ($rows as $item) {
 	echo <<<theEnd
                 <div class="col-md-3" style="float:left;">
@@ -101,20 +92,19 @@ foreach ($rows as $item) {
 			   </div>
 theEnd;
 }?>
-			</div>
-		</div>
-		<!--footer-->
-		<?php require_once 'footer.php';?>
-	</div>
+                </div>
+            </div>
+            <!--footer-->
+            <?php require_once 'footer.php';?>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        $(function() {
+            RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
+        });
+        </script>
+    </body>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
-		});
-	</script>
-
-</body>
-</html>
+    </html>

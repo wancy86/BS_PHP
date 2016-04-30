@@ -1,17 +1,18 @@
-<?php 
+<?php
 require_once 'include.php';
-$id=$_REQUEST['id'];
-$proInfo=getProById($id);
-$proImgs=getProImgsById($id);
-if(!($proImgs &&is_array($proImgs))){
+$id = $_REQUEST['id'];
+$proInfo = getProById($id);
+$proImgs = getProImgsById($id);
+if (!($proImgs && is_array($proImgs))) {
 	alertMes("商品图片错误", "index.php");
 }
 ?>
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
 <title>商品介绍</title>
+<?php require_once 'style.php';?>
+
 <link type="text/css" rel="stylesheet" href="styles/reset.css">
 <link type="text/css" rel="stylesheet" href="styles/main.css">
 <link type="text/css" rel="stylesheet" media="all" href="styles/jquery.jqzoom.css"/>
@@ -32,7 +33,7 @@ $(document).ready(function() {
 			zoomWidth:410,
 			zoomHeight:410
         });
-	
+
 });
 </script>
 </head>
@@ -142,32 +143,32 @@ $(document).ready(function() {
 <div class="userPosition comWidth">
 	<strong><a href="#">首页</a></strong>
 	<span>&nbsp;&gt;&nbsp;</span>
-	<a href="#"><?php echo $proInfo['cName'];?></a>
+	<a href="#"><?php echo $proInfo['cName']; ?></a>
 	<span>&nbsp;&gt;&nbsp;</span>
-	<em><?php echo $proInfo['pSn'];?></em>
+	<em><?php echo $proInfo['pSn']; ?></em>
 </div>
 <div class="description_info comWidth">
 	<div class="description clearfix">
 		<div class="leftArea">
 			<div class="description_imgs">
 				<div class="big">
-					<a href="image_800/<?php echo  $proImgs[0]['albumPath'];?>" class="jqzoom" rel='gal1'  title="triumph" >
-           			 <img width="309" height="340" src="image_350/<?php  echo $proImgs[0]['albumPath'];?>"  title="triumph">
+					<a href="image_800/<?php echo $proImgs[0]['albumPath']; ?>" class="jqzoom" rel='gal1'  title="triumph" >
+           			 <img width="309" height="340" src="image_350/<?php echo $proImgs[0]['albumPath']; ?>"  title="triumph">
 	        		</a>
 				</div>
 				<ul class="des_smimg clearfix" id="thumblist" >
-					<?php foreach($proImgs as $key=>$proImg):?>
-					<li><a class="<?php echo $key==0?"zoomThumbActive":"";?> active" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'image_350/<?php echo $proImg['albumPath'];?>',largeimage: 'image_800/<?php echo $proImg['albumPath'];?>'}"><img src="image_50/<?php echo $proImg['albumPath'];?>" alt=""></a></li>
+					<?php foreach ($proImgs as $key => $proImg): ?>
+					<li><a class="<?php echo $key == 0 ? "zoomThumbActive" : ""; ?> active" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'image_350/<?php echo $proImg['albumPath']; ?>',largeimage: 'image_800/<?php echo $proImg['albumPath']; ?>'}"><img src="image_50/<?php echo $proImg['albumPath']; ?>" alt=""></a></li>
 					<?php endforeach;?>
 				</ul>
 			</div>
 		</div>
 		<div class="rightArea">
 			<div class="des_content">
-				<h3 class="des_content_tit"><?php echo $proInfo['pName'];?></h3>
+				<h3 class="des_content_tit"><?php echo $proInfo['pName']; ?></h3>
 				<div class="dl clearfix">
 					<div class="dt">慕课价</div>
-					<div class="dd clearfix"><span class="des_money"><em>￥</em><?php echo $proInfo['iPrice'];?></span></div>
+					<div class="dd clearfix"><span class="des_money"><em>￥</em><?php echo $proInfo['iPrice']; ?></span></div>
 				</div>
 				<div class="dl clearfix">
 					<div class="dt">优惠</div>

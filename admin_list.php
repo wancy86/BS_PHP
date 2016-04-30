@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>宝贝管理</title>
-
-    <meta name="description" content="Source code generated using layoutit.com">
-    <meta name="author" content="LayoutIt!">
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
+    <?php require_once 'style.php';?>
   </head>
   <body>
     <div class="container-fluid">
@@ -44,7 +34,7 @@
 							<div class="row">
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -63,7 +53,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -82,7 +72,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -101,7 +91,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -120,7 +110,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -139,7 +129,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/fashion">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -159,10 +149,10 @@
 							</div>
 						</div>
 						<div role="tabpanel" class="tab-pane" id="panel-2">
-							<div class="row">				
+							<div class="row">
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -181,7 +171,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -200,7 +190,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -219,7 +209,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -238,7 +228,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -257,7 +247,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food"> 
+										<img alt="Bootstrap Image Preview" src="http://lorempixel.com/418/418/food">
 										<div class="caption">
 											<p>
 												宝贝title
@@ -289,7 +279,7 @@
 
     <?php require_once 'script.php';?>
     <script>
-    $(function (){    	
+    $(function (){
     	$('a[href="#panel-1"]').tab('show');
     });
     </script>
