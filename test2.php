@@ -1,5 +1,6 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
+
 // // echo 123;
 
 // //test mail
@@ -38,10 +39,14 @@ header("Content-type: text/html; charset=utf-8");
 ?>
 <title>测试</title>
 
-<?php 
+<?php
 //test the paging
-require_once "lib/page.func.php";
-echo showBSPage(102);
+// require_once "lib/page.func.php";
+// echo showBSPage(102);
 ?>
 
+<?php
 
+require_once './lib/Logs.php';
+addLog(446456546);
+?>
