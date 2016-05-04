@@ -31,7 +31,7 @@ if ($result) {
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-4">
+                        <div id="content" class="col-md-4 col-md-offset-4">
                             <div class="thumbnail">
                                 <?php if ($result) {?>
                                 <a class="pro" href="javascript:void(0);" pro_id="<?php echo $item['pro_id']; ?>" url="<?php echo $item['detail_url']; ?>" target="_blank"><img alt="<?php echo $item['detail_url']; ?>" src="<?php echo $item['img_url']; ?>"></a>
@@ -50,7 +50,7 @@ if ($result) {
                                 <?php }?>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
