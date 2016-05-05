@@ -4,7 +4,7 @@ function alertMes($mes, $url) {
 	echo "<script>window.location='{$url}';</script>";
 }
 
-function AlertMessage($page, $msg, $script) {
+function AlertMessage($page, $msg, $script = '') {
 	// 1.redirect
 	// header('Location: http://localhost/boystyle/admin_data.php');.
 	// exit();
