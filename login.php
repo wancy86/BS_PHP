@@ -4,15 +4,14 @@ require_once './lib/mysql.func.php';
 require_once './lib/common.func.php';
 session_start();
 
-$emailphone = isset($_POST[emailphone]) ? $_POST[emailphone] : "";
-$autologin = isset($_POST[autologin]) ? $_POST[autologin] : 0;
-$accountCheck = "";
-$accountMsg = "";
-$validateCheck = "";
-$validateMsg = "";
-
-if (isset($_POST[emailphone])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$emailphone = isset($_POST[emailphone]) ? $_POST[emailphone] : "";
+	$autologin = isset($_POST[autologin]) ? $_POST[autologin] : 0;
 	$validatecode = isset($_POST[validatecode]) ? $_POST[validatecode] : "";
+	$accountCheck = "";
+	$accountMsg = "";
+	$validateCheck = "";
+	$validateMsg = "";
 
 	if (!(isset($_SESSION['verify']) && $_SESSION['verify'] == $validatecode)) {
 		$validateCheck = "has-error";
