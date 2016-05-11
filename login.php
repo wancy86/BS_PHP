@@ -5,7 +5,7 @@ require_once './lib/common.func.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$emailphone = isset($_POST[emailphone]) ? $_POST[emailphone] : "";
+	$email = isset($_POST[email]) ? $_POST[email] : "";
 	$autologin = isset($_POST[autologin]) ? $_POST[autologin] : 0;
 	$validatecode = isset($_POST[validatecode]) ? $_POST[validatecode] : "";
 	$accountCheck = "";
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$pwd = isset($_POST[pwd]) ? $_POST[pwd] : "";
 		$pwd = strtoupper(substr(md5($pwd), 8, 16));
 
-		$query = "select uid, account, pwd from BS_User where email='$emailphone' or account ='$emailphone' limit 1";
+		$query = "select uid, account, pwd from BS_User where email='$email' limit 1";
 		$result = mysqli_query(connect(), $query);
 		if ($result && $row = mysqli_fetch_assoc($result)) {
 
@@ -70,16 +70,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					<div class="col-md-6">
 						<form role="form" class="form-horizontal" action="login.php" method="POST">
 							<div class="form-group <?php echo $accountCheck; ?>">
-								<label class="col-sm-2 control-label" for="emailphone">账号 : </label>
+								<label class="col-sm-2 control-label text-danger" for="email">邮箱 : </label>
 								<div class="col-sm-4">
-									<input value="<?php echo $emailphone; ?>" type="text" class="form-control" id="emailphone" name="emailphone" placeholder="用户名 / 邮箱"/>
+									<input value="<?php echo $email; ?>" type="email" class="form-control" id="email" name="email" placeholder="邮箱"/>
 								</div>
 								<div class="col-sm-4 text-danger" style="margin-top:8px;">
 									<span style=""><?php echo $accountMsg; ?></span>
 								</div>
 							</div>
 							<div class="form-group <?php echo $accountCheck; ?>">
-								<label class="col-sm-2 control-label" for="pwd">密码 : </label>
+								<label class="col-sm-2 control-label text-danger" for="pwd">密码 : </label>
 								<div class="col-sm-4">
 									<input type="password" class="form-control" id="pwd" name="pwd" placeholder="密码"/>
 								</div>
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								</div>
 							</div>
 							<div class="form-group <?php echo $validateCheck; ?>">
-								<label class="col-sm-2 control-label" for="validatecode">验证码 : </label>
+								<label class="col-sm-2 control-label text-danger" for="validatecode">验证码 : </label>
 								<div class="col-sm-4">
 									<input type="text" class="form-control" id="validatecode" name="validatecode" placeholder="验证码"/>
 								</div>
@@ -111,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							<div class="form-group">
 							    <div class="col-sm-offset-2 col-sm-4">
 							      <button type="submit" class="btn btn-success">登录</button>
+							      <a href="reg.php" style="float:right" class="btn btn-default"> 注册>> </a>
 							    </div>
 							</div>
 						</form>
