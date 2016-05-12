@@ -155,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     email.parents(".form-group").addClass("has-error");
                     $("#emailerr").text("请输入正确的邮箱地址");
                     email.focus();
-                } else {
+                } else if (email.val() != '') {
                     email.parents(".form-group").removeClass("has-error");
                     $("#emailerr").text("");
                     //检查是否已注册

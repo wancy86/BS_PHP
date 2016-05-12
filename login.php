@@ -65,9 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 				<!--content-->
 				<div class="row">
-					<div class="col-md-3">
-					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 col-md-offset-3">
 						<form role="form" class="form-horizontal" action="login.php" method="POST">
 							<div class="form-group <?php echo $accountCheck; ?>">
 								<label class="col-sm-2 control-label text-danger" for="email">邮箱 : </label>
@@ -92,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								<div class="col-sm-4">
 									<input type="text" class="form-control" id="validatecode" name="validatecode" placeholder="验证码"/>
 								</div>
-								<div class="col-sm-2" style="margin-left: -20px;margin-top: 3px;">
+								<div class="col-sm-2" style="margin-left: 0px;margin-top: 3px;">
 									<img src="./validate_img.php" style="width:100px;hight:40px;" onclick="RefreshValidImg(this)"/>
 								</div>
 								<div class="col-sm-3 text-danger" style="margin-top:8px;margin-left:-20px;">
@@ -115,9 +113,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							    </div>
 							</div>
 						</form>
-
-					</div>
-					<div class="col-md-3">
 					</div>
 				</div>
 			</div>
