@@ -14,55 +14,54 @@ $phone = "";
 $pwderror = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $query = "";
-    $query .= "select account,taobao_account,phone,email from BS_User where uid=$uid";
-    $result = mysqli_query(connect(), $query);
-    $user = mysqli_fetch_assoc($result);
-    // print_r($user);
+	$query = "";
+	$query .= "select account,taobao_account,phone,email from BS_User where uid=$uid";
+	$result = mysqli_query(connect(), $query);
+	$user = mysqli_fetch_assoc($result);
+	// print_r($user);
 
-    $account = $user['account'];
-    $email = $user['email'];
-    $taobao_account = $user['taobao_account'];
-    $phone = $user['phone'];
+	$account = $user['account'];
+	$email = $user['email'];
+	$taobao_account = $user['taobao_account'];
+	$phone = $user['phone'];
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $query = "";
-    if (isset($_POST['account'])) {
-        $query .= "update BS_User set account='" . $_POST['account'] . "' where uid=$uid";
+	$query = "";
+	if (isset($_POST['account'])) {
+		$query .= "update BS_User set account='" . $_POST['account'] . "' where uid=$uid";
 
-    } elseif (isset($_POST['taobao_account'])) {
-        $query .= "update BS_User set taobao_account='" . $_POST['taobao_account'] . "' where uid=$uid";
+	} elseif (isset($_POST['taobao_account'])) {
+		$query .= "update BS_User set taobao_account='" . $_POST['taobao_account'] . "' where uid=$uid";
 
-    } elseif (isset($_POST['phone'])) {
-        $query .= "update BS_User set phone='" . $_POST['phone'] . "' where uid=$uid";
+	} elseif (isset($_POST['phone'])) {
+		$query .= "update BS_User set phone='" . $_POST['phone'] . "' where uid=$uid";
 
-    } elseif (isset($_POST['oldpwd'])) {
-        $pwd = strtoupper(substr(md5($_POST['oldpwd']), 8, 16));
-        $query .= "select pwd from BS_User where uid=$uid";
-        $result = mysqli_query(connect(), $query);
-        $user = mysqli_fetch_assoc($result);
-        if ($pwd == $user['pwd']) {
-            if(isset($_POST['pwd']) && isset($_POST['pwd2']) && $_POST['pwd']==$_POST['pwd2'])
-            {
-                $newpwd=strtoupper(substr(md5($_POST['pwd']), 8, 16));
-                $query .= "update BS_User set pwd='" . $newpwd . "' where uid=$uid";
-            }
-            else
-            {
-                $echo '两次输入的新密码不一致';
-                exit();
-            }
+	} elseif (isset($_POST['oldpwd'])) {
+		$pwd = strtoupper(substr(md5($_POST['oldpwd']), 8, 16));
+		$query = "select pwd from BS_User where uid=$uid";
+		$result = mysqli_query(connect(), $query);
+		$user = mysqli_fetch_assoc($result);
+		if ($pwd == $user['pwd']) {
+			if (isset($_POST['pwd']) && isset($_POST['pwd2']) && $_POST['pwd'] == $_POST['pwd2']) {
+				$newpwd = strtoupper(substr(md5($_POST['pwd']), 8, 16));
+				$query = "update BS_User set pwd='" . $newpwd . "' where uid=$uid";
+				// echo "$query";
+			} else {
+				echo '两次输入的新密码不一致';
+				exit();
+			}
 
-        } else {
-            $echo '原密码不正确';
-            exit();
-        }
+		} else {
+			echo '原密码不正确';
+			exit();
+		}
 
-    }
+	}
 
-    $result = mysqli_query(connect(), $query);
-    echo "$result";
+	$result = mysqli_query(connect(), $query);
+	echo "$result";
+	exit();
 }
 
 ?>
@@ -103,18 +102,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label>昵称</label>
                             <br>
                             <div style="display:<?php if ($account == '') {
-    echo 'none';
+	echo 'none';
 } else {
-    echo '';
+	echo '';
 }
 ?>">
                                 <span class="text-primary"><?php echo $account; ?></span>
                                 <a role="button" class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-edit"></span> 编辑</a>
                             </div>
                             <div style="display:<?php if ($account != '') {
-    echo 'none';
+	echo 'none';
 } else {
-    echo '';
+	echo '';
 }
 ?>">
                                 <input style="display: inline-block;width:70%" type="text" class="form-control" id="account" name="account" placeholder="昵称, 登录后显示">
@@ -125,18 +124,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label>淘宝账号</label><small>(非公开)</small>
                             <br>
                             <div style="display:<?php if ($taobao_account == '') {
-    echo 'none';
+	echo 'none';
 } else {
-    echo '';
+	echo '';
 }
 ?>">
                                 <span class="text-primary"><?php echo $taobao_account; ?></span>
                                 <a role="button" class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-edit"></span> 编辑</a>
                             </div>
                             <div style="display:<?php if ($taobao_account != '') {
-    echo 'none';
+	echo 'none';
 } else {
-    echo '';
+	echo '';
 }
 ?>">
                                 <input style="display: inline-block;width:70%" type="text" class="form-control" id="taobao_account" name="taobao_account" placeholder="淘宝账号, 用于返利">
@@ -147,18 +146,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label>电话</label><small>(非公开)</small>
                             <br>
                             <div style="display:<?php if ($phone == '') {
-    echo 'none';
+	echo 'none';
 } else {
-    echo '';
+	echo '';
 }
 ?>">
                                 <span class="text-primary"><?php echo $phone; ?></span>
                                 <a role="button" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-edit"></span> 编辑</a>
                             </div>
                             <div style="display:<?php if ($phone != '') {
-    echo 'none';
+	echo 'none';
 } else {
-    echo '';
+	echo '';
 }
 ?>">
                                 <input style="display: inline-block;width:70%" type="text" class="form-control" id="phone" name="phone" placeholder="联系电话">
@@ -169,10 +168,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="form-group">
                             <div>
                                 <span> <b>修改密码</b> </span>
-                                <a role="button" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-lock"></span> 修改</a>
+                                <a id="mdf_pwd" role="button" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-lock"></span> 修改</a>
                                 <br>
                             </div>
-                            <div style="margin-top:5px;">
+                            <div id="pwds" style="margin-top:5px;display:none;">
                                 <input style="width:70%" class="form-control" type="password" id="oldpwd" name="oldpwd" placeholder="请输入原密码" />
                                 <br/>
                                 <input style="width:70%" class="form-control" type="password" id="pwd" name="pwd" placeholder="请输入新密码" />
@@ -180,8 +179,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <input style="display: inline-block;width:70%" class="form-control" type="password" id="pwd2" name="pwd2" placeholder="请再次输入新密码" />
                                 <a id="update_pwd" role="button" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> 保存</a>
                                 <br/>
-                                <span class="text-danger"><?php echo "$pwderror"; ?></span>
                             </div>
+                            <span id="pwderror" class="text-danger"><?php echo "$pwderror"; ?></span>
                         </div>
                         <?php }?>
                         <!-- <div class="form-group">
@@ -225,6 +224,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         method: "post",
                         data: param,
                         success: function(data) {
+                            // console.log(data);
                             if (data == 1) {
                                 form_div.find('div:eq(1)').hide();
                                 form_div.find('div:eq(0)').slideDown();
@@ -233,10 +233,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
 
                     });
-                });//
+                }); //
 
-                $("#update_pwd").click(function  (){
-                    var param = $(this).parents('.form-group').param();
+                $("#mdf_pwd").click(function() {
+                    $("#pwds").slideToggle('slow');
+                });
+                $("#update_pwd").click(function() {
+                    var param = $.param($("#pwds :input"));
+                    var errtext = $(this).siblings('span.text-danger');
+                    // console.log('update_pwd');
 
                     $.ajax({
                         url: "user_profile.php",
@@ -244,9 +249,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         data: param,
                         success: function(data) {
                             if (data == 1) {
-                                form_div.find('div:eq(1)').hide();
-                                form_div.find('div:eq(0)').slideDown();
-                                form_div.find('div:eq(0)').find(".text-primary").text(new_val);
+                                $("#pwderror").show();
+                                $("#pwderror").text('密码修改成功')
+                                $("#pwds").slideUp('slow');
+                                setTimeout(function() {
+                                    $("#pwderror").fadeOut('slow');
+                                    $("#pwderror").text('');
+                                }, 2000)
+                            } else {
+                                $("#pwderror").show();
+                                $("#pwderror").text(data);
                             }
                         }
 
