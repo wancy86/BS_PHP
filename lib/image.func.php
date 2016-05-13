@@ -17,6 +17,7 @@ function verifyImage($type = 1, $length = 4, $pixel = 0, $line = 0, $sess_name =
 	$chars = buildRandomString($type, $length);
 	$_SESSION['verify'] = $chars;
 	//comment the gif header then debug
+	// echo "_SESSION verify:";
 	// echo $_SESSION['verify'];
 	// $fontfiles = array ("MSYH.TTF", "MSYHBD.TTF", "SIMLI.TTF", "SIMSUN.TTC", "SIMYOU.TTF", "STZHONGS.TTF" );
 	$fontfiles = array(

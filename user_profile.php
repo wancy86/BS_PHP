@@ -75,12 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <body>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <!--navbar-->
-                    <?php require_once 'header.php';?>
-                </div>
-            </div>
+            <!--navbar-->
+            <?php require_once 'header.php';?>
             <div class="row">
                 <div class="col-md-12">
                     <h3>我的资料</h3>
@@ -192,9 +188,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div> -->
                     </form>
                 </div>
+                <?php require_once 'footer.php';?>
             </div>
             <?php require_once 'script.php';?>
-            <?php require_once 'footer.php';?>
             <script type="text/javascript">
             $(function() {
 

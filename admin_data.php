@@ -50,7 +50,6 @@ while (@$row = mysqli_fetch_assoc($result2)) {
 }
 
 ?>
-
     <!DOCTYPE html>
     <html lang="en">
 
@@ -61,14 +60,10 @@ while (@$row = mysqli_fetch_assoc($result2)) {
 
     <body>
         <div class="container-fluid">
+            <!--navbar-->
+            <?php require_once 'header.php';?>
             <div class="row">
-                <div class="col-md-12">
-                    <!--navbar-->
-                    <?php require_once 'header.php';?>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mainform">
                     <div class="tabbable" id="tabs-1">
                         <ul class="nav nav-tabs">
                             <li class="active">
@@ -96,7 +91,8 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                         <form action="admin_import.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label for="main_cat">类别</label>
-                                                <select id="main_cat" name="main_cat" class="form-control" style="width:200px;" size="1"> <!--multiple='multiple'-->
+                                                <select id="main_cat" name="main_cat" class="form-control" style="width:200px;" size="1">
+                                                    <!--multiple='multiple'-->
                                                     <option value="-1">请选择类别</option>
                                                     <?php foreach ($cat_rows as $cat) {echo "<option value='" . $cat["category"] . "'>" . $cat["category"] . "</option>";}?>
                                                 </select>
@@ -109,7 +105,7 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                             </div>
                                             <div class="form-group" style="margin-left: 20px;">
                                                 <label for="exampleInputFile"> 导入文件 </label>
-                                                <input type="hidden" name="datatype" value="prodata"/>
+                                                <input type="hidden" name="datatype" value="prodata" />
                                                 <input type="file" id="file" name="file" />
                                                 <p class="help-block">选择从淘宝客导出的Excel文件.</p>
                                             </div>
@@ -146,7 +142,7 @@ while (@$row = mysqli_fetch_assoc($result2)) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php $rownum = 1;
+                                                <?php $rownum = 1;
 foreach ($json_files as $filerow) {
 	echo <<<JSON_EOD
                                             <tr>
@@ -186,7 +182,7 @@ JSON_EOD;
                                         <form action="admin_import.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
                                             <div class="form-group" style="margin-left: 20px;">
                                                 <label for="exampleInputFile"> 导入文件 </label>
-                                                <input type="hidden" name="datatype" value="orderdata"/>
+                                                <input type="hidden" name="datatype" value="orderdata" />
                                                 <input type="file" id="file" name="file" />
                                                 <p class="help-block">选择从淘宝客导出的Excel文件.</p>
                                             </div>
@@ -203,7 +199,7 @@ JSON_EOD;
                                         <form action="admin_commission.php" method="post" role="form" class="form-inline" enctype="multipart/form-data">
                                             <div class="form-group" style="margin-left: 20px;">
                                                 <label for="exampleInputFile"> 导入文件 </label>
-                                                <input type="hidden" name="datatype" value="orderdata"/>
+                                                <input type="hidden" name="datatype" value="orderdata" />
                                                 <input type="file" id="file" name="file" />
                                                 <p class="help-block">选择从淘宝客导出的Excel文件.</p>
                                             </div>
@@ -212,39 +208,36 @@ JSON_EOD;
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- tabcontent -->
-                    </div> <!-- tabable -->
-                </div> <!-- col -->
-            </div> <!-- row -->
-
+                        </div>
+                        <!-- tabcontent -->
+                    </div>
+                    <!-- tabable -->
+                </div>
+                <!-- col -->
+            </div>
+            <!-- row -->
             <!--footer-->
             <?php require_once 'footer.php';?>
-        </div> <!-- container -->
+        </div>
+        <!-- container -->
         <?php require_once 'script.php';?>
-    </body>
-
-    <script type="text/javascript">
-    $(function() {
-        $("#main_cat").change(function() {
-            if ($(this).val() == "-1") {
-                $("#cat_id").html('<option value="-1">请选择类别</option>');
-            }
-            $.ajax({
-                url: "admin_data.php?ajax_action=get_subcat",
-                type: "get",
-                data: "category="+$("#main_cat").val(),
-                success: function(data) {
-                    $("#cat_id").html(data);
+        <script type="text/javascript">
+        $(function() {
+            $("#main_cat").change(function() {
+                if ($(this).val() == "-1") {
+                    $("#cat_id").html('<option value="-1">请选择类别</option>');
                 }
+                $.ajax({
+                    url: "admin_data.php?ajax_action=get_subcat",
+                    type: "get",
+                    data: "category=" + $("#main_cat").val(),
+                    success: function(data) {
+                        $("#cat_id").html(data);
+                    }
+                });
             });
         });
-    });
-
-    </script>
+        </script>
+    </body>
 
     </html>
-
-
-
-
-

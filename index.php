@@ -67,12 +67,8 @@ echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
 
     <body>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <!--navbar-->
-                    <?php require_once 'header.php';?>
-                </div>
-            </div>
+            <!--navbar-->
+            <?php require_once 'header.php';?>
             <!--content-->
             <div class="row">
                 <div class="col-md-12" id="content">

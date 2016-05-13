@@ -71,63 +71,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <body>
         <div class="container-fluid">
-            <div class="row" style="margin-bottom:100px;">
+            <!--navbar-->
+            <?php require_once 'header.php';?>
+            <div class="row">
                 <div class="col-md-12">
-                    <!--navbar-->
-                    <?php require_once 'header.php';?>
-                    <!--content-->
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <form role="form" class="form-horizontal" action="reg.php" method="POST">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label text-danger" for="email">邮箱 : </label>
-                                    <div class="col-sm-5">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="请输入邮箱" />
-                                    </div>
-                                    <div class="col-sm-4 text-danger" style="margin-top:8px;">
-                                        <span id="emailerr" style=""></span>
-                                    </div>
-                                </div>
-                                <!-- <div class="form-group">
-                                    <label class="col-sm-2 control-label" for="account">昵称 : </label>
-                                    <div class="col-sm-5">
-                                        <input class="form-control" id="account" name="account" placeholder="请输入昵称" />
-                                    </div>
-                                </div> -->
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label text-danger" for="pwd">密码 : </label>
-                                    <div class="col-sm-5">
-                                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="密码必须是6-25位数字、字母、符号" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label text-danger" for="pdw2">确认密码 : </label>
-                                    <div class="col-sm-5">
-                                        <input type="password" class="form-control" id="pdw2" name="pdw2" placeholder="请重新输入密码" />
-                                    </div>
-                                    <div class="col-sm-4 text-danger" style="margin-top:8px;">
-                                        <span id="pwd2err" style=""></span>
-                                    </div>
-                                </div>
-                                <!-- <div class="form-group">
-                                    <label class="col-sm-2 control-label" for="taobao_account">淘宝账号 : </label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="taobao_account" name="taobao_account" placeholder="关联淘宝账号便于返利" />
-                                    </div>
-                                </div> -->
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label text-success" for="invite_by">邀请码 : </label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="invite_by" name="invite_by" placeholder="请输入邀请码，如果你有" />
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-2 col-sm-5">
-                                    <button type="submit" class="btn btn-success"> 注册 </button>
-                                    <a href="login.php" style="float:right" class="btn btn-default"> 登录>> </a>
-                                </div>
-                            </form>
+                    <h3>注册</h3>
+                    <hr>
+                </div>
+            </div>
+            <!--content-->
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 mainform">
+                    <form role="form" class="form-horizontal" action="reg.php" method="POST">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-danger" for="email">邮箱 : </label>
+                            <div class="col-sm-5">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="请输入邮箱" />
+                            </div>
+                            <div class="col-sm-4 text-danger" style="margin-top:8px;">
+                                <span id="emailerr" style=""></span>
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-danger" for="pwd">密码 : </label>
+                            <div class="col-sm-5">
+                                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="密码必须是6-25位数字、字母、符号" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-danger" for="pdw2">确认密码 : </label>
+                            <div class="col-sm-5">
+                                <input type="password" class="form-control" id="pdw2" name="pdw2" placeholder="请重新输入密码" />
+                            </div>
+                            <div class="col-sm-4 text-danger" style="margin-top:8px;">
+                                <span id="pwd2err" style=""></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-success" for="invite_by">邀请码 : </label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="invite_by" name="invite_by" placeholder="请输入邀请码，如果你有" />
+                            </div>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-5">
+                            <button type="submit" class="btn btn-success"> 注册 </button>
+                            <a href="login.php" style="float:right" class="btn btn-default"> 登录>> </a>
+                        </div>
+                    </form>
                 </div>
             </div>
             <!--footer-->

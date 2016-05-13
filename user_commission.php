@@ -69,7 +69,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mainform">
                     <div class="tabbable" id="tabs-1">
                         <ul class="nav nav-tabs">
                             <li class="active">
