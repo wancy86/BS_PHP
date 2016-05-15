@@ -23,17 +23,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} else {
 		$query = "select uid from BS_User where email='$email' limit 1";
 		$result = mysqli_query(connect(), $query);
-		if ($result && $row = mysqli_fetch_assoc($result)) {
-
+		if ($result) {
+			$row = mysqli_fetch_assoc($result);
 			if ($row['uid'] != 0) {
 				//email to the register email to rest password
 				echo "reset pwd...";
+				//发送验证邮件
+				//
 
 			} else {
-				$emailMsg = "邮箱bnuc";
+				$emailMsg = "邮箱不存在";
 				$emailCheck = "has-error";
 			}
+		} else {
+			echo "Error...";
 		}
+
 	}
 }
 ?>
@@ -57,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 mainform">
                     <form class="form-horizontal" action="#" method="POST">
-                        <div class="form-group <?php echo $accountCheck; ?>">
+                        <div class="form-group <?php echo $emailCheck; ?>">
                             <label class="col-sm-2 control-label text-danger" for="email">邮箱 : </label>
                             <div class="col-sm-4">
                                 <input value="<?php echo $email; ?>" type="email" class="form-control" id="email" name="email" placeholder="请输入注册邮箱" />
