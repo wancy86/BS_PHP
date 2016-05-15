@@ -2,6 +2,8 @@
 header("Content-type: text/html; charset=utf-8");
 require_once './lib/mysql.func.php';
 require_once './lib/common.func.php';
+require_once './lib/send_email.php';
+
 // 想用session就一定要开启session
 session_start();
 
@@ -32,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				//
 
 			} else {
+
 				$emailMsg = "邮箱不存在";
 				$emailCheck = "has-error";
 			}
