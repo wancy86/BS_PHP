@@ -7,63 +7,50 @@ require_once './lib/send_email.php';
 // 想用session就一定要开启session
 session_start();
 
-$email = "wancy86@sina.com";
-$emailMsg = "";
 $validateMsg = "";
-$emailCheck = "";
 $validateCheck = "";
-
-// rest_pwd
-$action = isset($_GET['action']) ? $_GET['action'] : "";
+$msg = "";
+$email = isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
+$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
+$active = isset($_REQUEST['active']) ? $_REQUEST['active'] : "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$email = $_POST['email'];
+	$pwd = isset($_POST['pwd']) ? $_POST['pwd'] : "";
 	$validatecode = isset($_POST['validatecode']) ? $_POST['validatecode'] : "";
-	// echo "$validatecode";
-	// echo $_SESSION['verify'];
 
 	if (!(isset($_SESSION['verify']) && $_SESSION['verify'] == $validatecode)) {
 		$validateCheck = "has-error";
 		$validateMsg = "验证码输入有误";
 	} else {
-		$query = "select uid,pwd,account from BS_User where email='$email'";
+		$query = "select uid,pwd from BS_User where email='$email' limit 1";
+		// echo "$query";
+
 		$result = mysqli_query(connect(), $query);
 		if ($result) {
 			$row = mysqli_fetch_assoc($result);
 			if ($row['uid'] != 0) {
-				//发送验证邮件
 				$active_key = substr(md5($row['pwd'] . date("Y/m/d/H")), 8, 16);
-				$secu_url = "localhost/boystyle/reset_pwd.php?action=rest_pwd&email=$email&active=$active_key";
-				// echo $secu_url;
-
-				$contents = "<br/>";
-				$contents .= "亲爱的用户 " . $row['uid'] . "：您好！<br/>";
-				$contents .= "<br/>";
-				$contents .= "    您收到这封这封电子邮件是因为您 (也可能是某人冒充您的名义) 申请了一个新的密码。假如这不是您本人所申请, 请不用理会这封电子邮件, 但是如果您持续收到这类的信件骚扰, 请您尽快联络管理员。<br/>";
-				$contents .= "<br/>";
-				$contents .= "    要使用新的密码, 请使用以下链接启用密码。<br/>";
-				$contents .= "<br/>";
-				$contents .= "<a href='" . $secu_url . "'>" . $secu_url . "</a>";
-				$contents .= "<br/>";
-				$contents .= "    (如果无法点击该URL链接地址，请将它复制并粘帖到浏览器的地址输入框，然后单击回车即可。该链接使用后将立即失效。)<br/>";
-				$contents .= "   <br/>";
-				$contents .= "    注意:请您在收到邮件1个小时内使用，否则该链接将会失效。<br/>";
-				$contents .= "<br/>";
-				$contents .= "<br/>";
-				$contents .= "WWW.BOYSTYLE.CN - 中国最大的导购返利网站，为你优选物美价廉的宝贝，为你省钱省力，省时间<br/>";
-				$contents .= "用户服务支持：webmaster@csdn.net<br/>";
-
-				sendemail($email, '找回您的账户密码', $contents);
-
+				// echo "$active_key";
+				// echo "<br>";
+				// echo "$active";
+				if ($active_key == $active) {
+					$newpwd = strtoupper(substr(md5($pwd), 8, 16));
+					$query = "update BS_User set pwd='$newpwd' where email='$email'";
+					$result = mysqli_query(connect(), $query);
+					if (!$result) {
+						$msg = "修改密码失败";
+					} else {
+						$msg = "重置密码成功，<a href='login.php'>亲登录</a>";
+					}
+				} else {
+					$msg = "链接已失效";
+				}
 			} else {
-
-				$emailMsg = "邮箱不存在";
-				$emailCheck = "has-error";
+				$msg = "邮箱不存在";
 			}
 		} else {
-			echo "Error...";
+			$msg = "发生错误";
 		}
-
 	}
 }
 
@@ -71,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <html>
 
     <head>
-        <title>忘记密码</title>
+        <title>重置密码</title>
         <?php require_once 'style.php';?>
     </head>
 
@@ -81,20 +68,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php require_once 'header.php';?>
             <div class="row">
                 <div class="col-md-12">
-                    <h3>忘记密码</h3>
+                    <h3>重置密码</h3>
                     <hr>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 mainform">
-                    <form class="form-horizontal" action="#" method="POST">
-                        <div class="form-group <?php echo $emailCheck; ?>">
-                            <label class="col-sm-2 control-label text-danger" for="email">邮箱 : </label>
+                    <form class="form-horizontal" action="reset_pwd.php?action=rest_pwd&email=<?php echo $email; ?>&active=<?php echo $active; ?>" method="POST">
+                        <input type="hidden" name="email" value="<?php echo $email; ?>"/>
+                        <input type="hidden" name="active" value="<?php echo $active; ?>"/>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-danger" for="pwd">密码 : </label>
                             <div class="col-sm-4">
-                                <input value="<?php echo $email; ?>" type="email" class="form-control" id="email" name="email" placeholder="请输入注册邮箱" />
+                                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="密码必须是6-25位数字、字母、符号" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-danger" for="pdw2">确认密码 : </label>
+                            <div class="col-sm-4">
+                                <input type="password" class="form-control" id="pdw2" name="pdw2" placeholder="请重新输入密码" />
                             </div>
                             <div class="col-sm-4 text-danger" style="margin-top:8px;">
-                                <span style=""><?php echo $emailMsg; ?></span>
+                                <span id="pwd2err" style=""></span>
                             </div>
                         </div>
                         <div class="form-group <?php echo $validateCheck; ?>">
@@ -112,6 +107,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
                                 <button id="ok_btn" class="btn btn-md btn-success">确定</button>
+                            </div>
+                        </div>
+                        <div class="form-group has-error text-danger">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <label><?php echo $msg; ?></label>
                             </div>
                         </div>
                     </form>

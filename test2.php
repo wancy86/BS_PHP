@@ -2,7 +2,11 @@
 header("Content-type: text/html; charset=utf-8");
 
 require_once './lib/send_email.php';
-sendemail();
+// sendemail($receivers, $subject, $contents)
+//
+
+// 这个好像是UTC时间，少8小时
+echo date("Y/m/d/ H:i:s a");
 
 // // echo 123;
 

@@ -1,4 +1,5 @@
 <?php
+header("Content-type: text/html; charset=utf-8");
 /**
  * This example shows making an SMTP connection with authentication.
  */
@@ -11,7 +12,7 @@ require_once './lib//phpmailer/class.phpmailer.php';
 require_once './lib//phpmailer/class.smtp.php';
 require_once './lib//phpmailer/PHPMailerAutoload.php';
 
-function sendemail($receivers) {
+function sendemail($receivers, $subject, $contents) {
 
 	//Create a new PHPMailer instance
 	$mail = new PHPMailer;
@@ -43,10 +44,10 @@ function sendemail($receivers) {
 	// $mail->addReplyTo('replyto@example.com', 'First Last');
 
 	//Set who the message is to be sent to
-	$mail->addAddress('461151239@qq.com', 'CooMark');
+	$mail->addAddress($receivers);
 
 	//Set the subject line
-	$mail->Subject = 'PHPMailer SMTP emial';
+	$mail->Subject = $subject;
 
 	// 使用内容模本发送邮件
 	//Read an HTML message body from an external file, convert referenced images to embedded,
@@ -55,18 +56,19 @@ function sendemail($receivers) {
 	//Replace the plain text body with one created manually
 	// $mail->AltBody = 'This is a plain-text message body';
 
-	$msg = "";
-	$msg .= "<html>";
-	$msg .= "<head>";
-	$msg .= "    <title>Boystyle.cn</title>";
-	$msg .= "</head>";
-	$msg .= "<body>";
-	$msg .= "    <h3>Boystyle.cn上线了</h3>";
-	$msg .= "    <p>终于可以开心个的买买买啦...</p>";
-	$msg .= "</body>";
-	$msg .= "</html>";
+	// $msg = "";
+	// $msg .= "<html>";
+	// $msg .= "<head>";
+	// $msg .= "    <title>Boystyle.cn</title>";
+	// $msg .= "</head>";
+	// $msg .= "<body>";
+	// $msg .= "    <h3>Boystyle.cn上线了</h3>";
+	// $msg .= "    <p>终于可以开心个的买买买啦...</p>";
+	// $msg .= "</body>";
+	// $msg .= "</html>";
+	// $mail->msgHTML($msg);
 
-	$mail->msgHTML($msg);
+	$mail->msgHTML($contents);
 
 	//附件
 	//Attach an image file
