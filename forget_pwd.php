@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// echo $secu_url;
 
 				$contents = "<br/>";
-				$contents .= "亲爱的用户 " . $row['uid'] . "：您好！<br/>";
+				$contents .= "亲爱的用户 " . $row['account'] . "：您好！<br/>";
 				$contents .= "<br/>";
 				$contents .= "    您收到这封这封电子邮件是因为您 (也可能是某人冒充您的名义) 申请了一个新的密码。假如这不是您本人所申请, 请不用理会这封电子邮件, 但是如果您持续收到这类的信件骚扰, 请您尽快联络管理员。<br/>";
 				$contents .= "<br/>";
@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$contents .= "    注意:请您在收到邮件1个小时内使用，否则该链接将会失效。<br/>";
 				$contents .= "<br/>";
 				$contents .= "<br/>";
-				$contents .= "WWW.BOYSTYLE.CN - 中国最大的导购返利网站，为你优选物美价廉的宝贝，为你省钱省力，省时间<br/>";
-				$contents .= "用户服务支持：webmaster@csdn.net<br/>";
+				$contents .= "<a href='WWW.BOYSTYLE.CN'>WWW.BOYSTYLE.CN</a> - 中国最大的导购返利网站，为你优选物美价廉的宝贝，为你省钱省力，省时间。<br/>";
+				$contents .= "用户服务支持：<a href='mailto:boystyle_cn@163.com'>boystyle_cn@163.com</a><br/>";
 
 				sendemail($email, '找回您的账户密码', $contents);
 
