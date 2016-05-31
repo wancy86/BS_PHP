@@ -5,7 +5,7 @@ $action = $_GET['action'];
 $uid = $_GET['uid'];
 
 switch ($action) {
-case 'search':
+case 'search_order':
 	//先插入数据
 	$query = "replace into BS_UserOrder(order_id,uid) values($order_id,$uid)";
 	$result = mysqli_query(connect(), $query);

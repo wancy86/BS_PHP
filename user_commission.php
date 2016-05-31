@@ -4,6 +4,19 @@ require_once "lib/page.func.php";
 
 session_start();
 $uid = $_SESSION['uid'];
+$order_id=isset($_GET['order_id'])? $_GET['order_id']:'';
+$del_oid=isset($_GET['del_oid'])? $_GET['del_oid']:'';
+
+// echo "$order_id";
+
+//先插入数据
+if($order_id!=''){
+    $query = "replace into BS_UserOrder(order_id,uid) values($order_id,$uid)";
+    $result = mysqli_query(connect(), $query);
+}elseif ($del_oid !='') {
+    $query = "delete from BS_UserOrder where uid=$uid and order_id=$del_oid";
+    $result = mysqli_query(connect(), $query);
+}
 
 $query = " select A.order_id, A.uid,";
 $query .= " IFNULL(B.pro_id,'') as pro_id,";
@@ -33,6 +46,11 @@ $query .= " IFNULL(B.entry_date,'') as entry_date";
 $query .= " from BS_UserOrder as A ";
 $query .= " left join BS_Order as B on A.order_id=B.order_id";
 $query .= " where A.uid=$uid";
+if($order_id!=''){
+    $query .= " and A.order_id=$order_id";
+}
+
+// echo $query;
 
 // get the total records
 $query2 .= "select count(0) as totalrecords from BS_UserOrder as A ";
@@ -75,7 +93,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
                             <li class="active">
                                 <a href="#panel-1" data-toggle="tab">待结算订单</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="#panel-2" data-toggle="tab">未关联订单</a>
                             </li>
                             <li>
@@ -86,7 +104,7 @@ while (@$row = mysqli_fetch_assoc($result)) {
                             </li>
                             <li>
                                 <a href="#panel-5" data-toggle="tab">邀请佣金收入</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="tab-content">
                             <!-- 待结算订单 -->
@@ -217,34 +235,39 @@ ORDER_EOD;
         <script>
         function SearchUserOrder(obj, uid) {
             //查询用户订单，没有记录则添加记录
-            $.ajax({
-                url: "admin_ajax.php",
-                data: {
-                    uid: uid,
-                    action: "search",
-                    order_id: $("#order_id").val()
-                },
-                success: function(data) {
-                    //删除页面的DOM TR, 或者刷新列表
-                    console.log(data);
-                }
-            });
+            window.location.href="/boystyle/user_commission.php?order_id="+$("#order_id").val();
+            // $.ajax({
+            //     url: "commission_action.php",
+            //     data: {
+            //         uid: uid,
+            //         action: "search_order",
+            //         order_id: $("#order_id").val()
+            //     },
+            //     success: function(data) {
+            //         //删除页面的DOM TR, 或者刷新列表
+            //         console.log(data);
+            //     }
+            // });
         }
 
         function DeleteUserOrder(obj, uid, order_id) {
             //删除用户订单
-            $.ajax({
-                url: "admin_ajax.php",
-                data: {
-                    uid: uid,
-                    action: "del",
-                    order_id: order_id
-                },
-                success: function(data) {
-                    //删除页面的DOM TR, 或者刷新列表
-                    console.log(data);
-                }
-            });
+            //del_oid
+            if(confirm("确认删除订单信息吗？")){
+                window.location.href="/boystyle/user_commission.php?del_oid="+order_id;
+            }
+            // $.ajax({
+            //     url: "commission_action.php",
+            //     data: {
+            //         uid: uid,
+            //         action: "del",
+            //         order_id: order_id
+            //     },
+            //     success: function(data) {
+            //         //删除页面的DOM TR, 或者刷新列表
+            //         console.log(data);
+            //     }
+            // });
         }
 
         $(function  (){
