@@ -188,6 +188,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div> -->
                     </form>
                 </div>
+                <div class="col-md-3">
+                二维码 + 邀请链接
+                http://phpqrcode.sourceforge.net/index.php#demo
+                </div>
                 <?php require_once 'footer.php';?>
             </div>
             <?php require_once 'script.php';?>
