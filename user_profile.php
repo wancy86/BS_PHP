@@ -1,7 +1,14 @@
 <?php
 require_once 'lib/mysql.func.php';
+require_once 'lib/phpqrcode/qrcodehelper.php';
+
 session_start();
+$qr_path = 'images/QR_CODE/';
 $uid = $_SESSION['uid'];
+
+$invite_url = $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"];
+$invite_url .= (str_replace('user_profile', 'reg', $_SERVER["PHP_SELF"]));
+$invite_url .= "?invite_by=" . $uid;
 
 // echo "$uid";
 
@@ -189,9 +196,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </form>
                 </div>
                 <div class="col-md-3">
-                二维码 + 邀请链接
-                http://phpqrcode.sourceforge.net/index.php#demo
+                    <b>邀请链接 / 二维码:</b><br>
+                    <a target="_blank" href="<?php echo $invite_url; ?>"><?php echo $invite_url; ?></a><br>
+                    <img src="<?php echo get_invite_login_link($qr_path, $uid, $invite_url); ?>"/>
                 </div>
+
                 <?php require_once 'footer.php';?>
             </div>
             <?php require_once 'script.php';?>

@@ -4,6 +4,8 @@ require_once './lib/mysql.func.php';
 require_once './lib/common.func.php';
 require_once './lib/Logs.php';
 
+$invite_by = isset($_REQUEST['invite_by']) ? $_REQUEST['invite_by'] : '';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$action = isset($_POST[action]) ? $_POST[action] : "";
 	// account 显示为昵称, 默认为邮箱，资料页可以修改
@@ -20,7 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// $taobao_account = isset($_POST[taobao_account]) ? $_POST[taobao_account] : "";
 	//邀请码就是邀请人ID，invite_by就够了
 	// $invite_code = ""; //isset($_POST[invite_code]) ? $_POST[invite_code] : "";
-	$invite_by = isset($_POST[invite_by]) ? $_POST[invite_by] : 0;
+	if($invite_by==''){
+        $invite_by=0;
+    }
+    //$invite_by = isset($_POST[invite_by]) ? $_POST[invite_by] : 0;
 
 	//邮箱必须唯一，昵称可以随意
 	$query = "";
@@ -60,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// redirect
 	AlertMessage($page, $msg);
 }
+
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -82,7 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!--content-->
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 mainform">
+                    <h3 class="col-sm-offset-2">只需5秒注册，便可永久提佣金</h3>
                     <form role="form" class="form-horizontal" action="reg.php" method="POST">
+                        
                         <div class="form-group">
                             <label class="col-sm-2 control-label text-danger" for="email">邮箱 : </label>
                             <div class="col-sm-5">
@@ -110,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="form-group">
                             <label class="col-sm-2 control-label text-success" for="invite_by">邀请码 : </label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="invite_by" name="invite_by" placeholder="请输入邀请码，如果你有" />
+                                <input type="text" class="form-control" id="invite_by" name="invite_by" placeholder="请输入邀请码，如果你有" value="<?php echo $invite_by; ?>"/>
                             </div>
                         </div>
                         <div class="col-sm-offset-2 col-sm-5">

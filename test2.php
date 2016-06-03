@@ -1,12 +1,15 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
-// require_once './lib/send_email.php';
-// // sendemail($receivers, $subject, $contents)
-// //
+require_once './lib/send_email.php';
+// sendemail($receivers, $subject, $contents)
+//
 
-// // 这个好像是UTC时间，少8小时
-// echo date("Y/m/d/ H:i:s a");
+// 这个好像是UTC时间，少8小时
+//echo date("Y/m/d/ H:i:s a");
+
+
+echo str_replace('phpinfo.php','phpinfo','reg');
 
 // // echo 123;
 
@@ -43,37 +46,17 @@ header("Content-type: text/html; charset=utf-8");
 // echo $_server[self];
 
 // echo strtoupper(substr(md5('admin'), 8, 16));
+?>
+<title>测试</title>
 
+<?php
 //test the paging
 // require_once "lib/page.func.php";
 // echo showBSPage(102);
+?>
 
-// require_once './lib/Logs.php';
-// addLog(446456546);
+<?php
 
-//test--------------------------------------
-//http://phpqrcode.sourceforge.net/examples/index.php
-require_once './lib/phpqrcode/qrlib.php';
-// require_once './lib/phpqrcode/qrconfig.php';
-// outputs image directly into browser, as PNG stream
-// how to configure pixel "zoom" factor
-
-define('EXAMPLE_TMP_URLRELPATH', './images/qrcode');
-$tempDir = EXAMPLE_TMP_URLRELPATH;
-
-//要编码的内容
-$codeContents = 'http://phpqrcode.sourceforge.net/examples/index.php';
-
-// generating
-QRcode::png($codeContents, $tempDir . '007_1.png', QR_ECLEVEL_L, 1);
-QRcode::png($codeContents, $tempDir . '007_2.png', QR_ECLEVEL_L, 2);
-QRcode::png($codeContents, $tempDir . '007_3.png', QR_ECLEVEL_L, 3);
-QRcode::png($codeContents, $tempDir . '007_4.png', QR_ECLEVEL_L, 6);
-
-// displaying
-echo '<img src="' . EXAMPLE_TMP_URLRELPATH . '007_1.png" />';
-echo '<img src="' . EXAMPLE_TMP_URLRELPATH . '007_2.png" />';
-echo '<img src="' . EXAMPLE_TMP_URLRELPATH . '007_3.png" />';
-echo '<img src="' . EXAMPLE_TMP_URLRELPATH . '007_4.png" />';
-
+require_once './lib/Logs.php';
+addLog(446456546);
 ?>
