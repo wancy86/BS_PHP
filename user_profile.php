@@ -199,6 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <b>邀请链接 / 二维码:</b><br>
                     <a target="_blank" href="<?php echo $invite_url; ?>"><?php echo $invite_url; ?></a><br>
                     <img src="<?php echo get_invite_login_link($qr_path, $uid, $invite_url); ?>"/>
+                    <p><a href="user_invite.php">我的邀请注册成员</a></p>
                 </div>
 
                 <?php require_once 'footer.php';?>

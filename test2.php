@@ -5,11 +5,26 @@ require_once './lib/send_email.php';
 // sendemail($receivers, $subject, $contents)
 //
 
+
+//************************************************
+//PHP如何组织JSON数据
+//关键是使用array
+if(1){
+    $rawdata=array();
+    $rawdata['data']=array('1','2');
+    $rawdata['totalrows']=100;
+    header('Content-Type:application/json');
+    echo json_encode($rawdata);
+    exit();
+}
+
+
+//************************************************
 // 这个好像是UTC时间，少8小时
 //echo date("Y/m/d/ H:i:s a");
 
 
-echo str_replace('phpinfo.php','phpinfo','reg');
+// echo str_replace('phpinfo.php','phpinfo','reg');
 
 // // echo 123;
 
@@ -57,6 +72,8 @@ echo str_replace('phpinfo.php','phpinfo','reg');
 
 <?php
 
-require_once './lib/Logs.php';
-addLog(446456546);
+// require_once './lib/Logs.php';
+// addLog(446456546);
 ?>
+
+

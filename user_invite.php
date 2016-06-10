@@ -4,61 +4,50 @@ require_once "lib/page.func.php";
 
 session_start();
 $uid = $_SESSION['uid'];
-$order_id=isset($_GET['order_id'])? $_GET['order_id']:'';
-$del_oid=isset($_GET['del_oid'])? $_GET['del_oid']:'';
 
-// echo "$order_id";
+//if get json list 
+if(isset($_GET['getlist']))
+{
+    $currentpage=(int)(isset($_GET['currentpage'])? $_GET['currentpage']:0);
+    $pagesize=(int)(isset($_GET['pagesize'])? $_GET['pagesize']:0);
+    $startindex = ($currentpage-1) * $pagesize;
+    $startindex = $startindex < 0? 0 : $startindex;
+    $endindex = $startindex + $pagesize;
 
-//先插入数据
-if($order_id!=''){
-    $query = "replace into BS_UserOrder(order_id,uid) values($order_id,$uid)";
+    $query="select count(0) as totalrecords from BS_User where invite_by=$uid"; 
     $result = mysqli_query(connect(), $query);
-}elseif ($del_oid !='') {
-    $query = "delete from BS_UserOrder where uid=$uid and order_id=$del_oid";
+    $totalrecords= mysqli_fetch_array($result);
+    $totalrecords=$totalrecords[0];
+
+    // $jsondata=array();
+    // $jsondata['totalrecords']=$totalrecords;
+
+    $query="";
+    $query .=" select";
+    $query .="    account,";
+    $query .="    email,";
+    $query .="    reg_date";
+    $query .=" from BS_User";
+    $query .=" where invite_by=$uid";
+    $query .=" limit $startindex, $pagesize";
+
+    // echo "$query";
+
     $result = mysqli_query(connect(), $query);
+    $invites = array();
+    while (@$row = mysqli_fetch_assoc($result)) {
+        $invites[] = $row;
+    }
+
+    // $jsondata['data']=$invites; //用用这个写法
+    $jsondata=array('totalrecords'=>$totalrecords,'data'=>$invites);
+
+    //没有这个，默认输出的就是字符串了
+    header('Content-Type: application/json');
+    echo json_encode($jsondata);
+    exit();
 }
 
-
-uid
-account
-email
-phone
-pwd
-invite_code
-invite_by
-reg_date
-taobao_account
-
-$query="";
-$query .="select";
-$query .="    account,";
-$query .="    email,";
-$query .="    reg_date";
-$query .="from BS_User";
-$query .="where invite_by=$uid";
-
-if($order_id!=''){
-    $query .= " and A.order_id=$order_id";
-}
-
-// echo $query;
-
-// get the total records
-$query2 .= "select count(0) as totalrecords from BS_UserOrder as A ";
-$query2 .= " left join BS_Order as B on A.order_id=B.order_id";
-$query2 .= " where A.uid=$uid";
-$result = mysqli_query(connect(), $query2);
-$totalrecords = (mysqli_fetch_assoc($result));
-// echo $totalrecords['totalrecords'];
-$totalrecords = $totalrecords['totalrecords'];
-
-// echo "$query";
-$result = mysqli_query(connect(), $query);
-$invites = array();
-while (@$row = mysqli_fetch_assoc($result)) {
-	$invites[] = $row;
-}
-// print_r($invites);
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -82,105 +71,37 @@ while (@$row = mysqli_fetch_assoc($result)) {
                     <div class="tabbable" id="tabs-1">
                         <ul class="nav nav-tabs">
                             <li class="active">
-                                <a href="#panel-1" data-toggle="tab">邀请注册成员</a>
+                                <a href="#panel-1" data-toggle="tab">邀请注册成员列表 <span id="totalbadge" class="badge"></span></a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <!-- 邀请注册成员 -->
                             <div class="tab-pane active" id="panel-1">
                                 <div class="row">
-                                    <div class="col-md-12 ">
-                                        <h2>邀请注册成员</h2>
-                                        <hr>
-                                        <form class="navbar-form navbar-left" role="search" style="padding-left:0px;">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="order_id" name="order_id" placeholder="输入成员注册邮箱">
-                                            </div>
-                                            <button type="button" class="btn btn-success" onclick="SearchUserOrder(this, <?php echo " $uid "; ?>)">
-                                                <span class="glyphicon glyphicon-search"></span> 查询成员
-                                            </button>
-                                            <button type="button" class="btn btn-primary" onclick="SearchUserOrder(this, <?php echo " $uid "; ?>,1)">
-                                                <span class="glyphicon glyphicon-search"></span> 全部成员
-                                            </button>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <table class="table table-bordered table-striped table-hover">
-                                            <colgroup>
-                                                <col class="span1">
-                                                <col class="span7">
-                                            </colgroup>
+                                    <div class="col-md-12" style="padding-top:20px; "> 
+                                        <table id="invitetable" class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
                                                     <th>账号</th>
                                                     <th>注册邮箱</th>
                                                     <th>注册时间</th>
                                                     <th>最近登录</th>
-                                                    <th>操作</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $index = 1;foreach ($invites as $order) {
-	echo <<<ORDER_EOD
-                                            <tr>
-                                                <td>
-                                                    $index
-                                                </td>
-                                                <td>
-                                                    $order[account]
-                                                </td>
-                                                <td>
-                                                    $order[email]
-                                                </td>
-                                                <td>
-                                                    $order[paid_date]
-                                                </td>
-                                                <td>
-                                                    $order[entry_date]
-                                                </td>
-                                                <td>
-                                                    <a href="#" onclick="DeleteUserOrder(this,$order[uid],$order[order_id])">删除</a>
-                                                </td>
-                                            </tr>
-ORDER_EOD;
-	$index++;
-}
-?>
+                                                <tr pk="#ip#" template=1 style="display: none">
+                                                    <td>#account#</td>
+                                                    <td>#email#</td>
+                                                    <td>#reg_date#</td>
+                                                    <td>#reg_date#</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         <div class="col-md-12" id="pagebar">
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- 未关联订单 -->
-                            <div class="tab-pane" id="panel-2">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3>未关联订单</h3>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- 已结算订单 -->
-                            <div class="tab-pane" id="panel-3">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3>已结算订单</h3>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- 收入报表 -->
-                            <div class="tab-pane" id="panel-4">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3>收入报表</h3>
-                                    </div>
-
-                                </div>
-                            </div>
+                            </div>                            
                             <!-- 邀请佣金收入 -->
                             <div class="tab-pane" id="panel-5">
                                 <div class="row">
@@ -198,8 +119,19 @@ ORDER_EOD;
             <?php require_once "footer.php";?>
         </div>
         <?php require_once 'script.php';?>
+        <script type="text/javascript" src="js/pager.js"></script>
         <script>
-        
+            $(function  (){
+                //laod table
+                $("#invitetable").pagingTable({
+                    json_url: "user_invite.php?getlist=1",
+                    pageSize: 2,
+                    callback: function(){
+                        console.log('this is callback...');
+                        $("#totalbadge").text($("#invitetable").data("totalrecords"));
+                    }
+                });
+            });
         </script>
     </body>
 
