@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <hr style="margin-top:30px;">
-        <div class="col-md-3 col-md-offset-3">
+        <div class="col-md-3 col-md-offset-2">
             <dl>
                 <dt>
                     为什么要用BoyStyle
@@ -24,7 +24,7 @@
             </dl>
         </div>
         
-        <div class="col-md-2">
+        <div class="col-md-3">
             <ul class="list-unstyled">
                 <li>
                     <b>网站信息</b>
@@ -43,7 +43,7 @@
                 </li>
             </ol>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-2">
             <address>
                 <strong>联系我们</strong>
                 <br>Tel: (86) 13028865077
