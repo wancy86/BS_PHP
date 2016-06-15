@@ -109,8 +109,11 @@ unloged;
 				 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> <span class="text-primary">$_SESSION[account]</span></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="user_profile.php">我的资料</a>
-					</li>
+                        <a href="user_profile.php">我的资料</a>
+                    </li>
+                    <li>
+                        <a href="user_invite.php">我的邀请</a>
+                    </li>
 					<li>
 						<a href="user_favorite.php">我的收藏</a>
 					</li>
