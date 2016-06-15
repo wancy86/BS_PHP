@@ -71,6 +71,10 @@ session_start();
                         <li>
                             <a href="javascript:void(0);" onclick="ShowByCategory(this,'美食',1)">美食</a>
                         </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="ShowByCategory(this,'其他',1)">意想不到</a>
+                        </li>
+                        <!--
                         <li class="dropdown">
                             <a href="javascript:void(0);" onclick="ShowByCategory(this,'品质生活',1)" class="dropdown-toggle" data-toggle="dropdown">其他<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -83,6 +87,7 @@ session_start();
                                 </li>
                             </ul>
                         </li>
+                        -->
                     </ul>
                     <!-- 未登录 -->
                     <?php if (!isset($_SESSION['uid'])) {
