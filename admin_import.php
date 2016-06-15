@@ -116,8 +116,4 @@ if ($datatype == 'orderdata') {
 	}
 }
 
-// 1.redirect
-// header('Location: http://localhost/boystyle/admin_data.php');.
-// exit();
-// 2.redirect
-echo "<script>window.location.href='http://localhost/boystyle/admin_data.php';alert('导入成功');</script>";
+echo "<script>window.location.href='/admin_data.php';alert('导入成功');</script>";

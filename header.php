@@ -5,7 +5,7 @@ session_start();
     <div class="row">
         <div class="col-md-12">
             <div class="page-header text-primary">
-                <h1> BoyStyle! <small>-- 爱生活，爱自己! 想逛一下淘宝？我们帮你挑选出了最好最便的宝贝，为你省心、省力、省钱，还能赚钱！</small> </h1>
+                <h1> BoyStyle! <small>-- 省钱，更赚钱！</small> </h1>
             </div>
             <nav class="navbar navbar-default navbar-inverse" role="navigation">
                 <div class="navbar-header">
@@ -15,7 +15,7 @@ session_start();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/boystyle/index.php"><span class="glyphicon glyphicon-home"></span> BoyStyle</a>
+                    <a class="navbar-brand" href="/index.php"><span class="glyphicon glyphicon-home"></span> BoyStyle</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -89,13 +89,13 @@ session_start();
 	echo <<<unloged
        <ul class="nav navbar-nav navbar-right">
 			<li>
-				<a href="/boystyle/login.php">登录</a>
+				<a href="/login.php">登录</a>
 			</li>
 	        <li>
 				<a href="#">/</a>
 			</li>
             <li>
-				<a href="/boystyle/reg.php">免费注册</a>
+				<a href="/reg.php">免费注册</a>
 			</li>
 		</ul>
 unloged;
@@ -129,10 +129,10 @@ Loged1;
 						<a href="admin_data.php">数据管理</a>
 					</li>
 					<li>
-						<a href="/boystyle/about.php">About</a>
+						<a href="/about.php">About</a>
 					</li>
 					<li>
-						<a href="/boystyle/phpinfo.php">PHPInfo</a>
+						<a href="/phpinfo.php">PHPInfo</a>
 					</li>
 Loged2;
 	}
@@ -150,12 +150,12 @@ Loged3;
 ?>
                     <ul class="nav navbar-nav navbar-right" title="搜索将进入爱淘宝，购物同样有返利" style="padding: 6px;">
                         <li>
-                            <input id="keyword" name="keyword" type="text" class="form-control" placeholder="爱淘宝搜索返利">
-                        </li>
-                        <li style="margin-left:5px;">
-                            <button id="search" type="button" class="btn " onclick="GotoAitaobao()">
-                                <span class="glyphicon glyphicon-search"></span> 搜索
-                            </button>
+                            <div class="form-inline">
+                                <div class="input-group">
+                                    <input id="keyword" name="keyword" type="text" class="form-control" placeholder="爱淘宝搜索返利">
+                                    <span style="cursor: pointer;" class="input-group-addon" id="search" type="button" class="btn " onclick="GotoAitaobao()"><span class="glyphicon glyphicon-search"></span> 搜索</span>
+                                </div>                                    
+                            </div>
                         </li>
                     </ul>
                 </div>

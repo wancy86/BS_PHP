@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if ($row['uid'] != 0) {
 				//发送验证邮件
 				$active_key = substr(md5($row['pwd'] . date("Y/m/d/H")), 8, 16);
-				$secu_url = "localhost/boystyle/reset_pwd.php?action=rest_pwd&email=$email&active=$active_key";
+				$secu_url = "/reset_pwd.php?action=rest_pwd&email=$email&active=$active_key";
 				// echo $secu_url;
 
 				$contents = "<br/>";

@@ -2,7 +2,6 @@
 header("Content-type: text/html; charset=utf-8");
 require_once 'lib/mysql.func.php';
 
-// http://localhost/boystyle/item.php?pro_id=43879806728
 $pro_id = $_GET['pro_id'];
 // echo $pro_id;
 $query = " select pro_id ,title ,img_url ,detail_url ,shop_name ,price ,month_sold ,comm_percent ,seller_ww ,back_BB ,";
@@ -46,7 +45,7 @@ if ($result) {
                                     </p>
                                 </div>
                                 <?php } else {?>
-                                <?php header("location:http://localhost/boystyle/index.php");?>
+                                <?php header("location:/index.php");?>
                                 <?php }?>
                             </div>
                         </div>

@@ -163,7 +163,7 @@ function ShowByCategory(obj, category, load_order) {
     //TODO this need better solution
     if (window.location.href.indexOf("index.php") < 0) {
         // console.log('redirect');
-        window.location.href = "http://localhost/boystyle/index.php";
+        window.location.href = "/index.php";
     }
 
     // category // load_order // Data_rows // File_Name
@@ -188,8 +188,8 @@ function ShowByCategory(obj, category, load_order) {
         return false;
     }
 
-    // "/boystyle/data/BFF7A6473FF23C3C_1_50.json"
-    var jsonURL = "/boystyle/data/" + JSONFile.File_Name;
+    // "/BFF7A6473FF23C3C_1_50.json"
+    var jsonURL = "/data/" + JSONFile.File_Name;
 
     // console.log(jsonURL);
 

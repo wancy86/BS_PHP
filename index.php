@@ -3,11 +3,10 @@ header("Content-type: text/html; charset=utf-8");
 require_once './lib/mysql.func.php';
 require_once './lib/FileUtil.php';
 
-// [PHP_SELF] => /boystyle/index.php
 preg_match('/^\/\w*\//', $_SERVER['PHP_SELF'], $webname);
 $pro_name = str_replace('/', '', $webname[0]);
 
-// http://localhost/boystyle/index.php/501.HTML
+// /index.php/501.HTML
 // 请求URL必须是path_info的模式
 // echo $_SERVER["PATH_INFO"];
 $cat_id = '';
@@ -80,7 +79,7 @@ echo "<link href='/$pro_name/css/style.css' rel='stylesheet'>";
         <?php require_once 'script.php';?>
         <script type="text/javascript">
         $(function() {
-            // RenderJSON("/boystyle/data/BFF7A6473FF23C3C_1_50.json");
+            // RenderJSON("/data/BFF7A6473FF23C3C_1_50.json");
             var JSONList = [];
             <?php
 $query = " select category,load_order,Data_rows,File_Name from BS_JSON";
